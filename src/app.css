@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	@apply bg-primary;
+	font-family: 'Podkova', serif;
+}
+
+main {
+	background-image: url('/bg.png');
+	min-height: 100svh;
+}
