@@ -2,6 +2,7 @@ import { defaultColors, defineConfig } from 'histoire';
 import { HstSvelte } from '@histoire/plugin-svelte';
 
 export default defineConfig({
+	setupFile: '/src/histoire-setup.ts',
 	plugins: [HstSvelte()],
 	theme: {
 		title: 'Histoire',
@@ -12,7 +13,7 @@ export default defineConfig({
 		// },
 		// favicon: './static/favicons/favicon.ico',
 		colors: {
-			primary: defaultColors.teal
+			primary: defaultColors.cyan
 		}
 	}
 });
