@@ -24,7 +24,7 @@
 	tabindex="0"
 	data-sveltekit-preload-data
 	on:click
-	class={`${variant} px-4 w-fit py-3 mt-6 font-medium text-xl rounded-md 	transition-colors ease-out duration-300 ${additionalClass}`}
+	class={`${variant} px-4 w-fit py-3 mt-6 font-medium text-xl rounded-md transition-colors ease-out duration-300 ${additionalClass}`}
 	{...$$restProps}
 >
 	{#if $$slots['icon']}
