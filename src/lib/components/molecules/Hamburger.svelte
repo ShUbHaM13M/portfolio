@@ -1,10 +1,23 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import NavLink from '$lib/components/atoms/NavLink.svelte';
+
 	export let links: {
 		href: string;
 		text: string;
 	}[] = [];
 
 	let input: HTMLInputElement;
+
+	let activeSectionIndex = $page.url.hash
+		? links.findIndex(({ href }) => href === $page.url.hash)
+		: -1;
+
+	$: {
+		activeSectionIndex = $page.url.hash
+			? links.findIndex(({ href }) => href === $page.url.hash)
+			: -1;
+	}
 
 	function handleOnLinkClick() {
 		input.checked = false;
@@ -33,22 +46,35 @@
 	h-screen w-screen bg-primary inset-0 top-full translate-x-full transition-transform duration-300 ease-out z-40
 	text-xl"
 >
-	{#each links as link}
-		<a href={link.href} class="px-4 py-0.5 text-white" on:click={handleOnLinkClick}>
-			{link.text}
-		</a>
+	{#each links as link, index}
+		<NavLink
+			active={index === activeSectionIndex}
+			href={link.href}
+			text={link.text}
+			on:click={handleOnLinkClick}
+		/>
 	{/each}
+	<div
+		class:hidden={activeSectionIndex < 0}
+		style={`--offset: ${activeSectionIndex}`}
+		class="indicator absolute left-8 top-6 h-8 w-1 rounded-full bg-accent transition-transform ease-out duration-200"
+	></div>
 </div>
 
 <style lang="postcss">
 	@screen sm {
 		#menu {
-			@apply static px-6 py-0 h-auto w-full flex-row bg-transparent translate-x-0 justify-center transition-none text-base;
+			@apply static pl-10 px-6 py-0 h-auto w-full flex-row bg-transparent translate-x-0 justify-center transition-none text-lg;
 		}
-		#menu a:last-child,
-		a:first-child {
+		.indicator {
+			@apply hidden;
+		}
+		:global(#menu > .navlink:nth-last-child(2)) {
 			@apply ml-auto;
 		}
+	}
+	.indicator {
+		transform: translateY(calc(150% * var(--offset)));
 	}
 
 	.line {
