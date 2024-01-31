@@ -8,7 +8,13 @@ export default {
 				subtitle: '#8892AF',
 				secondary: '#CDD1DA',
 				white: '#F8EDFF',
-				accent: '#19D645'
+				accent: '#19D645',
+				grey: '#131418',
+				header: 'rgba(237, 237, 237, 0.18)'
+			},
+			fontFamily: {
+				podkova: ['Podkova', 'serif'],
+				'short-stack': ['Short Stack', 'cursive']
 			}
 		}
 	},
