@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+	scroll-behavior: smooth;
+}
+
 body {
 	@apply bg-primary;
 	font-family: 'Podkova', serif;
@@ -10,4 +15,14 @@ body {
 main {
 	background-image: url('/bg.png');
 	min-height: 100svh;
+}
+
+.clamp-lines {
+	--number-of-lines: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: var(--number-of-lines, 2);
+	line-clamp: var(--number-of-lines, 2);
+	-webkit-box-orient: vertical;
 }
