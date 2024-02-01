@@ -14,9 +14,9 @@
 
 <div
 	class={`relative text-white flex flex-col flex-1 gap-4 
-	p-6 sm:py-10 sm:pt-14 rounded-lg bg-[#2D3139] 
-	hover:shadow-xl hover:shadow-neutral-950
-	transition-shadow ease-out duration-300
+	p-6 sm:py-10 sm:pt-14 rounded-lg bg-[#343F52] 
+	hover:scale-105
+	transition-transform ease-out duration-300
 	${containerClasses}`}
 >
 	<span

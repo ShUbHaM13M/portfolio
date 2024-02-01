@@ -38,9 +38,9 @@
 	];
 </script>
 
-<Section id="expertise" additionalClass="flex flex-col gap-4 bg-grey min-h-screen md:pr-20 pb-10">
-	<h1 class="mt-2 text-white text-4xl sm:text-6xl">Expertise</h1>
-	<h2 class="leading-6 sm:leading-10 text-subtitle text-2xl sm:text-3xl">
+<Section id="expertise" additionalClass="flex flex-col gap-4 min-h-screen md:pr-20 pb-10">
+	<h1 class="font-short-stack mt-2 text-white text-4xl sm:text-6xl">Expertise</h1>
+	<h2 class="leading-6 sm:leading-10 text-subtitle text-2xl">
 		Tech Polyglot with expertise across technology domains.
 	</h2>
 	<div class="flex flex-col lg:flex-row gap-6 mt-2 sm:mt-4">

@@ -61,8 +61,8 @@
 </script>
 
 <Section id="project" additionalClass="flex flex-col gap-4 min-h-screen pb-10 md:pr-20">
-	<h1 class="mt-2 text-white text-4xl sm:text-6xl">Projects</h1>
-	<h2 class="leading-6 sm:leading-10 text-subtitle text-2xl sm:text-3xl">
+	<h1 class="font-short-stack mt-2 text-white text-4xl sm:text-6xl">Projects</h1>
+	<h2 class="leading-6 sm:leading-10 text-subtitle text-2xl">
 		I like exploring different project ideas when learning. Most of my projects are open source!
 	</h2>
 	<div class="project-container grid gap-4 mt-2 sm:mt-4">

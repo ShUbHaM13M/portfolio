@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	// TODO: Try to set the size of cursor when hovering over Icons so it would look like its like a shadow of the icon
+	// TODO: The size of the cursor when hovering over the link is very big
 
 	type InteractiveElementType = 'link' | 'text' | 'action';
 	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span';
