@@ -18,7 +18,7 @@
 			for innovation, always eager to explore new technologies and
 			<span class="text-accent">push the boundaries of software development.</span>
 		</p>
-		<Button additionalClass="md:mt-8" href="#contact">Contact me</Button>
+		<Button additionalClass="mt-6 md:mt-8" href="#contact">Contact me</Button>
 	</div>
 </Section>
 

@@ -23,7 +23,7 @@
 </script>
 
 <div
-	class={`container flex flex-col gap-2 md:gap-4 p-4 md:p-6 text-white rounded-lg bg-header ${containerClasses}`}
+	class={`project-card flex flex-col gap-2 md:gap-4 p-4 md:p-6 text-white rounded-lg bg-header transition-all ease-out duration-300 ${containerClasses}`}
 >
 	{#if imageUrl}
 		<img
@@ -35,8 +35,8 @@
 	<div class="flex justify-between items-center">
 		<p class="font-medium text-2xl leading-8">{title}</p>
 		{#if link}
-			<a href={link.href} target="_blank" title="">
-				<svelte:component this={link.icon} />
+			<a href={link.href} target="_blank">
+				<svelte:component this={link.icon} classes="h-7 w-7" />
 			</a>
 		{/if}
 	</div>
@@ -60,11 +60,11 @@
 </div>
 
 <style lang="postcss" scoped>
-	.container {
+	.project-card {
 		max-width: 400px;
 	}
 	.project-card-image {
-		max-height: 140px;
+		max-height: 200px;
 		@apply object-cover;
 	}
 </style>

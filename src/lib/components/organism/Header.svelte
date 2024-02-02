@@ -6,8 +6,8 @@
 	const links = [
 		{ href: '#expertise', text: 'Expertise' },
 		{ href: '#project', text: 'Project' },
+		{ href: '/blog', text: 'Blog' },
 		{ href: '#work', text: 'Work' },
-		{ href: '#blog', text: 'Blog' },
 		{ href: '#contact', text: 'Contact' }
 	];
 
