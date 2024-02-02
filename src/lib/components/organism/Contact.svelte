@@ -39,7 +39,7 @@
 		<a href="https://linkedin.com/in/shubham-maurya-37b7491a3/" target="_blank">
 			<IconLinkedIn classes="icon-link h-9 w-9 md:h-12 md:w-12 " />
 		</a>
-		<a href="/rss">
+		<a href="/rss.xml">
 			<IconRss classes="icon-link h-9 w-9 md:h-12 md:w-12 " />
 		</a>
 	</div>

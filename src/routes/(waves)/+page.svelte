@@ -14,7 +14,6 @@
 		blogs: BlogType[];
 	};
 	let { skills, workExperiences, blogs } = data;
-	console.log(blogs);
 </script>
 
 <Main />

@@ -1,5 +1,13 @@
-import { WorkExperience } from "$lib/utils/types";
+import type { Tag } from "$lib/utils/types";
 
+type WorkExperience = {
+	company: string,
+	designation: string,
+	timeFrame: string,
+	current: boolean,
+	description: string,
+	tags: Tag[],
+};
 
 export function parseWorkExperiences(frontmatter: any): WorkExperience {
 	return {
