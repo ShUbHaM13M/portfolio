@@ -1,16 +1,19 @@
-<script>
-	import Cursor from '$lib/components/atoms/Cursor.svelte';
-	import Header from '$lib/components/organism/Header.svelte';
+<script lang="ts">
 	import '../app.css';
+	import { onNavigate } from '$app/navigation';
+
+	onNavigate((navigation) => {
+		// @ts-ignore
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			// @ts-ignore
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
-<svelte:head>
-	<title>Shubham Maurya</title>
-</svelte:head>
-
-<main class="relative overflow-x-hidden">
-	<Header />
-	<slot />
-</main>
-
-<Cursor />
+<slot />
