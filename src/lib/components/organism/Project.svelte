@@ -6,6 +6,7 @@
 	import Button from '$lib/components/atoms/Button.svelte';
 
 	// TODO: Only 5 featured projects
+	// TODO: Replace projects with .md files
 	let projects = [
 		{
 			title: 'Stories.io - Story App',
@@ -60,11 +61,12 @@
 	];
 </script>
 
-<Section id="project" additionalClass="flex flex-col gap-4 min-h-screen pb-10 md:pr-20">
-	<h1 class="font-short-stack mt-2 text-white text-4xl sm:text-6xl">Projects</h1>
-	<h2 class="leading-6 sm:leading-10 text-subtitle text-2xl">
-		I like exploring different project ideas when learning. Most of my projects are open source!
-	</h2>
+<Section
+	id="project"
+	title="Projects"
+	description="I like exploring different project ideas when learning. Most of my projects are open source!"
+	additionalClass="flex flex-col gap-4 min-h-screen pb-10 md:pr-20"
+>
 	<div class="project-container grid gap-4 mt-2 sm:mt-4">
 		{#each projects as project}
 			<ProjectCard {...project} />
@@ -73,7 +75,7 @@
 			title="See All Projects"
 			href="/projects"
 			target="_blank"
-			class="mt-0 grid py-2 place-items-center w-full h-full
+			class="project-card mt-0 grid py-2 place-items-center w-full h-full
 			bg-accent bg-opacity-30 hover:bg-opacity-40 border-2 border-accent border-opacity-20 backdrop-blur-md
 			rounded-lg text-xl md:text-2xl font-medium text-white focus:outline-none focus-visible:outline-none
 			transition-all duration-300 ease-out"
@@ -86,5 +88,9 @@
 <style>
 	.project-container {
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+	:global(.project-container:has(.project-card:hover) .project-card:not(:hover)) {
+		opacity: 0.8;
+		filter: blur(1px);
 	}
 </style>

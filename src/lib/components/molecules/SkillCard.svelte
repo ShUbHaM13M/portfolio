@@ -1,8 +1,6 @@
 <script lang="ts">
-	import type { SvelteComponent } from 'svelte';
-
 	export let index: string = '';
-	export let icon: typeof SvelteComponent;
+	export let icon: string = '';
 	export let title: string = '';
 	export let description: string = '';
 	export let tagBegin: string = '';
@@ -13,7 +11,7 @@
 </script>
 
 <div
-	class={`relative text-white flex flex-col flex-1 gap-4 
+	class={`skill-card relative text-white flex flex-col flex-1 gap-4 
 	p-6 sm:py-10 sm:pt-14 rounded-lg bg-[#343F52] 
 	hover:scale-105
 	transition-transform ease-out duration-300
@@ -24,16 +22,16 @@
 		role="presentation">{index}</span
 	>
 	<div class="flex flex-col sm:flex-row gap-2 md:gap-4">
-		<svelte:component this={icon} />
+		<img class="skill-icon" src={icon} alt={`${title} icon`} />
 		<p class="font-medium text-2xl sm:text-3xl max-w-16 md:max-w-24 leading-8">{title}</p>
 	</div>
 	<div style="grid-template-columns: auto 1fr;" class="grid gap-4 items-center">
 		<div
 			role="presentation"
-			class="pointer-events-none flex flex-col gap-1 h-full font-extrabold opacity-20"
+			class="tag pointer-events-none flex flex-col gap-1 h-full font-extrabold opacity-20 text-white transition-opacity ease-out duration-300"
 		>
 			<span>{tagBegin}</span>
-			<div class="border h-full w-px border-dashed border-white border-opacity-50 ml-1"></div>
+			<div class="border h-full w-px border-dashed border-current border-opacity-50 ml-1"></div>
 			<span>{tagEnd}</span>
 		</div>
 		<p class={`text-base py-7 sm:py-8 sm:text-xl leading-5 sm:leading-6 ${descriptionClasses}`}>
@@ -41,3 +39,16 @@
 		</p>
 	</div>
 </div>
+
+<style lang="postcss" scoped>
+	.tag * {
+		@apply transition-colors ease-out duration-300;
+	}
+	.skill-card:hover .tag {
+		& * {
+			color: #19d645;
+			border-color: #19d645;
+		}
+		opacity: 100%;
+	}
+</style>
