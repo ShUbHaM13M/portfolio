@@ -1,0 +1,95 @@
+{
+	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
+	"frontMatter.preview.host": "http://localhost:5173/",
+	"frontMatter.content.autoUpdateDate": false,
+	"frontMatter.content.fmHighlight": true,
+	"frontMatter.dashboard.openOnStart": false,
+	"frontMatter.framework.startCommand": "npm run dev",
+	"frontMatter.taxonomy.contentTypes": [
+		{
+			"name": "default",
+			"pageBundle": false,
+			"fields": [
+				{
+					"title": "company",
+					"name": "company",
+					"type": "string"
+				},
+				{
+					"title": "designation",
+					"name": "designation",
+					"type": "string"
+				},
+				{
+					"title": "timeFrame",
+					"name": "timeFrame",
+					"type": "string"
+				},
+				{
+					"title": "current",
+					"name": "current",
+					"type": "boolean"
+				},
+				{
+					"title": "description",
+					"name": "description",
+					"type": "string"
+				},
+				{
+					"title": "technologies",
+					"name": "technologies",
+					"type": "block",
+					"fieldGroup": [],
+					"fields": []
+				},
+				{
+					"title": "type",
+					"name": "type",
+					"type": "string"
+				}
+			]
+		}
+	],
+	"frontMatter.taxonomy.fieldGroups": [
+		{
+			"id": "coloredTag",
+			"labelField": "label",
+			"fields": [
+				{
+					"title": "Label",
+					"name": "label",
+					"type": "string",
+					"single": true
+				},
+				{
+					"title": "Color",
+					"name": "color",
+					"type": "choice",
+					"choices": ["primary", "secondary"]
+				}
+			]
+		}
+	],
+	"frontMatter.framework.id": "other",
+	"frontMatter.content.publicFolder": "static/images",
+	"frontMatter.content.pageFolders": [
+		{
+			"title": "Blogs",
+			"path": "[[workspace]]/cms/blogs",
+			"contentTypes": ["Blog"],
+			"filePrefix": "yyyy-MM-dd"
+		},
+		{
+			"title": "Work Experience",
+			"path": "[[workspace]]/cms/work-experiences",
+			"contentTypes": ["Work Experience"],
+			"filePrefix": "null"
+		},
+		{
+			"title": "Skill",
+			"path": "[[workspace]]/cms/skills",
+			"contentTypes": ["Skill"],
+			"filePrefix": "null"
+		}
+	]
+}
