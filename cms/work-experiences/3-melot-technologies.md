@@ -1,5 +1,6 @@
 ---
 company: Melot Technologies
+companySlug: melot-technologies
 designation: Web Developer
 timeFrame: 2023 → Now
 current: true

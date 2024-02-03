@@ -1,6 +1,6 @@
 ---
-icon: '/icons/app-development.svg'
-index: 03
+icon: /icons/app-development.svg
+index: 3
 title: App Development
 description: Developing Cross platform apps using React Native or Flutter, from development and animation to ensuring the platform specific features.
 tagBegin: <View>

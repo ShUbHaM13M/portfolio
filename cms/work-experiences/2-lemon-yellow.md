@@ -1,5 +1,6 @@
 ---
 company: Lemon Yellow
+companySlug: lemon-yellow
 designation: Full-Stack Developer
 timeFrame: 2022 → 2023
 current: false

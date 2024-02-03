@@ -1,6 +1,6 @@
 ---
-icon: '/icons/web-development.svg'
-index: 01
+icon: /icons/web-development.svg
+index: 1
 title: Web Development
 description: Passionate about UI/UX and building web apps using many tools like React, Vue, NextJS, SvelteKit, Django, FastAPI.
 tagBegin: <h3>
