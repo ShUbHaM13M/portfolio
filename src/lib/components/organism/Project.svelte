@@ -5,7 +5,6 @@
 	import IconExternalLink from '$lib/icons/IconExternalLink.svelte';
 	import Button from '$lib/components/atoms/Button.svelte';
 
-	// TODO: Only 5 featured projects
 	// TODO: Replace projects with .md files
 	let projects = [
 		{
@@ -68,8 +67,8 @@
 	additionalClass="flex flex-col gap-4 min-h-screen pb-10 md:pr-20"
 >
 	<div class="project-container grid gap-4 mt-2 sm:mt-4">
-		{#each projects as project}
-			<ProjectCard {...project} />
+		{#each projects as project, index}
+			<ProjectCard {...project} containerClasses={`${index > 2 ? 'hidden md:flex' : ''}`} />
 		{/each}
 		<a
 			title="See All Projects"
