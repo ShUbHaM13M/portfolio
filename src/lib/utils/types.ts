@@ -39,8 +39,9 @@ export type Blog = {
 	slug: string,
 	title: string,
 	excerpt: string,
-	coverImage: Image,
-	socialImage: Image,
+	content: string,
+	coverImage?: Image,
+	socialImage?: Image,
 	showImage: boolean
 	date: Date
 	updated: boolean

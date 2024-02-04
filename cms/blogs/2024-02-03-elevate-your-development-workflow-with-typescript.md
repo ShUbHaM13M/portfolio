@@ -2,16 +2,20 @@
 slug: elevate-development-workflow-typescript
 title: Elevate Your Development Workflow with TypeScript
 excerpt: Introduction to Typescript in Development
-coverImage: ''
-coverImageAlt: ''
-showImage: false
+coverImage: /blogs/elevate-your-development-workflow-with-typescript/cover.avif
+coverImageAlt: Typescript
+showImage: true
 socialImage: ''
 date: 2023-09-18T09:09:10.000Z
 updated: 2023-09-18T09:09:10.000Z
 showToc: false
 hidden: false
-tags: []
-categories: []
+tags:
+  - productivity
+  - typescript
+  - beginners
+categories:
+  - Dev
 type: Blog
 ---
 

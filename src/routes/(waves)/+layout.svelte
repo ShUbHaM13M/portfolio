@@ -11,5 +11,3 @@
 	<Header />
 	<slot />
 </main>
-
-<Cursor />

@@ -1,6 +1,7 @@
 <script lang="ts">
+	import type { Image } from '$lib/utils/types';
 	export let slug: string;
-	export let coverImage: string | undefined = undefined;
+	export let coverImage: Image | undefined = undefined;
 	export let title: string;
 	export let excerpt: string;
 </script>
@@ -15,8 +16,8 @@
 		{#if coverImage}
 			<img
 				style="max-width: 350px"
-				class="max-w-full w-full object-cover aspect-video rounded-2xl"
-				src={coverImage}
+				class="max-w-full w-full object-cover aspect-video rounded-md"
+				src={coverImage.src}
 				alt={title}
 			/>
 		{/if}
@@ -33,6 +34,7 @@
 	}
 	.container {
 		min-height: 200px;
+		height: 100%;
 	}
 	@screen md {
 		.container {

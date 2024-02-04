@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import Cursor from '$lib/components/atoms/Cursor.svelte';
 	import { onNavigate } from '$app/navigation';
 
 	onNavigate((navigation) => {
@@ -17,3 +18,5 @@
 </script>
 
 <slot />
+
+<Cursor />

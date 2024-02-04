@@ -1,11 +1,18 @@
 import type { Blog } from "$lib/utils/types";
 
-export function parseBlogs(frontmatter: any): Blog {
+export function parseBlogs(frontmatter: any, content: string): Blog {
 	return {
 		slug: frontmatter.slug,
 		title: frontmatter.title,
-		coverImage: frontmatter.coverImage,
-		socialImage: frontmatter.socialImage,
+		content,
+		coverImage: frontmatter.coverImage ? {
+			src: '/images' + frontmatter.coverImage,
+			alt: frontmatter.coverImageAlt
+		} : undefined,
+		socialImage: frontmatter.socialImage ? {
+			src: '/images' + frontmatter.socialImage,
+			alt: ''
+		} : undefined,
 		date: frontmatter.date,
 		excerpt: frontmatter.excerpt,
 		hidden: frontmatter.hidden,
