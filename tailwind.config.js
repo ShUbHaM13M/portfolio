@@ -10,7 +10,8 @@ export default {
 				white: '#F8EDFF',
 				accent: '#19D645',
 				grey: '#131418',
-				header: 'rgba(237, 237, 237, 0.18)'
+				header: 'rgba(237, 237, 237, 0.18)',
+				card: '#343F52'
 			},
 			fontFamily: {
 				podkova: ['Podkova', 'serif'],
