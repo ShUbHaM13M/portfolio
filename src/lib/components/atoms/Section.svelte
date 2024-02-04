@@ -9,7 +9,7 @@
 	{#if $$slots.description}
 		<slot name="description" />
 	{:else}
-		<h2 class="leading-6 sm:leading-10 text-subtitle text-2xl">
+		<h2 class="leading-6 sm:leading-10 text-subtitle text-lg md:text-2xl">
 			{description}
 		</h2>
 	{/if}
