@@ -4,7 +4,7 @@
 	import Project from '$lib/components/organism/Project.svelte';
 	import Work from '$lib/components/organism/Work.svelte';
 	import Contact from '$lib/components/organism/Contact.svelte';
-	import Blog from '$lib/components/organism/Blog.svelte';
+	import RecentBlog from '$lib/components/organism/RecentBlogs.svelte';
 
 	import type { Skill, WorkExperience, Blog as BlogType } from '$lib/utils/types';
 
@@ -19,6 +19,6 @@
 <Main />
 <Expertise {skills} />
 <Project />
-<Blog />
+<RecentBlog {blogs} />
 <Work {workExperiences} />
 <Contact />

@@ -3,6 +3,13 @@ export type Tag = {
 	color?: 'primary' | 'secondary' | string
 }
 
+export type PaginatedResult<T> = {
+	items: T[],
+	totalItems: number,
+	totalPages: number,
+	currentPage: number,
+}
+
 export type Skill = {
 	icon: string,
 	index: string,
@@ -23,11 +30,17 @@ export type WorkExperience = {
 	tags: Tag[],
 };
 
+export type Image = {
+	src: string,
+	alt: string
+}
+
 export type Blog = {
 	slug: string,
 	title: string,
 	excerpt: string,
-	coverImage: string,
+	coverImage: Image,
+	socialImage: Image,
 	showImage: boolean
 	date: Date
 	updated: boolean

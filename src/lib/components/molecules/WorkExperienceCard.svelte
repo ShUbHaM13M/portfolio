@@ -1,10 +1,13 @@
 <script lang="ts">
 	import type { WorkExperience } from '$lib/utils/types';
 
+	export let additionalClass: string = '';
 	export let work: WorkExperience;
 </script>
 
-<div class="flex flex-1 flex-col gap-2 md:gap-5 p-4 md:p-6 bg-[#343F52] text-white rounded-lg">
+<div
+	class={`flex flex-1 flex-col gap-2 md:gap-5 p-4 md:p-6 bg-[#343F52] text-white rounded-lg ${additionalClass}`}
+>
 	<div>
 		<p class="font-extrabold text-2xl md:text-3xl">{work.company}</p>
 		<p class="text-lg">{work.designation}</p>

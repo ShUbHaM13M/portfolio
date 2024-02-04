@@ -17,7 +17,11 @@
 			<WorkExperienceCard {work} />
 		{/each}
 	</div>
-	<Button additionalClass="mt-2 md:mt-4 md:ml-auto" href="/resume" variant="outlined">
+	<Button
+		additionalClass="mt-4 w-full text-center md:w-fit md:mt-8 md:ml-auto"
+		href="/resume"
+		variant="outlined"
+	>
 		View Resume
 	</Button>
 </Section>

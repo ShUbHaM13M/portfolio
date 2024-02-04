@@ -1,26 +1,42 @@
 <script lang="ts">
 	export let slug: string;
-	export let imageUrl: string | undefined = undefined;
-	export let date: string;
+	export let coverImage: string | undefined = undefined;
 	export let title: string;
 	export let excerpt: string;
 </script>
 
-<a href={slug}>
+<a
+	class="min-h-full flex-1 block rounded-lg overflow-hidden transition-shadow ease-out duration-300"
+	href={`/${slug}`}
+>
 	<div
-		style="max-width: 350px"
-		class="p-4 py-5 flex flex-col gap-4 border border-text dark:border-text-dark"
+		class="container p-4 py-5 flex min-h-full flex-col gap-4 bg-card text-white pointer-events-none"
 	>
-		{#if imageUrl}
+		{#if coverImage}
 			<img
 				style="max-width: 350px"
 				class="max-w-full w-full object-cover aspect-video rounded-2xl"
-				src={imageUrl}
+				src={coverImage}
 				alt={title}
 			/>
 		{/if}
-		<span class="opacity-40 text-sm">{date}</span>
-		<h3 class="text-3xl font-bold">{title}</h3>
-		<p class="text-xl">{excerpt}</p>
+		<h3 class="text-2xl leading-6 font-medium">{title}</h3>
+		<p class="text-lg leading-tight">{excerpt}</p>
 	</div>
 </a>
+
+<style lang="postcss" scoped>
+	a:hover,
+	a:focus {
+		box-shadow: 0 0 4px 8px theme('colors.accent' / 10%);
+		outline: none;
+	}
+	.container {
+		min-height: 200px;
+	}
+	@screen md {
+		.container {
+			min-height: 250px;
+		}
+	}
+</style>
