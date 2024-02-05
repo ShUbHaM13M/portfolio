@@ -1,17 +1,17 @@
-import { getBlogs } from "$lib/data/blogs/api";
+import { getBlogs } from '$lib/data/blogs/api';
 
 export async function load({ params }) {
 	let category;
 	let currentPage = 1;
-	const { args } = params
-	const argsList = args?.split('/')
+	const { args } = params;
+	const argsList = args?.split('/');
 
 	if (argsList) {
 		const first = argsList[0];
 		if (/^\d+$/.test(first)) {
 			currentPage = parseInt(first);
 		} else {
-			category = first
+			category = first;
 		}
 
 		const second = argsList[1];

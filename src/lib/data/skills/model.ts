@@ -1,4 +1,4 @@
-import type { Skill } from "$lib/utils/types"
+import type { Skill } from '$lib/utils/types';
 
 export const parseSkills = (frontmatter: any): Skill => {
 	return {
@@ -10,5 +10,5 @@ export const parseSkills = (frontmatter: any): Skill => {
 		tagEnd: frontmatter.tagEnd,
 		descriptionClasses: frontmatter.descriptionClasses,
 		containerClasses: frontmatter.containerClasses
-	}
-}
+	};
+};

@@ -1,12 +1,12 @@
-import type { Tag } from "$lib/utils/types";
+import type { Tag } from '$lib/utils/types';
 
 type WorkExperience = {
-	company: string,
-	designation: string,
-	timeFrame: string,
-	current: boolean,
-	description: string,
-	tags: Tag[],
+	company: string;
+	designation: string;
+	timeFrame: string;
+	current: boolean;
+	description: string;
+	tags: Tag[];
 };
 
 export function parseWorkExperiences(frontmatter: any): WorkExperience {
@@ -17,6 +17,6 @@ export function parseWorkExperiences(frontmatter: any): WorkExperience {
 		current: frontmatter.current,
 		designation: frontmatter.designation,
 		tags: frontmatter.technologies
-	}
+	};
 }
-export default WorkExperience
+export default WorkExperience;
