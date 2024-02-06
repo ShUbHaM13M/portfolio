@@ -3,7 +3,7 @@
 	import Section from '../atoms/Section.svelte';
 </script>
 
-<Section id="sectionMain" additionalClass="mt-20">
+<Section id="sectionMain" additionalClass="bg-checkered mt-20">
 	<div style="max-width: 900px;" class="flex flex-col">
 		<span class="text-accent text-2xl font-medium">Hi, I'm</span>
 		<h1 class="font-short-stack mt-2 mb-1 md:my-3 text-white text-3xl md:text-6xl">
@@ -23,9 +23,6 @@
 </Section>
 
 <style lang="postcss">
-	:global(#sectionMain) {
-		background-image: url('/bg.png');
-	}
 	@screen md {
 		.description {
 			letter-spacing: 1px;

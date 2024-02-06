@@ -68,3 +68,9 @@ main {
 *::-webkit-scrollbar-thumb:active {
 	background-color: theme('colors.accent' / 50%);
 }
+
+@layer utilities {
+	.bg-checkered {
+		background: url('/bg.png');
+	}
+}

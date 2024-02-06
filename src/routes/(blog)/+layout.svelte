@@ -37,6 +37,6 @@
 
 <Header />
 
-<main class="pt-[75px] pb-6 md:pt-0">
+<main class="bg-checkered pt-[75px] pb-6 md:pt-0 has-background">
 	<slot />
 </main>
