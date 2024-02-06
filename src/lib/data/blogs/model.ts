@@ -1,11 +1,12 @@
 import type { Blog } from '$lib/utils/types';
 
-const WORD_REGEX = /\b\S+\b/;
+const WORD_REGEX = /\b\S+\b/g;
 const AVERAGE_WPM = 225;
 
 function getReadTime(content: string): number {
 	const words = content.trim();
-	const wordCount = words.match(WORD_REGEX)?.length || 0;
+	const matches = words.match(WORD_REGEX);
+	const wordCount = matches ? matches.length : 0;
 	return Math.ceil(wordCount / AVERAGE_WPM);
 }
 

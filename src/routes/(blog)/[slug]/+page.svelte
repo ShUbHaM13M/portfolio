@@ -22,7 +22,7 @@
 		gap-6 md:gap-10 p-6 rounded-t-xl md:mx-auto md:w-11/12 md:rounded-xl h-full
 		backdrop-blur-md md:backdrop-blur-lg md:border md:border-white md:border-opacity-20"
 	>
-		<BlogUserProfile date={blog.date.toDateString()} readTime="2 min read" />
+		<BlogUserProfile date={blog.date.toDateString()} readTime={blog.readTime} />
 		<h1 class="leading-tight md:leading-none text-[28px] md:text-[42px] font-bold">{blog.title}</h1>
 		{#if blog.tags.length}
 			<div class="flex gap-2">
