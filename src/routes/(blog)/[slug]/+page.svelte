@@ -8,7 +8,7 @@
 </script>
 
 {#key blog}
-	{#if blog.coverImage}
+	{#if blog?.coverImage}
 		<img
 			role="presentation"
 			class="cover-image w-full object-cover -z-10"
