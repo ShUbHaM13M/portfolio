@@ -15,7 +15,8 @@ export default {
 			},
 			fontFamily: {
 				podkova: ['Podkova', 'serif'],
-				'short-stack': ['Short Stack', 'cursive']
+				'short-stack': ['Short Stack', 'cursive'],
+				'fira-code': ['Fira Code', 'monospace']
 			}
 		}
 	},
