@@ -54,8 +54,8 @@ const xml = (blogs: Blog[]) => `
       <height>32</height>
     </image>
     ${blogs
-		.map(
-			(blog) => `
+			.map(
+				(blog) => `
         <item>
           <guid>${siteBaseUrl}/${blog.slug}</guid>
           <title>${blog.title}</title>
@@ -75,11 +75,19 @@ const xml = (blogs: Blog[]) => `
 
             ${blog.content}
           ]]></content:encoded>
-          ${blog.coverImage ? `<media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="${siteBaseUrl}${blog.coverImage.src}"/>` : ''}
-          ${blog.coverImage ? `<media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="${siteBaseUrl}${blog.coverImage.src}"/>` : ''}          
+          ${
+						blog.coverImage
+							? `<media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="${siteBaseUrl}${blog.coverImage.src}"/>`
+							: ''
+					}
+          ${
+						blog.coverImage
+							? `<media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="${siteBaseUrl}${blog.coverImage.src}"/>`
+							: ''
+					}          
         </item>
       `
-		)
-		.join('')}
+			)
+			.join('')}
   </channel>
 </rss>`;
