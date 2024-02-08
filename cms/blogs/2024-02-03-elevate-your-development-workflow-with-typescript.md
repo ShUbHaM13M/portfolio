@@ -30,6 +30,7 @@ This is the interface of the state of a form.
 The form consists of a unique _id_, _title_, _description_ and an array of _questions_.
 
 ```typescript
+~filename types.ts
 interface CreateFormState {
 	id: string;
 	title: string;
@@ -55,7 +56,11 @@ type Question = {
 A normal input for short-answer, a list of checkboxes for checkbox-answer, and so on.
 
 ```typescript
-type AnswerType = 'short-answer' | 'long-answer' | 'radio-answer' | 'checkbox-answer';
+type AnswerType 
+	= 'short-answer' 
+	| 'long-answer' 
+	| 'radio-answer' 
+	| 'checkbox-answer';
 ```
 
 ---
