@@ -4,11 +4,11 @@
 	import { onMount } from 'svelte';
 
 	const links = [
-		{ href: '#expertise', text: 'Expertise' },
-		{ href: '#project', text: 'Project' },
+		{ href: '/#expertise', text: 'Expertise' },
+		{ href: '/#project', text: 'Project' },
 		{ href: '/blog', text: 'Blog' },
-		{ href: '#work', text: 'Work' },
-		{ href: '#contact', text: 'Contact' }
+		{ href: '/#work', text: 'Work' },
+		{ href: '/#contact', text: 'Contact' }
 	];
 
 	let prevScrollPos = 0;
@@ -20,6 +20,7 @@
 	}
 
 	function handleOnWindowScroll(e: Event) {
+		if (!navbar) return;
 		let currentScrollPos = window.scrollY || window.pageYOffset;
 		if (currentScrollPos > prevScrollPos && currentScrollPos > navbar.offsetHeight * 0.5) {
 			navbar.style.top = -navbar.offsetHeight * 2 + 'px';
