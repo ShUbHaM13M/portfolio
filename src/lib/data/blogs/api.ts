@@ -45,6 +45,14 @@ export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
 	return matchedBlog;
 };
 
+export const getAllSlugs = async () => {
+	const files = await fs.readdir(MD_FILES_PATH);
+	const slugs = files.map((file) =>
+		file.split('-').slice(3).join('-').replace('.md', '').replace('--hidden', '')
+	);
+	return slugs;
+};
+
 const paginate = (items: string[], page?: number, count?: number): string[] => {
 	const pageSize = count ?? MAX_BLOGS_PER_PAGE;
 	const startIndex = page ? (page - 1) * pageSize : 0;
