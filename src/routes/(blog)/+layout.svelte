@@ -7,6 +7,20 @@
 	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
 
 	$: ({ blog } = data);
+
+	let metaKeywords = keywords;
+
+	$: {
+		if (blog?.categories?.length) {
+			metaKeywords = blog.categories.concat(metaKeywords);
+		}
+		if (blog?.tags?.length) {
+			metaKeywords = blog.tags.concat(metaKeywords);
+		}
+		// if (blog?.keywords?.length) {
+		// 	metaKeywords = blog.keywords.concat(metaKeywords);
+		// }
+	}
 </script>
 
 <svelte:head>
@@ -36,8 +50,9 @@
 	{/if}
 </svelte:head>
 
-<Header />
-
-<main class="bg-checkered pt-[75px] pb-6 md:pt-0 has-background">
-	<slot />
-</main>
+{#if blog}
+	<Header />
+	<main class="bg-checkered pt-[75px] pb-6 md:pt-0 has-background">
+		<slot />
+	</main>
+{/if}
