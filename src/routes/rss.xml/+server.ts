@@ -10,7 +10,8 @@ export async function GET() {
 
 	const promises = blogs.items.map(async (blog) => {
 		blog.content = await marked.parse(
-			blog.content.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, '')
+			blog.content.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, ''),
+			{ async: true }
 		);
 
 		blog.content = blog.content.replaceAll('<a href="/', `<a href="${siteBaseUrl}/`);
