@@ -46,7 +46,7 @@ export type Blog = {
 	date: Date;
 	updated: boolean;
 	hidden: boolean;
-	tags: [];
+	tags: string[];
 	categories: string[];
 	readTime: number;
 };
