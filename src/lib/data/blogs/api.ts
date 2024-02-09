@@ -45,7 +45,7 @@ export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
 	return matchedBlog;
 };
 
-export const getAllSlugs = async () => {
+export const getAllSlugs = async (): Promise<string[]> => {
 	const files = await fs.readdir(MD_FILES_PATH);
 	const slugs = files.map((file) =>
 		file.split('-').slice(3).join('-').replace('.md', '').replace('--hidden', '')
