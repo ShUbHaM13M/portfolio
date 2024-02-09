@@ -50,3 +50,5 @@ export type Blog = {
 	categories: string[];
 	readTime: number;
 };
+
+export type CodeBlockTheme = 'frappe' | 'machiato' | 'latte';

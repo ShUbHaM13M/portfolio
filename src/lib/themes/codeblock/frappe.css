@@ -1,0 +1,32 @@
+.frappe {
+	/* TODO: Add scrollbar based on theme */
+	--color-titlebar: #232634;
+	--color-keyword: #81c8be;
+	--color-classname: #df8e1d;
+	--color-background: #303446;
+	--color-foreground: #df8e1d;
+	--color-selection: #62688066;
+	--color-deleted: #e78284;
+	--color-operator: #81c8be;
+	--color-number: #ef9f76;
+	--color-constant: #ef9f76;
+	--color-function: #ef9f76;
+	--color-builtin: #ef9f76;
+	--color-char: #ef9f76;
+	--color-variable: #c6d0f5;
+	--color-namespace: #e5c890;
+	--color-property: #ea999c;
+	--color-boolean: #ef9f76;
+	--color-number: #ef9f76;
+	--color-comment: #737994;
+	--color-punctuation: #949cbb;
+	--color-selector: #e5c890;
+	--color-string: #a6d189;
+	--color-attr-value: #e5c890;
+	--color-regex-delimiter: #f4b8e4;
+	--color-regex: #ca9ee6;
+	--color-doctype: #ca9ee6;
+	--color-tag: #8caaee;
+	--color-named-entity: #e78284;
+	--color-macro-property: #8caaee;
+}
