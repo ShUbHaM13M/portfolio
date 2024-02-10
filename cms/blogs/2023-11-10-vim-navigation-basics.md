@@ -25,7 +25,7 @@ You will be able to navigate and edit without constantly moving your hands away 
 > So I looked for ways to -
 >
 > 1. Open/close windows,
-> 2. Navigate by holding the <kbd>Ctrl</kbd>, <kbd>Home</kbd>, <kbd>End</kbd>,. etc keys
+> 2. Navigate by holding the `Ctrl`, `Home`, `End`,. etc keys
 > 3. Learning commands to start apps or shutdown.
 
 ---
@@ -34,7 +34,7 @@ Alright to get started you can either install Vim in your operating system or yo
 
 > Installation of the Vim plugin
 
-<video width="320" height="240" controls muted>
+<video controls muted>
   <source src="https://github.com/ShUbHaM13M/vim-navigation-basics/raw/master/resources/installing-vim-extension.webm" type="video/webm">
 </video>
 
@@ -57,32 +57,32 @@ It allows you to navigate the text, copy/cut/paste characters, words, and lines,
 
 You can use the keys:
 
-- <kbd>h</kbd> to move left.
-- <kbd>j</kbd> to move up.
-- <kbd>k</kbd> to move down.
-- <kbd>l</kbd> to move right.
+- `h` to move left.
+- `j` to move up.
+- `k` to move down.
+- `l` to move right.
 
 These key presses can be combined with numbers so
 
-- <kbd>5j</kbd> will move the cursor 5 lines down.
-- <kbd>13l</kbd> will move the cursor 13 characters to the left.
+- `5j` will move the cursor 5 lines down.
+- `13l` will move the cursor 13 characters to the left.
 
 Navigating around the file using these keys might feel weird at first, but once you get a hang of it you will be able to navigate much quicker.
 
 > Navigating in Vscode using the Vim key-bindings
 
-<video width="320" height="240" controls muted>
+<video controls muted>
   <source src="https://github.com/ShUbHaM13M/vim-navigation-basics/raw/master/resources/navigating-editing-file-with-vim.webm" type="video/webm">
 </video>
 
 #### Some other key bindings that make navigating easier.
 
-- <kbd>w</kbd> - Jump by the start of words
-- <kbd>W</kbd> - Jump by the start of words ignoring punctuations **.** **;**.., etc
-- <kbd>e</kbd> - Jump to the end of words
-- <kbd>E</kbd> - Jump to the end of words ignoring punctuations **.** **;**.., etc
-- <kbd>b</kbd> - Jump backward by words
-- <kbd>B</kbd> - Jump backward by words ignoring punctuations **.** **;**.., etc
+- `w` - Jump by the start of words
+- `W` - Jump by the start of words ignoring punctuations **.** **;**.., etc
+- `e` - Jump to the end of words
+- `E` - Jump to the end of words ignoring punctuations **.** **;**.., etc
+- `b` - Jump backward by words
+- `B` - Jump backward by words ignoring punctuations **.** **;**.., etc
 
 > Again these keystrokes can be preceded by a number so
 > `2w` would jump two words ahead.
@@ -91,16 +91,16 @@ Navigating around the file using these keys might feel weird at first, but once 
 
 #### A Bit Advanced
 
-- <kbd>0</kbd> - Jump to the start of the line
-- <kbd>$</kbd> - Jump to the end of the line
-- <kbd>G</kbd> - Go to the bottom of the file.
-- <kbd>gg</kbd> - Go to the top of the file.
-- <kbd>Ctrl + d</kbd> - move down half a page.
-- <kbd>Ctrl + u</kbd> - move up half a page.
-- <kbd>: {num} Enter</kbd> - Go to that line number in the document.
+- `0` - Jump to the start of the line
+- `$` - Jump to the end of the line
+- `G` - Go to the bottom of the file.
+- `gg` - Go to the top of the file.
+- `Ctrl + d` - move down half a page.
+- `Ctrl + u` - move up half a page.
+- `: {num} Enter` - Go to that line number in the document.
 
 ---
 
-If you accidentally go into **Insert** mode while having fun navigating the file using these newly learned powers, then just press <kbd>Esc</kbd> to go back to **Normal**
+If you accidentally go into **Insert** mode while having fun navigating the file using these newly learned powers, then just press `Esc` to go back to **Normal**
 
 That covers the basics of navigation using Vim. It may take a few days to get used to this new way of going through your files without using a mouse but it will make your workflow more productive and efficient.

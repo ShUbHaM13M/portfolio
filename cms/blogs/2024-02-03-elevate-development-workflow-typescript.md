@@ -65,13 +65,9 @@ type AnswerType
 
 ---
 
-![Question with short answer](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rj2jv3x1zl1q3tmtz1y2.png)
+![Question with short answer](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rj2jv3x1zl1q3tmtz1y2.png 'Question with short answer')
 
-<figcaption>Question with short answer</figcaption>
-
-![Question with checkboxes](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dud8x6xe951jmyfmwxjx.png)
-
-<figcaption>Question with check boxes</figcaption>
+![Question with checkboxes](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dud8x6xe951jmyfmwxjx.png 'Question with check boxes')
 
 ---
 
@@ -158,9 +154,7 @@ function formDataReducer(
 
 But adding this action in the function causes error. Since the type of _payload_ is defined as string in the **CreateFormAction** and we are trying to push that to the questions array which is of type **Question**.
 
-![TypeScript error because payload is defined as a string](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6ef3hldnjnr9txq09mt2.png)
-
-<figcaption>TypeScript error because payload is defined as a string</figcaption>
+![TypeScript error because payload is defined as a string](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6ef3hldnjnr9txq09mt2.png 'TypeScript error because payload is defined as a string')
 
 To fix this we will have to modify the _CreateFormAction_ a bit.
 
@@ -183,13 +177,9 @@ We defined CreateFormAction as Union of types so if -
 
 And now we should be able to use this action for adding new questions. If we try to call this dispatch function in another component we will know the actions that can be performed on the state, the associated type of payload that the action accepts and we also get the Intellisense and auto-completion if we use an IDE with LSP.
 
-![Trying to pass string as the payload with action ADD_QUESTION](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/l6uz6ljim3cca1rs1sc8.png)
+![Trying to pass string as the payload with action ADD_QUESTION](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/l6uz6ljim3cca1rs1sc8.png 'Trying to pass string as payload ADD_QUESTION')
 
-<figcaption>Trying to pass string as payload ADD_QUESTION</figcaption>
-
-![Intellisense and autocompletion with TypeScript](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4y4ijyobl3w4vbrmmnpx.png)
-
-<figcaption>Intellisense and auto-completion with TypeScript</figcaption>
+![Intellisense and autocompletion with TypeScript](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4y4ijyobl3w4vbrmmnpx.png 'Intellisense and auto-completion with TypeScript')
 
 #### Using this we can add more actions for:
 

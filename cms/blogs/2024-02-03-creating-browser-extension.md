@@ -15,7 +15,21 @@ categories: []
 type: Blog
 ---
 
-Creating a browser extension in JavaScript.
+# Creating a browser extension in JavaScript.
+
+- Unordered list 1
+- Unordered list 2
+- Unordered list 3
+
+1. Ordered list 1
+2. Ordered list 2
+3. Ordered list 3
+
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
+- [x] Task Completed
+- [x] Done with another task
 
 ```javascript
 let chrome = 'chrome';
@@ -65,3 +79,23 @@ int main (void) {
 	return 0;
 }
 ```
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+![Typescript](/blogs/elevate-your-development-workflow-with-typescript/cover.avif)
+
+[Google](https:/www.google.com)
+
+[Typescript](/elevate-development-workflow-typescript)
+
+![Screenshot of Chromium's Service Workers UI](/blogs/elevate-your-development-workflow-with-typescript/cover.avif 'On dev console > Application > Service Workers, there should be a registered service worker for your app.')
