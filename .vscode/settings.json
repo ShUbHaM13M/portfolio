@@ -1,3 +1,19 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"workbench.colorCustomizations": {
+		"sash.hoverBorder": "#19D645",
+		"statusBar.background": "#0B192F",
+		"statusBar.foreground": "#F8EDFF",
+		"statusBarItem.remoteBackground": "#19D645",
+		"statusBarItem.remoteForeground": "#0B192F",
+		"statusBarItem.hoverBackground": "#0050FF",
+		"statusBarItem.hoverForeground": "#F8EDFF",
+		"statusBarItem.remoteHoverBackground": "#4980FF",
+		"statusBarItem.remoteHoverForeground": "#0B192F",
+		"commandCenter.border": "#15202b99",
+		"titleBar.activeBackground": "#0B192F",
+		"titleBar.activeForeground": "#F8EDFF",
+		"titleBar.inactiveBackground": "#0B192F99",
+		"titleBar.inactiveForeground": "#F8EDFF99"
+	}
 }
