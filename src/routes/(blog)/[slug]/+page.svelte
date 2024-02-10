@@ -18,12 +18,12 @@
 	{/if}
 	<div
 		class:has-cover-image={!!blog.coverImage}
-		class="container flex flex-col mt-6 md:mt-28 lg:mt-32 md:bg-header relative text-white
+		class="container flex flex-col mt-6 md:mt-28 lg:mt-32 md:bg-header relative text-white gap-6 md:gap-10
 		p-6 rounded-t-xl md:mx-auto md:w-11/12 md:rounded-xl h-full
 		backdrop-blur-md md:backdrop-blur-lg md:border md:border-white md:border-opacity-20"
 	>
 		<BlogUserProfile date={blog.date.toDateString()} readTime={blog.readTime} />
-		<h1 class="leading-tight my-6 md:my-10 md:leading-none text-[28px] md:text-[42px] font-bold">
+		<h1 class="leading-tight md:leading-none text-[28px] md:text-[42px] font-bold">
 			{blog.title}
 		</h1>
 		{#if blog.tags.length}
@@ -34,7 +34,7 @@
 				{/each}
 			</div>
 		{/if}
-		<div class="markdown-content">
+		<div class="markdown-content flex flex-col gap-6 md:gap-10">
 			<Markdown content={blog.content} />
 		</div>
 	</div>
@@ -64,7 +64,7 @@
 		@apply -mt-6 md:-mt-16 bg-header;
 	}
 	:global(.markdown-content > *) {
-		@apply mt-10;
+		/* @apply mt-10; */
 	}
 	:global(.markdown-content > p) {
 		@apply text-base md:text-2xl;
