@@ -6,8 +6,7 @@
 	--scrollbar-bg-color: #343f52;
 }
 
-html,
-body {
+html.smooth-scroll {
 	scroll-behavior: smooth;
 }
 

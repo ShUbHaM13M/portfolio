@@ -1,7 +1,22 @@
 <script lang="ts">
 	import '../app.css';
 	import Cursor from '$lib/components/atoms/Cursor.svelte';
-	import { onNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
+	import { onMount } from 'svelte';
+
+	let root: HTMLElement;
+	onMount(() => {
+		root = document.getElementsByTagName('html')[0];
+		root.classList.add('smooth-scroll');
+	});
+
+	beforeNavigate(() => {
+		root.classList.remove('smooth-scroll');
+	});
+
+	afterNavigate(() => {
+		root.classList.add('smooth-scroll');
+	});
 
 	onNavigate((navigation) => {
 		// @ts-ignore
