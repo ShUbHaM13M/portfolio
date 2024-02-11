@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import NavLink from '$lib/components/atoms/NavLink.svelte';
+	import { onDestroy } from 'svelte';
 
 	export let links: {
 		href: string;
@@ -9,15 +10,20 @@
 
 	let input: HTMLInputElement;
 
-	let activeSectionIndex = $page.url.hash
-		? links.findIndex(({ href }) => href === $page.url.hash)
-		: -1;
-
-	$: {
-		activeSectionIndex = $page.url.hash
-			? links.findIndex(({ href }) => href === $page.url.hash)
-			: -1;
+	function getActiveSectionIndex() {
+		return links.findIndex(({ href }) => {
+			return $page.url.href.includes(href) || $page.url.hash.includes(href.replace('/', ''));
+		});
 	}
+
+	let activeSectionIndex = getActiveSectionIndex();
+	const unsubscribe = page.subscribe((_) => {
+		activeSectionIndex = getActiveSectionIndex();
+	});
+
+	onDestroy(() => {
+		unsubscribe();
+	});
 
 	function handleOnLinkClick() {
 		input.checked = false;
