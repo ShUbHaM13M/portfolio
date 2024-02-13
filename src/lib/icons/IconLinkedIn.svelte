@@ -3,25 +3,19 @@
 </script>
 
 <svg
-	class={`stroke-white ${classes}`}
-	width="48"
-	height="48"
-	viewBox="0 0 48 48"
+	width="24"
+	height="24"
+	viewBox="0 0 24 24"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
+	class={`h-12 w-12 ${classes}`}
 >
-	<path
-		d="M14 34V20M42 16V32C42 34.6522 40.9464 37.1957 39.0711 39.0711C37.1957 40.9464 34.6522 42 32 42H16C13.3478 42 10.8043 40.9464 8.92893 39.0711C7.05357 37.1957 6 34.6522 6 32V16C6 13.3478 7.05357 10.8043 8.92893 8.92893C10.8043 7.05357 13.3478 6 16 6H32C34.6522 6 37.1957 7.05357 39.0711 8.92893C40.9464 10.8043 42 13.3478 42 16Z"
-		class="stroke-inherit"
-		stroke-width="1.5"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-	/>
-	<path
-		d="M22 34V27.5M22 27.5V20M22 27.5C22 20 34 20 34 27.5V34M14 14.02L14.02 13.998"
-		class="stroke-inherit"
-		stroke-width="1.5"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-	/>
+	<circle cx="4" cy="4" r="2" class="fill-current" />
+	<path d="M2 8.5H6V22H2V8.5Z" class="fill-current" />
+	<g opacity="0.4">
+		<path
+			d="M13 8.5H9V15V22H13V15C13 13.8954 13.8954 13 15 13C16.1046 13 17 13.8954 17 15V22H21V15C21 11.6863 18.3137 9 15 9C14.2987 9 13.6256 9.12031 13 9.34141V8.5Z"
+			class="fill-current"
+		/>
+	</g>
 </svg>
