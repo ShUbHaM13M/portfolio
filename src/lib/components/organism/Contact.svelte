@@ -34,7 +34,7 @@
 			<IconMail classes="icon-link h-9 w-9 md:h-12 md:w-12 " />
 		</a>
 		<a href="https://www.github.com/ShUbHaM13M" target="_blank">
-			<IconGithub classes="icon-link h-9 w-9 md:h-12 md:w-12 " />
+			<IconGithub classes="icon-link h-9 w-9 md:h-12 md:w-12 opacity-40 hover:opacity-100" />
 		</a>
 		<a href="https://linkedin.com/in/shubham-maurya-37b7491a3/" target="_blank">
 			<IconLinkedIn classes="icon-link h-9 w-9 md:h-12 md:w-12 " />
@@ -47,9 +47,10 @@
 
 <style lang="postcss">
 	:global(.icon-link) {
-		@apply stroke-white transition-colors ease-out duration-300;
+		@apply text-white transition-all ease-out duration-300;
+		/* TODO: Fix all the icons hover state */
 	}
 	:global(.icon-link:hover, .icon-link:focus) {
-		@apply stroke-accent;
+		@apply text-accent;
 	}
 </style>
