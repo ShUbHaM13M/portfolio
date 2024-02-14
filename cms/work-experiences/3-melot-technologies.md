@@ -4,7 +4,7 @@ companySlug: melot-technologies
 designation: Web Developer
 timeFrame: 2023 → Now
 current: true
-description: Development of the time-critical event pages, with API integration for leader-board and deployment. User Authentication management and use of Native Device APIs
+description: Working on the development of the time-critical event pages, with API Integration for Leader board and deployment.
 technologies:
   - label: Vue.js
   - label: Socket.io
