@@ -1,20 +1,23 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/components/atoms/Button.svelte';
 	import Section from '$lib/components/atoms/Section.svelte';
 	import Resume from '$lib/components/organism/Resume.svelte';
+	import type WorkExperience from '$lib/data/work-experiences/model';
 
 	import IconDarkMode from '$lib/icons/IconDarkMode.svelte';
 	import IconLightMode from '$lib/icons/IconLightMode.svelte';
 
 	let theme = 'dark';
 
+	export let data: { workExperience: WorkExperience[] };
+
 	function onThemeButtonClick() {
 		theme = theme === 'dark' ? 'light' : 'dark';
 	}
 </script>
 
-<Section additionalClass="pt-20 pb-10 flex justify-center pl-0 bg-card">
-	<div style="width: 900px;" class="flex flex-col mt-10 gap-4">
+<Section additionalClass="pt-20 pb-10 flex justify-center pl-0 bg-card pr-0 sm:pr-6">
+	<div class="resume-container flex flex-col mt-10 gap-4 w-full">
 		<div class="flex gap-4 items-center mx-auto">
 			<Button variant="filled">Download as PDF</Button>
 			<button on:click={onThemeButtonClick}>
@@ -25,6 +28,14 @@
 				{/if}
 			</button>
 		</div>
-		<Resume {theme} />
+		<Resume {theme} workExperience={data.workExperience} />
 	</div>
 </Section>
+
+<style lang="postcss">
+	@screen sm {
+		.resume-container {
+			max-width: 900px;
+		}
+	}
+</style>

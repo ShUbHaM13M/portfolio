@@ -7,7 +7,7 @@
 	import IconLinkedIn from '$lib/icons/IconLinkedIn.svelte';
 </script>
 
-<div class="grid grid-cols-2 gap-y-2 text-lg mt-4 w-fit">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1 sm:gap-y-2 text-lg mt-4 w-fit">
 	<div class="flex gap-1 items-center">
 		<IconLocation />
 		<p>Mumbai, India</p>
