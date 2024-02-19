@@ -2,7 +2,7 @@
 	import ResumeSection from './ResumeSection.svelte';
 </script>
 
-<ResumeSection title="Education">
+<ResumeSection title="Education" containerClasses="order-0 md:order-1">
 	<div class="flex gap-4">
 		<div class="flex flex-col items-center h-full relative">
 			<div
@@ -13,7 +13,7 @@
 			<p class="text-subtitle text-xs">2023</p>
 			<div
 				style="height: 50%"
-				class="absolute top-12 border border-dashed border-accent border-opacity-80"
+				class="absolute hidden sm:block top-12 border border-dashed border-accent border-opacity-80"
 			></div>
 		</div>
 		<div class="flex flex-col">

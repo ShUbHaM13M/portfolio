@@ -14,7 +14,9 @@
 	</div>
 	<div class="flex gap-1 items-center">
 		<IconMail classes="h-6 w-6 text-accent" />
-		<a href="mailto:shubham.heeralal@gmail.com">shubham.heeralal@gmail.com</a>
+		<a href="mailto:shubham.heeralal@gmail.com?subject=Let’s Discuss about My Exciting Project!">
+			shubham.heeralal@gmail.com
+		</a>
 	</div>
 	<div class="flex gap-1 items-center">
 		<IconPhone classes="h-6 w-6 text-accent" />

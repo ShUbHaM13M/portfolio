@@ -16,10 +16,11 @@
 	}
 </script>
 
-<Section additionalClass="pt-20 pb-10 flex justify-center pl-0 bg-card pr-0 sm:pr-6">
+<Section additionalClass="pt-20 pb-10 flex justify-center pl-0 md:pl-6 bg-card pr-0 md:pr-6">
 	<div class="resume-container flex flex-col mt-10 gap-4 w-full">
-		<div class="flex gap-4 items-center mx-auto">
-			<Button variant="filled">Download as PDF</Button>
+		// TODO: Update link to resume
+		<Button href="/Shubham Maurya - Resume.pdf" variant="filled">Download as PDF</Button>
+		<!-- <div class="flex gap-4 items-center mx-auto">
 			<button on:click={onThemeButtonClick}>
 				{#if theme === 'dark'}
 					<IconDarkMode classes="w-12 h-12" />
@@ -27,7 +28,7 @@
 					<IconLightMode classes="w-12 h-12" />
 				{/if}
 			</button>
-		</div>
+		</div> -->
 		<Resume {theme} workExperience={data.workExperience} />
 	</div>
 </Section>

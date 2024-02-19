@@ -4,7 +4,7 @@
 	export let workExperience: WorkExperience[] = [];
 </script>
 
-<ResumeSection title="Work Experience">
+<ResumeSection title="Work Experience" containerClasses="order-1 md:order-0">
 	{#each workExperience as experience, index}
 		<div class="flex gap-4">
 			<div class="flex flex-col items-center h-full relative">
@@ -20,7 +20,7 @@
 				{#if index < workExperience.length - 1}
 					<div
 						style="height: 80%"
-						class="absolute top-12 border border-dashed border-accent border-opacity-80"
+						class="absolute hidden sm:block top-12 border border-dashed border-accent border-opacity-80"
 					></div>
 				{/if}
 			</div>
