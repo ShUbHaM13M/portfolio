@@ -17,10 +17,10 @@
 			></div>
 		</div>
 		<div class="flex flex-col">
-			<p class="font-semibold text-lg">Masters of Computer Application</p>
-			<div class="flex gap-1 text-subtitle text-sm items-center">
+			<p class="font-semibold text-lg leading-tight">Masters of Computer Application</p>
+			<div class="flex flex-col sm:flex-row gap-1 text-subtitle text-sm sm:items-center">
 				<p>Manipal University</p>
-				<p>&bull;</p>
+				<p class="hidden sm:block">&bull;</p>
 				<p>Aug 2023 - Ongoing</p>
 			</div>
 		</div>
@@ -35,9 +35,9 @@
 		</div>
 		<div class="flex flex-col">
 			<p class="font-semibold text-lg">Bachelors of Computer Science</p>
-			<div class="flex gap-1 text-subtitle text-sm items-center">
+			<div class="flex flex-col sm:flex-row gap-1 text-subtitle text-sm sm:items-center">
 				<p>Mumbai University</p>
-				<p>&bull;</p>
+				<p class="hidden sm:block">&bull;</p>
 				<p>Nov 2019 - Apr 2022</p>
 			</div>
 		</div>

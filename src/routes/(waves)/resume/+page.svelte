@@ -17,7 +17,7 @@
 </script>
 
 <Section additionalClass="pt-20 pb-10 flex justify-center pl-0 md:pl-6 bg-card pr-0 md:pr-6">
-	<div class="resume-container flex flex-col mt-10 gap-4 w-full">
+	<div class="resume-container flex flex-col mt-10 gap-4 w-full mx-4 md:mx-auto">
 		<Button
 			href="https://raw.githubusercontent.com/ShUbHaM13M/portfolio/master/static/Shubham%20Maurya%20-%20Resume.pdf"
 			variant="filled">Download as PDF</Button

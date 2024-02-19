@@ -12,7 +12,7 @@
 
 <section
 	id="resume"
-	class={`flex flex-col mx-4 md:mx-auto gap-6 sm:gap-12 p-4 sm:py-10 sm:px-12 rounded-md transition-colors ease-out duration-300 bg-checkered ${theme}`}
+	class={`flex flex-col gap-6 sm:gap-12 p-4 sm:py-10 sm:px-12 rounded-md transition-colors ease-out duration-300 bg-checkered ${theme}`}
 >
 	<div class="flex flex-col gap-1 sm:gap-2">
 		<h1 class="font-bold text-4xl sm:text-5xl">Shubham Maurya</h1>
