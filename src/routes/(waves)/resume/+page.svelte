@@ -18,8 +18,10 @@
 
 <Section additionalClass="pt-20 pb-10 flex justify-center pl-0 md:pl-6 bg-card pr-0 md:pr-6">
 	<div class="resume-container flex flex-col mt-10 gap-4 w-full">
-		// TODO: Update link to resume
-		<Button href="/Shubham Maurya - Resume.pdf" variant="filled">Download as PDF</Button>
+		<Button
+			href="https://raw.githubusercontent.com/ShUbHaM13M/portfolio/master/static/Shubham%20Maurya%20-%20Resume.pdf"
+			variant="filled">Download as PDF</Button
+		>
 		<!-- <div class="flex gap-4 items-center mx-auto">
 			<button on:click={onThemeButtonClick}>
 				{#if theme === 'dark'}
