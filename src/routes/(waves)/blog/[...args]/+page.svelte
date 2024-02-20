@@ -11,7 +11,7 @@
 </script>
 
 {#key currentPage}
-	<Section id="blogs" additionalClass="md:pr-20 mt-20">
+	<Section id="blogs" additionalClass="md:pr-20 mt-20 pb-10">
 		<div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 			{#each blogs as blog, index}
 				<BlogPostCard
@@ -22,10 +22,22 @@
 				/>
 			{/each}
 		</div>
-		<div class="flex gap-1 mt-4 justify-center">
-			{#each Array.from({ length: totalPages }) as _, index}
-				<button class="bg-white p-2 rounded-md">{index + 1}</button>
-			{/each}
-		</div>
+		{#if totalPages > 1}
+			<div class="flex gap-4 mt-8 justify-center">
+				{#each Array.from({ length: totalPages }) as _, index}
+					<a
+						href={`/blog/${index + 1}`}
+						class={`px-4 w-fit py-2 text-xl rounded-md transition-colors ease-out duration-300
+						${
+							currentPage === index + 1
+								? 'bg-accent text-primary font-semibold'
+								: 'text-accent bg-transparent outline outline-1 outline-accent font-medium hover:bg-accent hover:bg-opacity-20'
+						}`}
+					>
+						{index + 1}
+					</a>
+				{/each}
+			</div>
+		{/if}
 	</Section>
 {/key}
