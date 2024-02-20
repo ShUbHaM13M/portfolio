@@ -75,6 +75,7 @@
 	}
 
 	onMount(() => {
+		document.body.classList.add('custom-cursor');
 		if (!cursor) cursor = document.querySelector('#cursor') as HTMLDivElement;
 		window.addEventListener('mousemove', onMouseMove);
 		window.addEventListener('pointerdown', onMouseDown);
@@ -108,25 +109,6 @@
 </div>
 
 <style lang="postcss">
-	#cursor {
-		width: var(--size, 20);
-		height: var(--size, 20);
-		border-radius: calc(var(--size, 20) / 2);
-		display: none;
-	}
-	:global(body:hover #cursor) {
-		opacity: 1;
-	}
-
-	@media (pointer: fine) {
-		#cursor {
-			display: grid;
-		}
-		:global(*) {
-			cursor: none !important;
-		}
-	}
-
 	#cursor.text {
 		@apply border-white border-opacity-30;
 	}

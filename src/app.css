@@ -228,3 +228,22 @@ main {
 		font-style: italic;
 	}
 }
+
+#cursor {
+	width: var(--size, 20);
+	height: var(--size, 20);
+	border-radius: calc(var(--size, 20) / 2);
+	display: none;
+}
+body.custom-cursor:hover #cursor {
+	opacity: 1;
+}
+
+@media (pointer: fine) {
+	body.custom-cursor #cursor {
+		display: grid;
+	}
+	body.custom-cursor * {
+		cursor: none !important;
+	}
+}
