@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import IconPlay from '$lib/icons/IconPlay.svelte';
+	import { scale } from 'svelte/transition';
 	// TODO: Try to set the size of cursor when hovering over Icons so it would look like its like a shadow of the icon
-	// TODO: The size of the cursor when hovering over the link is very big
 
-	type InteractiveElementType = 'link' | 'text' | 'action';
-	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span';
+	type InteractiveElementType = 'link' | 'text' | 'action' | 'video';
+	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span, video';
 
 	let interactingElementType: InteractiveElementType | null = null;
 	export let size: number = 50;
@@ -29,6 +30,9 @@
 			case 'span':
 				interactingElementType = 'text';
 				break;
+			case 'video':
+				interactingElementType = 'video';
+				break;
 			default:
 				interactingElementType = null;
 		}
@@ -52,9 +56,29 @@
 		cursor?.animate(keyframes, { duration: 300, fill: 'forwards' });
 	}
 
+	function onMouseDown(e: PointerEvent) {
+		const keyframes = {
+			transform: `
+				translate(${e.clientX - size / 2}px, ${e.clientY - size / 2}px) scale(0.84)
+			`
+		};
+		cursor?.animate(keyframes, { duration: 150, fill: 'forwards' });
+	}
+
+	function onMouseUp(e: PointerEvent) {
+		const keyframes = {
+			transform: `
+				translate(${e.clientX - size / 2}px, ${e.clientY - size / 2}px) scale(1)
+			`
+		};
+		cursor?.animate(keyframes, { duration: 150, fill: 'forwards' });
+	}
+
 	onMount(() => {
 		if (!cursor) cursor = document.querySelector('#cursor') as HTMLDivElement;
 		window.addEventListener('mousemove', onMouseMove);
+		window.addEventListener('pointerdown', onMouseDown);
+		window.addEventListener('pointerup', onMouseUp);
 	});
 </script>
 
@@ -65,15 +89,22 @@
 	style={`--size: ${size}px`}
 >
 	<!-- TODO: Better indicator using svg elements -->
-	<div
-		class={`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-1/6 h-1/6 rounded-full bg-opacity-80 bg-accent transition-all ease-out duration-300 ${interactingElementType}`}
-	></div>
-	<div
-		style="height: 6%"
-		class={`w-1/2 rounded-full bg-white transition-all ease-out duration-300 bg-opacity-0 ${
-			interactingElementType === 'link' ? 'bg-opacity-80' : ''
-		}`}
-	></div>
+	{#if interactingElementType === 'video'}
+		<div transition:scale={{ duration: 350 }}>
+			<IconPlay />
+		</div>
+	{:else}
+		<div
+			class={`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-1/6 h-1/6 rounded-full bg-opacity-80 bg-accent transition-all ease-out duration-300 ${interactingElementType}`}
+			transition:scale={{ duration: 350 }}
+		></div>
+		<div
+			style="height: 6%"
+			class={`w-1/2 rounded-full bg-white transition-all ease-out duration-300 bg-opacity-0 ${
+				interactingElementType === 'link' ? 'bg-opacity-80' : ''
+			}`}
+		></div>
+	{/if}
 </div>
 
 <style lang="postcss">
@@ -92,7 +123,7 @@
 			display: grid;
 		}
 		:global(*) {
-			cursor: none;
+			cursor: none !important;
 		}
 	}
 
@@ -110,6 +141,6 @@
 		@apply h-2/4 bg-white;
 	}
 	#cursor .action {
-		@apply h-2/4 bg-blue-400 rotate-45;
+		@apply h-1/4 w-1/4;
 	}
 </style>
