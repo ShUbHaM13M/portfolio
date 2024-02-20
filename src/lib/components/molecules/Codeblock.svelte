@@ -22,9 +22,16 @@
 	export let code: string | undefined = undefined;
 	export let theme: CodeBlockTheme = 'frappe';
 
+	let copied = false;
+
 	function onCopyClick() {
-		// TODO: Indicator when copied to clipboard
-		if (code) navigator.clipboard.writeText(code);
+		if (code) {
+			navigator.clipboard.writeText(code);
+			copied = true;
+		}
+	}
+	$: if (copied) {
+		setTimeout(() => (copied = false), 2000);
 	}
 </script>
 
@@ -47,7 +54,7 @@
 			</div>
 		</div>
 		<button on:click={onCopyClick}>
-			<IconCopy />
+			<IconCopy {copied} />
 		</button>
 	</div>
 	<div class="code-block p-4 md:p-6 text-base md:text-xl rounded-b-xl">
