@@ -30,7 +30,7 @@
 		<a href="tel:+919004890938">
 			<IconPhone classes="icon-link h-9 w-9 md:h-12 md:w-12 " />
 		</a>
-		<a href="mailto:shubham.heeralal@gmail.com">
+		<a href="mailto:shubham.heeralal@gmail.com?subject=Let’s Discuss about My Exciting Project!">
 			<IconMail classes="icon-link h-9 w-9 md:h-12 md:w-12 " />
 		</a>
 		<a href="https://www.github.com/ShUbHaM13M" target="_blank">
