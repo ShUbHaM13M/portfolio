@@ -77,7 +77,8 @@
 				{
 					"title": "Tags",
 					"name": "tags",
-					"type": "tags"
+					"type": "block",
+					"fieldGroup": ["blogTag"]
 				},
 				{
 					"title": "Categories",
@@ -198,6 +199,31 @@
 					"name": "color",
 					"type": "choice",
 					"choices": ["primary", "secondary"]
+				}
+			]
+		},
+		{
+			"id": "blogTag",
+			"labelField": "label",
+			"fields": [
+				{
+					"title": "Label",
+					"name": "label",
+					"type": "string",
+					"single": true
+				},
+				{
+					"title": "Accent",
+					"name": "accentColor",
+					"type": "string",
+					"description": "Enter color value in hex"
+				},
+				{
+					"title": "Text Color",
+					"name": "textColor",
+					"type": "string",
+					"default": "#F8EDFF",
+					"description": "Enter color value in hex"
 				}
 			]
 		}

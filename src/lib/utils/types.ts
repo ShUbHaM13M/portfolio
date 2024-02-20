@@ -35,6 +35,12 @@ export type Image = {
 	alt: string;
 };
 
+export type BlogTagType = {
+	label: string;
+	accentColor: string;
+	textColor: string;
+};
+
 export type Blog = {
 	slug: string;
 	title: string;
@@ -46,7 +52,7 @@ export type Blog = {
 	date: Date;
 	updated: boolean;
 	hidden: boolean;
-	tags: string[];
+	tags: BlogTagType[];
 	categories: string[];
 	readTime: number;
 };

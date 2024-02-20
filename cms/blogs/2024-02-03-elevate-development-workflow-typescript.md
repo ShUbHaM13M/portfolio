@@ -11,9 +11,18 @@ updated: 2023-09-18T09:09:10.000Z
 showToc: false
 hidden: false
 tags:
-  - productivity
-  - typescript
-  - beginners
+  - label: typescript
+    accentColor: '#4980FF'
+    textColor: '#F8EDFF'
+    fieldGroup: blogTag
+  - label: productivity
+    accentColor: '#0052FE'
+    textColor: '#F8EDFF'
+    fieldGroup: blogTag
+  - accentColor: '#19D645'
+    label: beginners
+    textColor: '#F8EDFF'
+    fieldGroup: blogTag
 categories:
   - Dev
 type: Blog
@@ -56,11 +65,7 @@ type Question = {
 A normal input for short-answer, a list of checkboxes for checkbox-answer, and so on.
 
 ```typescript
-type AnswerType 
-	= 'short-answer' 
-	| 'long-answer' 
-	| 'radio-answer' 
-	| 'checkbox-answer';
+type AnswerType = 'short-answer' | 'long-answer' | 'radio-answer' | 'checkbox-answer';
 ```
 
 ---

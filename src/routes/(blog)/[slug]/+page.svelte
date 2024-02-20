@@ -29,8 +29,7 @@
 		{#if blog.tags.length}
 			<div class="flex gap-2">
 				{#each blog.tags as tag}
-					<!-- TODO: Add Tag as a custom taxonomy to support the color field -->
-					<BlogTag label={tag} color="#19D645" />
+					<BlogTag label={tag.label} color={tag.accentColor} text={tag.textColor} />
 				{/each}
 			</div>
 		{/if}
