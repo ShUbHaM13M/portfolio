@@ -6,7 +6,7 @@ export const parseProjects = (frontmatter: any): Project => {
 		name: frontmatter.name,
 		description: frontmatter.description,
 		images: frontmatter.images
-			? frontmatter.images.map((image: string) => '/images/' + image)
+			? frontmatter.images.map((image: string) => '/images' + image)
 			: undefined,
 		githubLink: frontmatter.githubLink,
 		technologies: frontmatter.technologies
