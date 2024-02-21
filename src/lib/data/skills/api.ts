@@ -3,12 +3,12 @@ import grayMatter from 'gray-matter';
 import path from 'path';
 import { parseSkills } from './model';
 import type Skill from './model';
+import { getFileNamesFromDir } from '$lib/utils/fn';
 
 const MD_FILES_PATH = path.join(process.cwd(), 'cms/skills');
 
 export const getSkills = async (): Promise<Skill[]> => {
-	const fileNames = await fs.readdir(MD_FILES_PATH);
-	const mdFiles = fileNames.filter((fileName: string) => fileName.endsWith('.md'));
+	const mdFiles = await getFileNamesFromDir(MD_FILES_PATH, '.md');
 	mdFiles.reverse();
 
 	const items: Skill[] = [];
