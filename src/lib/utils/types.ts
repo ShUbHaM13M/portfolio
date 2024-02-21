@@ -10,6 +10,15 @@ export type PaginatedResult<T> = {
 	currentPage: number;
 };
 
+export type Project = {
+	slug: string;
+	name: string;
+	description: string;
+	images?: string[];
+	githubLink?: string;
+	technologies: CustomTag[];
+};
+
 export type Skill = {
 	icon: string;
 	index: string;
@@ -27,7 +36,7 @@ export type WorkExperience = {
 	timeFrame: string;
 	current: boolean;
 	description: string;
-	tags: Tag[];
+	tags: CustomTag[];
 };
 
 export type Image = {
@@ -35,7 +44,7 @@ export type Image = {
 	alt: string;
 };
 
-export type BlogTagType = {
+export type CustomTag = {
 	label: string;
 	accentColor: string;
 	textColor: string;
@@ -52,7 +61,7 @@ export type Blog = {
 	date: Date;
 	updated: boolean;
 	hidden: boolean;
-	tags: BlogTagType[];
+	tags: CustomTag[];
 	categories: string[];
 	readTime: number;
 };
