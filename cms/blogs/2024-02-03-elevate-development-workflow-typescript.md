@@ -11,18 +11,21 @@ updated: 2023-09-18T09:09:10.000Z
 showToc: false
 hidden: false
 tags:
-  - label: typescript
+  - label:
+      - TypeScript
     accentColor: '#4980FF'
     textColor: '#F8EDFF'
-    fieldGroup: blogTag
-  - label: productivity
+    fieldGroup: customTag
+  - label:
+      - productivity
     accentColor: '#0052FE'
     textColor: '#F8EDFF'
-    fieldGroup: blogTag
-  - accentColor: '#19D645'
-    label: beginners
+    fieldGroup: customTag
+  - label:
+      - beginners
+    accentColor: '#19D645'
     textColor: '#F8EDFF'
-    fieldGroup: blogTag
+    fieldGroup: customTag
 categories:
   - Dev
 type: Blog
