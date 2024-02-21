@@ -7,6 +7,46 @@
 	"frontMatter.framework.startCommand": "pnpm run dev",
 	"frontMatter.taxonomy.contentTypes": [
 		{
+			"name": "Project",
+			"pageBundle": false,
+			"previewPath": null,
+			"fields": [
+				{
+					"title": "Slug",
+					"name": "slug",
+					"type": "slug"
+				},
+				{
+					"title": "Name",
+					"name": "name",
+					"type": "string"
+				},
+				{
+					"title": "Description",
+					"name": "description",
+					"type": "string"
+				},
+				{
+					"title": "Images",
+					"name": "images",
+					"type": "image",
+					"multiple": true,
+					"isPreviewImage": true
+				},
+				{
+					"title": "Github Link",
+					"name": "githubLink",
+					"type": "string"
+				},
+				{
+					"title": "Technologies",
+					"name": "technologies",
+					"type": "block",
+					"fieldGroup": ["customTag"]
+				}
+			]
+		},
+		{
 			"name": "Blog",
 			"pageBundle": false,
 			"previewPath": null,
@@ -78,7 +118,7 @@
 					"title": "Tags",
 					"name": "tags",
 					"type": "block",
-					"fieldGroup": ["blogTag"]
+					"fieldGroup": ["customTag"]
 				},
 				{
 					"title": "Categories",
@@ -130,7 +170,7 @@
 					"title": "Technologies",
 					"name": "technologies",
 					"type": "block",
-					"fieldGroup": ["coloredTag"]
+					"fieldGroup": ["customTag"]
 				}
 			]
 		},
@@ -185,43 +225,28 @@
 	],
 	"frontMatter.taxonomy.fieldGroups": [
 		{
-			"id": "coloredTag",
+			"id": "customTag",
 			"labelField": "label",
 			"fields": [
 				{
 					"title": "Label",
 					"name": "label",
-					"type": "string",
-					"single": true
+					"type": "tags",
+					"single": true,
+					"taxonomyLimit": 1
 				},
 				{
-					"title": "Color",
-					"name": "color",
-					"type": "choice",
-					"choices": ["primary", "secondary"]
-				}
-			]
-		},
-		{
-			"id": "blogTag",
-			"labelField": "label",
-			"fields": [
-				{
-					"title": "Label",
-					"name": "label",
-					"type": "string",
-					"single": true
-				},
-				{
-					"title": "Accent",
+					"title": "Accent Color",
 					"name": "accentColor",
 					"type": "string",
+					"single": true,
 					"description": "Enter color value in hex"
 				},
 				{
 					"title": "Text Color",
 					"name": "textColor",
 					"type": "string",
+					"single": true,
 					"default": "#F8EDFF",
 					"description": "Enter color value in hex"
 				}
@@ -246,6 +271,12 @@
 		{
 			"title": "Skill",
 			"path": "[[workspace]]/cms/skills",
+			"contentTypes": ["Project"],
+			"filePrefix": null
+		},
+		{
+			"title": "Project",
+			"path": "[[workspace]]/cms/projects",
 			"contentTypes": ["Project"],
 			"filePrefix": null
 		}
