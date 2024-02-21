@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BlogTag from '$lib/components/atoms/BlogTag.svelte';
+	import Tag from '$lib/components/atoms/Tag.svelte';
 	import BlogUserProfile from '$lib/components/molecules/BlogUserProfile.svelte';
 	import Markdown from '$lib/components/molecules/Markdown.svelte';
 	import type { Blog } from '$lib/utils/types';
@@ -29,7 +29,7 @@
 		{#if blog.tags.length}
 			<div class="flex gap-2">
 				{#each blog.tags as tag}
-					<BlogTag label={tag.label} color={tag.accentColor} text={tag.textColor} />
+					<Tag label={tag.label} color={tag.accentColor} text={tag.textColor} showHash />
 				{/each}
 			</div>
 		{/if}
