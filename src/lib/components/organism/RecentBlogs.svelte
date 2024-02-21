@@ -19,7 +19,12 @@
 	</slot>
 	<div class="flex flex-col flex-wrap md:flex-row gap-4 mt-6 md:mt-8">
 		{#each blogs as blog}
-			<BlogPostCard {...blog} />
+			<BlogPostCard
+				title={blog.title}
+				excerpt={blog.excerpt}
+				slug={blog.slug}
+				coverImage={blog.coverImage}
+			/>
 		{/each}
 	</div>
 	<Button
