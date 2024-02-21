@@ -3,8 +3,9 @@ import grayMatter from 'gray-matter';
 import path from 'path';
 import { parseBlogs } from './model';
 import type { Blog, PaginatedResult } from '$lib/utils/types';
+import { getFileNamesFromDir, paginate } from '$lib/utils/fn';
 
-const MAX_BLOGS_PER_PAGE = 12;
+const MAX_BLOGS_PER_PAGE = 9;
 const MD_FILES_PATH = path.join(process.cwd(), 'cms/blogs');
 
 export const getBlogs = async (
@@ -12,15 +13,14 @@ export const getBlogs = async (
 	count?: number,
 	showHidden = false
 ): Promise<PaginatedResult<Blog>> => {
-	const fileNames = await fs.readdir(MD_FILES_PATH);
-	let mdFiles = fileNames.filter((fileName: string) => fileName.endsWith('.md'));
+	let mdFiles = await getFileNamesFromDir(MD_FILES_PATH, '.md');
 	mdFiles.reverse();
 
 	if (!showHidden) {
 		mdFiles = mdFiles.filter((item) => !item.endsWith('--hidden.md'));
 	}
 
-	const paginatedBlogs = paginate(mdFiles, page, count);
+	const paginatedBlogs = paginate(mdFiles, page, count, MAX_BLOGS_PER_PAGE);
 
 	const blogs: Blog[] = [];
 
@@ -51,12 +51,4 @@ export const getAllSlugs = async (): Promise<string[]> => {
 		file.split('-').slice(3).join('-').replace('.md', '').replace('--hidden', '')
 	);
 	return slugs;
-};
-
-const paginate = (items: string[], page?: number, count?: number): string[] => {
-	const pageSize = count ?? MAX_BLOGS_PER_PAGE;
-	const startIndex = page ? (page - 1) * pageSize : 0;
-	const endIndex = page ? page * pageSize : count ?? 9999;
-	const paginatedItems = items.slice(startIndex, endIndex);
-	return paginatedItems;
 };
