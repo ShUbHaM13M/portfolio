@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WorkExperience } from '$lib/utils/types';
+	import Tag from '../atoms/Tag.svelte';
 
 	export let additionalClass: string = '';
 	export let work: WorkExperience;
@@ -17,9 +18,12 @@
 
 	<div class="flex gap-1 md:gap-2 mt-4 md:mt-auto">
 		{#each work.tags as tag}
-			<div class="bg-blue-500 rounded-md px-2 py-1">
-				{tag.label}
-			</div>
+			<Tag
+				color={tag.accentColor}
+				label={tag.label}
+				text={tag.textColor}
+				highlightOnHover={false}
+			/>
 		{/each}
 	</div>
 </div>
