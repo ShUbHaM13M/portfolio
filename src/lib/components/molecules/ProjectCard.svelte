@@ -1,62 +1,57 @@
 <script lang="ts" context="module">
 	import type { SvelteComponent } from 'svelte';
+	import type { CustomTag } from '$lib/utils/types';
 	export type Link = {
 		href: string;
 		icon: typeof SvelteComponent;
 	};
-
-	export type Tag = {
-		text: string;
-		backgroundColor?: string;
-		color: string;
-	};
 </script>
 
 <script lang="ts">
+	import Tag from '../atoms/Tag.svelte';
+
 	export let imageUrl: string | undefined = undefined;
-	export let title: string = '';
+	export let name: string = '';
 	export let excerpt: string = '';
 	export let link: Link | undefined = undefined;
 
 	export let containerClasses: string | undefined = undefined;
-	export let tags: Tag[] = [];
+	export let tags: CustomTag[] = [];
 </script>
 
 <div
-	class={`project-card flex flex-col gap-2 md:gap-4 p-4 md:p-6 text-white rounded-lg bg-header transition-all ease-out duration-300 ${containerClasses}`}
+	class={`container project-card flex flex-col gap-4 p-4 py-5 text-white rounded-lg bg-card transition-all ease-out duration-300 ${containerClasses}`}
 >
 	{#if imageUrl}
 		<img
 			class="project-card-image aspect-video w-full rounded-md"
 			src={imageUrl}
-			alt={`Screenshot of ${title}`}
+			alt={`Screenshot of ${name}`}
 		/>
 	{/if}
 	<div class="flex justify-between items-center">
-		<p class="font-medium text-2xl leading-8">{title}</p>
+		<h3 class="font-medium text-2xl leading-6">{name}</h3>
 		{#if link}
 			<a href={link.href} target="_blank">
 				<svelte:component this={link.icon} classes="h-7 w-7" />
 			</a>
 		{/if}
 	</div>
-	<p style="--number-of-lines: 2" class="text-base sm:text-xl leading-5 sm:leading-6 clamp-lines">
+	<p class="text-lg leading-tight line-clamp-3">
 		{excerpt}
 	</p>
-	<div class="flex flex-wrap gap-2">
-		<!-- TODO: Add textColor when backgroundColor is not provided    -->
-		{#each tags.slice(0, 3) as tag}
-			<div
-				style={`
-					color: ${tag.color};
-					background-color: ${tag.backgroundColor};
-				`}
-				class="grid place-items-center text-sm md:text-base py-1 md:py-2 px-4 md:px-6 rounded-full capitalize font-bold"
-			>
-				{tag.text}
-			</div>
-		{/each}
-	</div>
+	{#if tags}
+		<div class="flex flex-wrap gap-2">
+			{#each tags.slice(0, 3) as tag}
+				<Tag
+					label={tag.label}
+					text={tag.textColor}
+					color={tag.accentColor}
+					highlightOnHover={false}
+				/>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style lang="postcss" scoped>
