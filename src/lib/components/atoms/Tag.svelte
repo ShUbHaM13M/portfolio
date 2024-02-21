@@ -4,6 +4,8 @@
 	export let label = '';
 	export let color = '';
 	export let text = '#F8EDFF';
+	export let showHash = false;
+	export let highlightOnHover = true;
 
 	let colorRGB = {
 		r: 0,
@@ -34,16 +36,27 @@
 		color: ${text};
 	`}
 	href={`/blog/${label}`}
+	class:highlightOnHover
 	class="py-1 px-1.5 rounded-md border-2 border-transparent transition-colors ease-out duration-300"
 >
-	<span style={`color: ${getRgbaString(colorRGB)}`}>#</span>
+	{#if showHash}
+		<span style={`color: ${getRgbaString(colorRGB)}`}>#</span>
+	{/if}
 	{label}
 </a>
 
-<style lang="postcss" scoped>
-	a:hover,
-	a:focus-visible {
-		border-color: var(--hover-color);
-		background-color: var(--hover-color);
+<style scoped>
+	a {
+		--current-color: var(--hover-color);
+		border-color: var(--current-color);
+		background-color: var(--current-color);
+	}
+	a.highlightOnHover {
+		--current-color: transparent;
+	}
+	a.highlightOnHover:hover,
+	a.highlightOnHover:focus-visible {
+		--current-color: var(--hover-color);
+		--current-color: var(--hover-color);
 	}
 </style>
