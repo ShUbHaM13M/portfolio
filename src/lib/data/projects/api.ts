@@ -22,7 +22,7 @@ export const getProjects = async (
 	for (const mdFile of paginatedProjects) {
 		const fileContent = await fs.readFile(`${MD_FILES_PATH}/${mdFile}`, 'utf-8');
 		const parsedData = grayMatter(fileContent);
-		projects.push(parseProjects(parsedData.data));
+		projects.push(parseProjects(parsedData.data, parsedData.content));
 	}
 
 	return {
@@ -31,4 +31,15 @@ export const getProjects = async (
 		totalPages: Math.ceil(mdFiles.length / (count ?? MAX_PROJECTS_PER_PAGE)),
 		currentPage: page ?? 1
 	};
+};
+
+export const getProjectBySlug = async (slug: string): Promise<Project | null> => {
+	const projects = await getProjects();
+	return projects.items?.find((project) => project.slug === slug) ?? null;
+};
+
+export const getAllProjectSlugs = async () => {
+	const files = await getFileNamesFromDir(MD_FILES_PATH, '.md');
+	const slugs = files.map((file) => file.replace('.md', ''));
+	return slugs;
 };

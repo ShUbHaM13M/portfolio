@@ -17,6 +17,7 @@ export type Project = {
 	images?: string[];
 	githubLink?: string;
 	technologies: CustomTag[];
+	content?: string;
 };
 
 export type Skill = {

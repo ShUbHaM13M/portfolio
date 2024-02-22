@@ -1,6 +1,6 @@
 import type { Project } from '$lib/utils/types';
 
-export const parseProjects = (frontmatter: any): Project => {
+export const parseProjects = (frontmatter: any, content: string): Project => {
 	return {
 		slug: frontmatter.slug,
 		name: frontmatter.name,
@@ -9,6 +9,7 @@ export const parseProjects = (frontmatter: any): Project => {
 			? frontmatter.images.map((image: string) => '/images' + image)
 			: undefined,
 		githubLink: frontmatter.githubLink,
-		technologies: frontmatter.technologies
+		technologies: frontmatter.technologies,
+		content
 	};
 };
