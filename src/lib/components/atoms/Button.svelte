@@ -40,7 +40,7 @@
 		@apply bg-accent text-primary;
 	}
 	.outlined {
-		outline: 1px solid theme(colors.accent);
-		@apply text-accent hover:bg-accent focus-visible:bg-accent hover:text-primary focus-visible:text-primary;
+		@apply text-white bg-accent bg-opacity-30 hover:bg-opacity-40 backdrop-blur-md border-2 border-accent border-opacity-20
+		focus:outline-none focus-visible:bg-accent;
 	}
 </style>
