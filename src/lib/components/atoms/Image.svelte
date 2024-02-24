@@ -57,7 +57,7 @@
 				loading={lazy ? 'lazy' : 'eager'}
 				decoding="async"
 			/>
-			<figcaption class="mt-4 text-center text-base text-subtitle">{@html figcaption}</figcaption>
+			<figcaption class="mt-4 text-center text-base text-current">{@html figcaption}</figcaption>
 		</figure>
 	{:else}
 		<img

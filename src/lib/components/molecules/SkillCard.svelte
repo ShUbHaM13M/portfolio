@@ -11,14 +11,13 @@
 </script>
 
 <div
-	class={`skill-card relative text-white flex flex-col flex-1 gap-4 
-	p-6 sm:py-10 sm:pt-14 rounded-lg bg-[#343F52] 
+	class={`skill-card relative text-primary dark:text-white flex flex-col flex-1 gap-4 
+	p-6 sm:py-10 sm:pt-14 rounded-lg bg-card-light dark:bg-card
 	hover:scale-105
-	transition-transform ease-out duration-300
-	${containerClasses}`}
+	transition-transform ease-out duration-300 ${containerClasses}`}
 >
 	<span
-		class="absolute right-4 top-0 font-bold text-7xl opacity-5 pointer-events-none"
+		class="absolute right-4 top-0 font-bold text-7xl opacity-10 dark:opacity-5 pointer-events-none"
 		role="presentation">{index}</span
 	>
 	<div class="flex flex-col sm:flex-row gap-2 md:gap-4">
@@ -28,7 +27,7 @@
 	<div style="grid-template-columns: auto 1fr;" class="grid gap-4 items-center">
 		<div
 			role="presentation"
-			class="tag pointer-events-none flex flex-col gap-1 h-full font-extrabold opacity-20 text-white transition-opacity ease-out duration-300"
+			class="tag pointer-events-none flex flex-col gap-1 h-full font-extrabold text-primary opacity-40 dark:opacity-20 dark:text-white transition-opacity ease-out duration-300"
 		>
 			<span>{tagBegin}</span>
 			<div class="border h-full w-px border-dashed border-current border-opacity-50 ml-1"></div>
@@ -40,14 +39,21 @@
 	</div>
 </div>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 	.tag * {
 		@apply transition-colors ease-out duration-300;
 	}
 	.skill-card:hover .tag {
 		& * {
-			color: #19d645;
-			border-color: #19d645;
+			color: theme(colors.accent-light);
+			border-color: theme(colors.accent-light);
+		}
+		opacity: 100%;
+	}
+	html[data-theme='dark'] .skill-card:hover .tag {
+		& * {
+			color: theme(colors.accent);
+			border-color: theme(colors.accent);
 		}
 		opacity: 100%;
 	}

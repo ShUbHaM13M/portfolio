@@ -7,11 +7,11 @@
 </script>
 
 <a
-	class="min-h-full flex-1 block rounded-lg overflow-hidden transition-shadow ease-out duration-300"
+	class="blog-card min-h-full flex-1 block rounded-lg overflow-hidden transition-shadow ease-out duration-300"
 	href={`/${slug}`}
 >
 	<div
-		class="container p-4 py-5 flex min-h-full flex-col gap-4 bg-card text-white pointer-events-none"
+		class="container p-4 py-5 flex min-h-full flex-col gap-4 bg-neutral-200 dark:bg-card text-primary dark:text-white pointer-events-none"
 	>
 		{#if coverImage}
 			<img
@@ -29,6 +29,10 @@
 <style lang="postcss" scoped>
 	a:hover,
 	a:focus {
+		box-shadow: 0 0 4px 8px theme('colors.accent-light' / 20%);
+		outline: none;
+	}
+	:global(html[data-theme='dark'] .blog-card:hover) {
 		box-shadow: 0 0 4px 8px theme('colors.accent' / 10%);
 		outline: none;
 	}

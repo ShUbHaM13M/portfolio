@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
@@ -10,6 +10,13 @@
 			href="https://fonts.googleapis.com/css2?family=Podkova:wght@400;500;600;700;800&family=Short+Stack&family=Fira+Code:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
+
+		<!-- Get user preferred theme on load -->
+		<script>
+			const theme = localStorage.getItem('sm-theme') || 'none';
+			document.firstElementChild?.setAttribute('data-theme', theme);
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

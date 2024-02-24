@@ -18,4 +18,9 @@
 	}
 </script>
 
-<Image src={href} alt={text} figcaption={title} additionalClasses="rounded-xl" />
+<Image
+	src={href}
+	alt={text}
+	figcaption={title}
+	additionalClasses="rounded-xl text-slate-600 dark:text-subtitle"
+/>

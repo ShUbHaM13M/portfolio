@@ -11,7 +11,7 @@ html.smooth-scroll {
 }
 
 body {
-	@apply bg-primary;
+	@apply bg-light-white text-primary dark:bg-primary dark:text-secondary;
 	font-family: 'Podkova', serif;
 }
 
@@ -70,7 +70,7 @@ main {
 
 @layer utilities {
 	.bg-checkered {
-		background: url('/bg.png');
+		background-image: url('/bg.png');
 	}
 }
 
@@ -246,4 +246,13 @@ body.custom-cursor:hover #cursor {
 	body.custom-cursor * {
 		cursor: none !important;
 	}
+}
+
+.icon-link {
+	@apply text-primary dark:text-white transition-all ease-out duration-300;
+	/* TODO: Fix all the icons hover state */
+}
+.icon-link:hover,
+.icon-link:focus {
+	@apply text-accent-light dark:text-accent;
 }

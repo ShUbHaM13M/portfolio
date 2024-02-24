@@ -3,8 +3,8 @@
 	export let date: string = '';
 </script>
 
-<div class="flex gap-3 md:gap-4 items-center text-white">
-	<div class="bg-white rounded-full overflow-hidden">
+<div class="flex gap-3 md:gap-4 items-center text-primary dark:text-white">
+	<div class="bg-primary bg-opacity-40 dark:bg-white rounded-full overflow-hidden">
 		<img
 			title="Shubham Maurya - Portrait made by Luo"
 			class="size-12 md:size-14 aspect-square"

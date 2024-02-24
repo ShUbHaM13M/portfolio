@@ -34,11 +34,10 @@
 	title={label}
 	style={`
 		--hover-color: ${getRgbaString(colorRGB, 0.2)};
-		color: ${text};
 	`}
 	href={`/${linkPrefix}/${label}`}
 	class:highlightOnHover
-	class="py-1 px-1.5 rounded-md border-2 border-transparent transition-colors ease-out duration-300"
+	class="py-1 px-1.5 rounded-md border-2 text-primary dark:text-white border-transparent transition-colors ease-out duration-300"
 >
 	{#if showHash}
 		<span style={`color: ${getRgbaString(colorRGB)}`}>#</span>

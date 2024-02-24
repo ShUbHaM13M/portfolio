@@ -29,4 +29,5 @@
 	--color-tag: #8caaee;
 	--color-named-entity: #e78284;
 	--color-macro-property: #8caaee;
+	color: theme(colors.white);
 }

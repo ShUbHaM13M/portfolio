@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import NavLink from '$lib/components/atoms/NavLink.svelte';
 	import { onDestroy } from 'svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 
 	export let links: {
 		href: string;
@@ -40,16 +41,16 @@
 />
 
 <div class="lines flex flex-col gap-1.5 justify-center">
-	<span class="sm:hidden block line bg-white w-8 h-1 rounded-full one" />
-	<span class="sm:hidden block line bg-white w-8 h-1 rounded-full two" />
-	<span class="sm:hidden block line bg-white w-8 h-1 rounded-full three" />
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full one" />
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full two" />
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full three" />
 </div>
 
 <!-- TODO: Staggered transition when animating the links -->
 <div
 	id="menu"
 	class="absolute flex flex-col gap-4 px-4 py-6
-	h-screen w-screen bg-primary inset-0 top-full translate-x-full transition-transform duration-300 ease-out z-40
+	h-screen w-screen bg-zinc-50 dark:bg-primary inset-0 top-full translate-x-full transition-transform duration-300 ease-out z-40
 	text-xl"
 >
 	{#each links as link, index}
@@ -60,6 +61,9 @@
 			on:click={handleOnLinkClick}
 		/>
 	{/each}
+
+	<ThemeToggle />
+
 	<div
 		class:hidden={activeSectionIndex < 0}
 		style={`--offset: ${activeSectionIndex}`}
@@ -70,12 +74,12 @@
 <style lang="postcss">
 	@screen sm {
 		#menu {
-			@apply static pl-10 px-6 py-0 h-auto w-full flex-row bg-transparent translate-x-0 justify-center transition-none text-lg;
+			@apply static pl-10 py-0 h-auto w-full flex-row bg-transparent translate-x-0 justify-center transition-none text-lg;
 		}
 		.indicator {
 			@apply hidden;
 		}
-		:global(#menu > .navlink:nth-last-child(2)) {
+		:global(#menu > .navlink:nth-last-child(3)) {
 			@apply ml-auto;
 		}
 	}

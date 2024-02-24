@@ -13,17 +13,17 @@
 		<p>Mumbai, India</p>
 	</div>
 	<div class="flex gap-1 items-center">
-		<IconMail classes="h-6 w-6 text-accent" />
+		<IconMail classes="h-6 w-6 text-accent-light dark:text-accent" />
 		<a href="mailto:shubham.heeralal@gmail.com?subject=Let’s Discuss about My Exciting Project!">
 			shubham.heeralal@gmail.com
 		</a>
 	</div>
 	<div class="flex gap-1 items-center">
-		<IconPhone classes="h-6 w-6 text-accent" />
+		<IconPhone classes="h-6 w-6 text-accent-light dark:text-accent" />
 		<a href="tel:+919004890938">+91 9004890938</a>
 	</div>
 	<div class="flex gap-1 items-center">
-		<IconGithub classes="h-6 w-6 text-accent" />
+		<IconGithub classes="h-6 w-6 text-accent-light dark:text-accent" />
 		<a href="https://www.github.com/ShUbHaM13M" target="_blank">Github Profile</a>
 	</div>
 	<div class="flex gap-1 items-center">
@@ -31,7 +31,7 @@
 		<p>English, Hindi</p>
 	</div>
 	<div class="flex gap-1 items-center">
-		<IconLinkedIn classes="h-6 w-6 text-accent" />
+		<IconLinkedIn classes="h-6 w-6 text-accent-light dark:text-accent" />
 		<a href="https://linkedin.com/in/shubham-maurya-37b7491a3/" target="_blank">
 			LinkedIn Profile
 		</a>

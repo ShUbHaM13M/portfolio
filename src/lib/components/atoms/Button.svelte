@@ -37,10 +37,10 @@
 
 <style lang="postcss" scoped>
 	.filled {
-		@apply bg-accent text-primary;
+		@apply bg-accent-light dark:bg-accent text-white dark:text-primary;
 	}
 	.outlined {
-		@apply text-white bg-accent bg-opacity-30 hover:bg-opacity-40 backdrop-blur-md border-2 border-accent border-opacity-20
-		focus:outline-none focus-visible:bg-accent;
+		@apply text-primary dark:text-white bg-accent-light dark:bg-accent bg-opacity-30 dark:bg-opacity-30 hover:bg-opacity-40 backdrop-blur-md border-2 border-accent-light dark:border-accent border-opacity-20 dark:border-opacity-20
+		focus:outline-none dark:focus-visible:bg-accent focus-visible:bg-accent-light;
 	}
 </style>

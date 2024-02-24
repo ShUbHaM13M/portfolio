@@ -5,7 +5,7 @@
 </script>
 
 <section {...$$restProps} class={`px-6 md:pl-20 pt-10 min-h-screen ${additionalClass}`}>
-	<h1 class="font-short-stack mt-2 text-white text-4xl sm:text-6xl">{title}</h1>
+	<h1 class="font-short-stack mt-2 text-primary dark:text-white text-4xl sm:text-6xl">{title}</h1>
 	{#if $$slots.description}
 		<slot name="description" />
 	{:else}

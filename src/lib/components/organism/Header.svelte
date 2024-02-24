@@ -39,7 +39,7 @@
 
 <header
 	bind:this={navbar}
-	class="fixed w-full max-w-full lg:max-w-[94%] lg:rounded-2xl p-6 py-6 lg:px-7 lg:py-4 flex items-center backdrop-blur-xl lg:mt-6 lg:left-2/4 lg:-translate-x-2/4 transition-all ease-out duration-300 z-50 bg-header"
+	class="fixed w-full max-w-full lg:max-w-[94%] lg:rounded-2xl p-6 py-6 lg:px-7 lg:py-4 flex items-center backdrop-blur-xl lg:mt-6 lg:left-2/4 lg:-translate-x-2/4 transition-all ease-out duration-300 z-50 dark:bg-slate-200 dark:bg-opacity-10 bg-opacity-10 bg-primary"
 >
 	<nav class="flex w-full justify-between">
 		<a href="/" aria-label="Site logo" on:click={onLogoClick}>
@@ -55,7 +55,7 @@
 		view-transition-name: header;
 	}
 	header:has(#menuToggle:checked) {
-		@apply bg-primary;
+		@apply bg-zinc-50 dark:bg-primary;
 	}
 	:global(header.hide) {
 		@apply -translate-y-full;

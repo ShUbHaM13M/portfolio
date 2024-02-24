@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class={`container flex flex-1 flex-col gap-4 p-4 py-5 bg-card text-white rounded-lg ${additionalClass}`}
+	class={`container flex flex-1 flex-col gap-4 p-4 py-5 bg-card-light dark:bg-card text-primary dark:text-white rounded-lg ${additionalClass}`}
 >
 	<div>
 		<p class="font-extrabold text-2xl md:text-3xl">{work.company}</p>

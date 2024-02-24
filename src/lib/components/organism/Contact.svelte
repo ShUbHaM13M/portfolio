@@ -13,16 +13,16 @@
 	additionalClass="flex flex-col gap-0 min-h-screen md:pr-20 pb-10"
 >
 	<slot name="description">
-		<h2 class="leading-6 sm:leading-10 text-subtitle text-lg md:text-2xl mt-4">
+		<h2 class="leading-6 sm:leading-10 text-gray-600 dark:text-subtitle text-lg md:text-2xl mt-4">
 			I am open to full-time, or contract work and actively seeking freelance opportunities,
 			particularly those that involves ambitious or large-scale projects.
 		</h2>
-		<h2 class="leading-6 sm:leading-10 text-subtitle text-lg md:text-2xl">
+		<h2 class="leading-6 sm:leading-10 text-gray-600 dark:text-subtitle text-lg md:text-2xl">
 			If you have any other requests or questions, please feel free to reach out. I am open to
 			exploring various types of collaborations and would be thrilled to discuss how I can
 			contribute to your project.
 		</h2>
-		<span class="text-accent text-2xl md:text-3xl font-medium mt-2">
+		<span class="text-accent-light dark:text-accent text-2xl md:text-3xl font-medium mt-2">
 			Let's connect and bring your ideas to life!
 		</span>
 	</slot>
@@ -44,13 +44,3 @@
 		</a>
 	</div>
 </Section>
-
-<style lang="postcss">
-	:global(.icon-link) {
-		@apply text-white transition-all ease-out duration-300;
-		/* TODO: Fix all the icons hover state */
-	}
-	:global(.icon-link:hover, .icon-link:focus) {
-		@apply text-accent;
-	}
-</style>
