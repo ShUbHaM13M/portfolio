@@ -1,0 +1,12 @@
+{
+	"builds": [
+		{
+			"src": "sveltekit.config.js",
+			"use": "@sveltejs/kit"
+		}
+	],
+	"version": 2,
+	"scripts": {
+		"postbuild": "./scripts/postbuild.sh"
+	}
+}
