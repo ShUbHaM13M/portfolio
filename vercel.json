@@ -1,12 +1,6 @@
 {
-	"builds": [
-		{
-			"src": "sveltekit.config.js",
-			"use": "@sveltejs/kit"
-		}
-	],
+	"$schema": "https://openapi.vercel.sh/vercel.json",
 	"version": 2,
-	"scripts": {
-		"postbuild": "./scripts/postbuild.sh"
-	}
+	"buildCommand": "pnpm run build && pnpm run postbuild",
+	"framework": "sveltekit"
 }
