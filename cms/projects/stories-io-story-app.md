@@ -3,7 +3,7 @@ slug: stories-io-story-app
 name: Stories.io - Story App
 description: Stories.io is a React Native app that connect with an expressjs server, allows users to browse, create, change and delete their stories stores on a mongoDb database. Users can like and comments on other user's stories and also set their stories as private
 images:
-  - /projects/stories.io/stories.io-home.png
+  - /projects/stories-io/stories-io-home.png
 githubLink: https://www.github.com
 technologies:
   - label:
