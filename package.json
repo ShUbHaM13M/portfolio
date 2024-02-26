@@ -13,7 +13,7 @@
 		"story:dev": "histoire dev",
 		"story:build": "histoire build",
 		"story:preview": "histoire preview",
-		"optimize-images": "image-transmutation --run --sourceFolder '.vercel/output/static/images' --targetFolder '.vercel/output/static/images' --inputFormats 'jpg' --inputFormats 'jpeg' --inputFormats 'png' --outputFormats 'png' --outputFormats 'webp' --outputFormats 'avif'",
+		"optimize-images": "image-transmutation --run --sourceFolder '.vercel/output/static/images' --targetFolder '.vercel/output/static/images' --inputFormats 'jpg' --inputFormats 'jpeg' --inputFormats 'png' --inputFormats 'svg' --outputFormats 'png' --outputFormats 'webp' --outputFormats 'avif' --outputFormats 'svg'",
 		"postbuild": "pnpm run optimize-images"
 	},
 	"devDependencies": {

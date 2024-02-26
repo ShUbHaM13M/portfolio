@@ -11,6 +11,7 @@
 			class="size-12 md:size-14 aspect-square"
 			src="/shubham.png"
 			alt="Shubham Maurya - Portrait made by Luo"
+			formats={['avif', 'png', 'webp', 'svg']}
 		/>
 	</div>
 	<div class="flex flex-col md:gap-1">
