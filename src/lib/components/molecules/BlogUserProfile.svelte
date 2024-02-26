@@ -9,7 +9,7 @@
 		<Image
 			title="Shubham Maurya - Portrait made by Luo"
 			class="size-12 md:size-14 aspect-square"
-			src="/shubham.png"
+			src="/images/shubham.png"
 			alt="Shubham Maurya - Portrait made by Luo"
 			formats={['avif', 'png', 'webp', 'svg']}
 		/>
