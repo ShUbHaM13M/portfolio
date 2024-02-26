@@ -48,9 +48,9 @@
 
 {#if src}
 	{#if figcaption}
-		<figure class={additionalClasses} {...$$restProps}>
+		<figure class={`w-full h-full object-cover ${additionalClasses}`} {...$$restProps}>
 			<img
-				class="rounded-xl"
+				class="mx-auto rounded-xl"
 				{srcset}
 				{src}
 				{alt}
@@ -64,19 +64,10 @@
 			{srcset}
 			{src}
 			{alt}
-			class={additionalClasses}
+			class={`w-full h-full object-cover ${additionalClasses}`}
 			loading={lazy ? 'lazy' : 'eager'}
 			decoding="async"
 			{...$$restProps}
 		/>
 	{/if}
 {/if}
-
-<style>
-	img,
-	figure {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-</style>

@@ -1,7 +1,8 @@
 <script lang="ts">
-	import type { Image } from '$lib/utils/types';
+	import type { Image as ImageType } from '$lib/utils/types';
+	import Image from '$lib/components/atoms/Image.svelte';
 	export let slug: string;
-	export let coverImage: Image | undefined = undefined;
+	export let coverImage: ImageType | undefined = undefined;
 	export let title: string;
 	export let excerpt: string;
 </script>
@@ -14,7 +15,7 @@
 		class="container p-4 py-5 flex min-h-full flex-col gap-4 bg-neutral-200 dark:bg-card text-primary dark:text-white pointer-events-none"
 	>
 		{#if coverImage}
-			<img
+			<Image
 				style="max-width: 350px"
 				class="max-w-full w-full object-cover aspect-video rounded-md"
 				src={coverImage.src}
