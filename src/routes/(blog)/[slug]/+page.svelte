@@ -4,18 +4,32 @@
 	import BlogUserProfile from '$lib/components/molecules/BlogUserProfile.svelte';
 	import Markdown from '$lib/components/molecules/Markdown.svelte';
 	import type { Blog } from '$lib/utils/types';
+	import { onMount } from 'svelte';
 	export let data: { blog: Blog };
 	$: ({ blog } = data);
+
+	let canvas: HTMLCanvasElement;
+
+	onMount(() => {
+		if (!blog?.coverImage) return;
+		const headerImage = document.getElementById(`${blog.slug}-header`) as HTMLImageElement;
+		const ctx = canvas.getContext('2d');
+		canvas.height = headerImage.height;
+		canvas.width = headerImage.width;
+		ctx?.drawImage(headerImage, 0, 0);
+	});
 </script>
 
 {#key blog}
 	{#if blog?.coverImage}
 		<Image
+			id={`${blog.slug}-header`}
 			role="presentation"
 			class="cover-image w-full object-cover -z-10"
 			src={blog.coverImage.src}
 			alt={blog.coverImage.alt}
 		/>
+		<canvas bind:this={canvas} class="size-10" />
 	{/if}
 	<div
 		class:has-cover-image={!!blog.coverImage}
