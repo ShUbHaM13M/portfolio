@@ -6,6 +6,8 @@
 	function toggleTheme() {
 		if ($theme === 'light') {
 			theme.set('dark');
+		} else if ($theme === 'dark') {
+			theme.set(null);
 		} else {
 			theme.set('light');
 		}
@@ -21,6 +23,7 @@
 </noscript>
 
 <button class="theme-toggle" type="button" on:click={toggleTheme}>
+	<!--TODO: Icon animation? and auto  -->
 	{#if $theme === 'light'}
 		<IconLightMode classes="size-8" />
 	{:else}
