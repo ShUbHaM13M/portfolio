@@ -2,7 +2,6 @@
 	import type { Project } from '$lib/utils/types';
 
 	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
-	import Header from '$lib/components/organism/Header.svelte';
 
 	export let data: { project: Project };
 	$: ({ project } = data);
@@ -29,7 +28,7 @@
 
 		<link rel="cannonical" href="{siteBaseUrl}/{project.slug}" />
 
-		<name>{project.name} - {title}</name>
+		<!-- <name>{project.name} - {title}</name> -->
 		<meta property="og:name" content="{project.name} - {title}" />
 		<meta property="twitter:title" content="{project.name} - {title}" />
 
@@ -49,7 +48,7 @@
 </svelte:head>
 
 {#if project}
-	<main class="bg-checkered pt-[75px] pb-6 md:pt-0">
+	<section class="mt-0 bg-checkered pt-[75px] pb-6 md:pt-px min-h-screen">
 		<slot />
-	</main>
+	</section>
 {/if}

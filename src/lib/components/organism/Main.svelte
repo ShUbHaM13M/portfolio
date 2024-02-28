@@ -3,7 +3,7 @@
 	import Section from '../atoms/Section.svelte';
 </script>
 
-<Section id="sectionMain" additionalClass="bg-checkered mt-20">
+<Section id="sectionMain" additionalClass="bg-checkered pt-28">
 	<div style="max-width: 900px;" class="flex flex-col">
 		<span class="text-accent-light dark:text-accent text-2xl font-medium">Hi, I'm</span>
 		<h1
