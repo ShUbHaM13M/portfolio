@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
 	import type { SvelteComponent } from 'svelte';
-	import type { CustomTag } from '$lib/utils/types';
 	export type Link = {
 		href: string;
 		icon: typeof SvelteComponent;
@@ -8,6 +7,7 @@
 </script>
 
 <script lang="ts">
+	import Image from '$lib/components/atoms/Image.svelte';
 	export let slug: string;
 	export let imageUrl: string | undefined = undefined;
 	export let name: string = '';
@@ -22,8 +22,8 @@
 		class={`container project-card h-full flex flex-col gap-4 p-4 py-5 text-primary dark:text-white rounded-lg bg-card-light dark:bg-card transition-all ease-out duration-300 ${containerClasses}`}
 	>
 		{#if imageUrl}
-			<img
-				class="project-card-image aspect-video w-full rounded-md object-top"
+			<Image
+				class="project-card-image aspect-video w-full rounded-md object-cover object-top"
 				src={imageUrl}
 				alt={`Screenshot of ${name}`}
 			/>

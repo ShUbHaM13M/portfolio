@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Image from '$lib/components/atoms/Image.svelte';
 	import Tag from '$lib/components/atoms/Tag.svelte';
 	import BlogUserProfile from '$lib/components/molecules/BlogUserProfile.svelte';
 	import Markdown from '$lib/components/molecules/Markdown.svelte';
@@ -9,7 +10,7 @@
 
 {#key blog}
 	{#if blog?.coverImage}
-		<img
+		<Image
 			role="presentation"
 			class="cover-image w-full object-cover -z-10"
 			src={blog.coverImage.src}

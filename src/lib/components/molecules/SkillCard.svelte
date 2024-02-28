@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Image from '$lib/components/atoms/Image.svelte';
+
 	export let index: string = '';
 	export let icon: string = '';
 	export let title: string = '';
@@ -21,7 +23,12 @@
 		role="presentation">{index}</span
 	>
 	<div class="flex flex-col sm:flex-row gap-2 md:gap-4">
-		<img class="skill-icon" src={icon} alt={`${title} icon`} />
+		<Image
+			class="skill-icon"
+			src={icon}
+			alt={`${title} icon`}
+			formats={['avif', 'png', 'webp', 'svg']}
+		/>
 		<p class="font-medium text-2xl sm:text-3xl max-w-16 md:max-w-24 leading-8">{title}</p>
 	</div>
 	<div style="grid-template-columns: auto 1fr;" class="grid gap-4 items-center">
