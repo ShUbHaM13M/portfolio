@@ -4,7 +4,10 @@
 	export let text = '';
 </script>
 
-<div class:active class="navlink relative text-white transition-all ease-out duration-200">
+<div
+	class:active
+	class="navlink relative text-primary dark:text-white transition-all ease-out duration-200"
+>
 	<a {href} class="px-4 py-0.5 text-inherit w-full block" on:click>
 		{text}
 	</a>
@@ -20,7 +23,7 @@
 			@apply ml-auto;
 		}
 		.navlink.active {
-			@apply translate-x-0 text-accent;
+			@apply translate-x-0 text-accent-light dark:text-accent font-medium;
 		}
 	}
 </style>

@@ -10,7 +10,9 @@
 
 {#key project}
 	<div
-		class="container flex flex-col mt-6 md:mt-28 lg:mt-32 md:bg-header relative text-white gap-6 md:gap-10
+		class="relative container flex flex-col mt-6 md:mt-28 lg:mt-32
+		md:bg-primary md:bg-opacity-10 md:dark:bg-header dark:bg-opacity-10
+		text-primary dark:text-white gap-6 md:gap-10
 		p-6 rounded-t-xl md:mx-auto md:w-11/12 md:rounded-xl h-full
 		backdrop-blur-md md:backdrop-blur-lg md:border md:border-white md:border-opacity-20"
 	>

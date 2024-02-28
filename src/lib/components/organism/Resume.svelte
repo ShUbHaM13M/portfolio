@@ -1,22 +1,22 @@
 <script lang="ts">
 	// TODO: Add a profile photo in the resume
 	import type WorkExperience from '$lib/data/work-experiences/model';
-	export let theme: 'light' | 'dark' = 'dark';
 	import ResumeQuickLinks from '../resume/ResumeQuickLinks.svelte';
 	import ResumeSection from '../resume/ResumeSection.svelte';
 	import ResumeSkills from '../resume/ResumeSkills.svelte';
 	import ResumeWorkExperience from '../resume/ResumeWorkExperience.svelte';
 	import ResumeEducation from '../resume/ResumeEducation.svelte';
+
 	export let workExperience: WorkExperience[] = [];
 </script>
 
 <section
 	id="resume"
-	class={`flex flex-col gap-6 sm:gap-12 p-4 sm:py-10 sm:px-12 rounded-md transition-colors ease-out duration-300 bg-checkered ${theme}`}
+	class={`flex flex-col gap-6 sm:gap-12 p-4 sm:py-10 sm:px-12 rounded-md transition-colors ease-out duration-300 bg-light-white bg-checkered text-primary dark:bg-primary dark:text-secondary`}
 >
 	<div class="flex flex-col gap-1 sm:gap-2">
 		<h1 class="font-bold text-4xl sm:text-5xl">Shubham Maurya</h1>
-		<h2 class="text-accent text-xl sm:htext-3xl">Software Developer</h2>
+		<h2 class="text-accent-light dark:text-accent text-xl sm:text-3xl">Software Developer</h2>
 		<ResumeQuickLinks />
 	</div>
 	<div class="flex flex-col md:flex-row gap-10">
@@ -40,12 +40,6 @@
 </section>
 
 <style lang="postcss">
-	:global(#resume.dark) {
-		@apply bg-primary text-secondary;
-	}
-	:global(#resume.light) {
-		@apply bg-white text-primary;
-	}
 	:global(#resume *) {
 		@apply transition-colors ease-out duration-300;
 	}

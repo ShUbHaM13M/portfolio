@@ -86,7 +86,7 @@
 <div
 	id="cursor"
 	bind:this={cursor}
-	class={`fixed inset-0 border-2 border-accent border-opacity-30 z-50 opacity-0 transition-opacity pointer-events-none grid place-items-center ${interactingElementType} transition-all ease-out duration-300`}
+	class={`fixed inset-0 border-2 border-accent-light border-opacity-30 dark:border-accent dark:border-opacity-30 z-50 opacity-0 transition-opacity pointer-events-none grid place-items-center ${interactingElementType} transition-all ease-out duration-300`}
 	style={`--size: ${size}px`}
 >
 	<!-- TODO: Better indicator using svg elements -->
@@ -96,13 +96,13 @@
 		</div>
 	{:else}
 		<div
-			class={`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-1/6 h-1/6 rounded-full bg-opacity-80 bg-accent transition-all ease-out duration-300 ${interactingElementType}`}
+			class={`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-1/6 h-1/6 rounded-full bg-opacity-80 bg-accent-light dark:bg-accent transition-all ease-out duration-300 ${interactingElementType}`}
 			transition:scale={{ duration: 350 }}
 		></div>
 		<div
 			style="height: 6%"
-			class={`w-1/2 rounded-full bg-white transition-all ease-out duration-300 bg-opacity-0 ${
-				interactingElementType === 'link' ? 'bg-opacity-80' : ''
+			class={`w-1/2 rounded-full bg-primary dark:bg-white transition-all ease-out duration-300 bg-opacity-0 dark:bg-opacity-0 ${
+				interactingElementType === 'link' ? 'bg-opacity-80 dark:bg-opacity-80' : ''
 			}`}
 		></div>
 	{/if}
@@ -110,17 +110,17 @@
 
 <style lang="postcss">
 	#cursor.text {
-		@apply border-white border-opacity-30;
+		@apply border-primary border-opacity-30 dark:border-white dark:border-opacity-30;
 	}
 	#cursor.link {
-		@apply border-white border-opacity-30;
+		@apply border-primary border-opacity-30 dark:border-white dark:border-opacity-30;
 	}
 	#cursor .text {
-		@apply h-2/4 bg-white bg-opacity-60;
+		@apply h-2/4 bg-primary bg-opacity-60 dark:bg-white dark:bg-opacity-60;
 	}
 	#cursor .link {
 		width: 6%;
-		@apply h-2/4 bg-white;
+		@apply h-2/4 bg-primary dark:bg-white;
 	}
 	#cursor .action {
 		@apply h-1/4 w-1/4;

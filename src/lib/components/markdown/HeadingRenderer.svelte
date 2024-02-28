@@ -15,7 +15,7 @@
 	const fullUrl = `${$page.url.origin}${$page.url.pathname}#${slug}`;
 </script>
 
-<svelte:element this={element} id={slug} class="text-white">
+<svelte:element this={element} id={slug} class="text-primary dark:text-white">
 	{text}
 </svelte:element>
 

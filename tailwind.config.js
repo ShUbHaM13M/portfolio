@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
+	darkMode: [
+		'variant',
+		['@media (prefers-color-scheme: dark) { &:not(.light *) }', '&:is([data-theme="dark"] *)']
+	],
 	theme: {
 		extend: {
 			colors: {
@@ -8,10 +12,13 @@ export default {
 				subtitle: '#8892AF',
 				secondary: '#CDD1DA',
 				white: '#F8EDFF',
+				'light-white': '#F8F8F8',
 				accent: '#19D645',
+				'accent-light': '#0066CC',
 				grey: '#131418',
 				header: 'rgba(237, 237, 237, 0.18)',
-				card: '#343F52'
+				card: '#343F52',
+				'card-light': '#E7E7E7'
 			},
 			fontFamily: {
 				podkova: ['Podkova', 'serif'],

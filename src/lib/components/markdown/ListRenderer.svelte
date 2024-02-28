@@ -14,14 +14,14 @@
 
 <svelte:element
 	this={ordered ? 'ol' : 'ul'}
-	class={`text-white ${ordered ? 'ordered-list' : 'flex flex-col gap-1'}`}
+	class={`text-current ${ordered ? 'ordered-list' : 'flex flex-col gap-1'}`}
 >
 	{#each items as item}
 		<li class="flex gap-1.5 md:gap-2.5 items-center">
 			{#if item.task}
 				<IconCheck checked={item.checked} />
 			{:else if !ordered}
-				<div class="h-3 w-3 rounded-full bg-accent"></div>
+				<div class="h-3 w-3 rounded-full bg-accent-light dark:bg-accent"></div>
 			{/if}
 			{item.text}
 		</li>
