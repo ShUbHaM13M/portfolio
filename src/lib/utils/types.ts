@@ -3,6 +3,10 @@ export type Tag = {
 	color?: 'primary' | 'secondary' | string;
 };
 
+export type Palette = {
+	[key: string]: number[];
+};
+
 export type PaginatedResult<T> = {
 	items: T[];
 	totalItems: number;

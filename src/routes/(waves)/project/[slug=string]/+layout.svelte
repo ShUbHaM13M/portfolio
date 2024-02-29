@@ -1,10 +1,15 @@
 <script lang="ts">
-	import type { Project } from '$lib/utils/types';
+	import type { Palette, Project } from '$lib/utils/types';
 
 	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
+	import { swatch } from '$lib/stores/swatch';
 
-	export let data: { project: Project };
+	export let data: { project: Project; colours?: Palette };
 	$: ({ project } = data);
+
+	if (data.colours) {
+		swatch.set(data.colours);
+	}
 
 	let metaKeywords = keywords;
 

@@ -41,18 +41,18 @@
 {/key}
 
 <style lang="postcss">
-	.cover-image {
+	:global(.cover-image) {
 		max-height: 300px;
 		height: 30vh;
 	}
 	@screen md {
-		.cover-image {
+		:global(.cover-image) {
 			max-height: 30vh;
 			height: 30vh;
 		}
 	}
 	@screen lg {
-		.cover-image {
+		:global(.cover-image) {
 			max-height: 60vh;
 			height: 60vh;
 		}
