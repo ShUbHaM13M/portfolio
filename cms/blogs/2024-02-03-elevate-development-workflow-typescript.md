@@ -2,7 +2,7 @@
 slug: elevate-development-workflow-typescript
 title: Elevate Your Development Workflow with TypeScript
 excerpt: Introduction to Typescript in Development
-coverImage: /blogs/elevate-your-development-workflow-with-typescript/cover.avif
+coverImage: /blogs/elevate-your-development-workflow-with-typescript/cover.png
 coverImageAlt: Typescript
 showImage: true
 socialImage: ''
@@ -68,7 +68,11 @@ type Question = {
 A normal input for short-answer, a list of checkboxes for checkbox-answer, and so on.
 
 ```typescript
-type AnswerType = 'short-answer' | 'long-answer' | 'radio-answer' | 'checkbox-answer';
+type AnswerType 
+	= 'short-answer' 
+	| 'long-answer' 
+	| 'radio-answer' 
+	| 'checkbox-answer';
 ```
 
 ---
