@@ -3,6 +3,7 @@
 	import Cursor from '$lib/components/atoms/Cursor.svelte';
 	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { swatch } from '$lib/stores/swatch';
 
 	let root: HTMLElement;
 	onMount(() => {
@@ -11,6 +12,7 @@
 	});
 
 	beforeNavigate(() => {
+		swatch.set(null);
 		root.classList.remove('smooth-scroll');
 	});
 
