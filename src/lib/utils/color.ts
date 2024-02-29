@@ -13,7 +13,7 @@ export function isColorDark(color: number[]) {
 	const luminance = (0.299 * r + 0.587 * g + 0.114 * b) * a;
 
 	// Choose a threshold (0.5 is a common value)
-	const threshold = 0.5;
+	const threshold = a === 1 ? 0.5 : 0.2;
 
 	// Compare luminance to the threshold
 	return luminance <= threshold;
