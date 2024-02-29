@@ -1,12 +1,17 @@
 <script lang="ts">
-	import type { Blog } from '$lib/utils/types';
+	import type { Blog, Palette } from '$lib/utils/types';
 	import Header from '$lib/components/organism/Header.svelte';
-	export let data: { blog: Blog; colours?: any };
+	export let data: { blog: Blog; colours?: Palette };
 	import '$lib/themes/codeblock/frappe.css';
+	import { swatch } from '$lib/stores/swatch';
 
 	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
 
 	$: ({ blog } = data);
+
+	if (data.colours) {
+		swatch.set(data.colours);
+	}
 
 	let metaKeywords = keywords;
 
@@ -51,12 +56,7 @@
 </svelte:head>
 
 {#if blog}
-	<Header
-		colours={{
-			bg: data.colours?.vibrant,
-			bgDark: data.colours?.lightVibrant
-		}}
-	/>
+	<Header />
 	<main
 		class="bg-checkered pt-[75px] pb-6 md:pt-px bg-light-white backdrop-brightness-50 dark:bg-primary dark:backdrop-brightness-100 bg-top"
 	>
