@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Blog } from '$lib/utils/types';
 	import Header from '$lib/components/organism/Header.svelte';
-	export let data: { blog: Blog };
+	export let data: { blog: Blog; colours?: any };
 	import '$lib/themes/codeblock/frappe.css';
 
 	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
@@ -51,7 +51,12 @@
 </svelte:head>
 
 {#if blog}
-	<Header />
+	<Header
+		colours={{
+			bg: data.colours?.vibrant,
+			bgDark: data.colours?.lightVibrant
+		}}
+	/>
 	<main
 		class="bg-checkered pt-[75px] pb-6 md:pt-px bg-light-white backdrop-brightness-50 dark:bg-primary dark:backdrop-brightness-100 bg-top"
 	>
