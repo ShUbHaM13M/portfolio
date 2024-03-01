@@ -68,10 +68,9 @@
 	@screen sm {
 		.image-container {
 			min-width: 0;
-			max-height: 100%;
 		}
 		:global(.image-container img) {
-			max-height: auto;
+			max-height: 100%;
 		}
 	}
 </style>
