@@ -60,9 +60,7 @@
 	<div class="code-block p-4 md:p-6 text-base md:text-xl rounded-b-xl">
 		{#if code}
 			{#if lang}
-				<pre
-					style="--scrollbar-bg-color: transparent"
-					class={`language-${lang} overflow-x-auto font-fira-code`}>{@html Prism.highlight(
+				<pre class={`language-${lang} overflow-x-auto font-fira-code`}>{@html Prism.highlight(
 						code,
 						prism.languages[lang],
 						lang
