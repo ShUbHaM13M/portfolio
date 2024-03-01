@@ -3,6 +3,8 @@
 	import IconLightMode from '$lib/icons/IconLightMode.svelte';
 	import IconDarkMode from '$lib/icons/IconDarkMode.svelte';
 
+	export let extraClasses: string = '';
+
 	function toggleTheme() {
 		if ($theme === 'light') {
 			theme.set('dark');
@@ -22,7 +24,7 @@
 	</style>
 </noscript>
 
-<button class="theme-toggle" type="button" on:click={toggleTheme}>
+<button class={`theme-toggle ${extraClasses}`} type="button" on:click={toggleTheme}>
 	<!--TODO: Icon animation? and auto  -->
 	{#if $theme === 'light'}
 		<IconLightMode classes="size-8" />

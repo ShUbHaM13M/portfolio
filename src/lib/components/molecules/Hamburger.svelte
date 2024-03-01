@@ -54,20 +54,31 @@
 	text-xl"
 >
 	{#each links as link, index}
-		<NavLink
-			active={index === activeSectionIndex}
-			href={link.href}
-			text={link.text}
-			on:click={handleOnLinkClick}
-		/>
+		{#if index < links.length - 1}
+			<NavLink
+				active={index === activeSectionIndex}
+				href={link.href}
+				text={link.text}
+				on:click={handleOnLinkClick}
+			/>
+		{:else}
+			<div>
+				<NavLink
+					active={index === activeSectionIndex}
+					href={link.href}
+					text={link.text}
+					on:click={handleOnLinkClick}
+				/>
+			</div>
+		{/if}
 	{/each}
 
-	<ThemeToggle />
+	<ThemeToggle extraClasses="pl-4 sm:pl-0" />
 
 	<div
 		class:hidden={activeSectionIndex < 0}
 		style={`--offset: ${activeSectionIndex}`}
-		class="indicator absolute left-8 top-6 h-8 w-1 rounded-full bg-accent transition-transform ease-out duration-200"
+		class="indicator absolute left-8 top-6 h-8 w-1 rounded-full bg-accent-light dark:bg-accent transition-transform ease-out duration-200"
 	></div>
 </div>
 
@@ -117,7 +128,7 @@
 		@apply translate-x-0;
 	}
 
-	:global(main:has(#menuToggle:checked)) {
+	:global(body:has(#menuToggle:checked)) {
 		overflow: hidden;
 	}
 </style>

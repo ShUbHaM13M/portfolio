@@ -15,7 +15,7 @@
 		@apply translate-x-4;
 	}
 	@screen sm {
-		.navlink:last-child,
+		:global(div:has(.navlink)),
 		.navlink:first-child {
 			@apply ml-auto;
 		}
