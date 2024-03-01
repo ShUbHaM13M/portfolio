@@ -1,5 +1,8 @@
 .frappe {
-	/* TODO: Add scrollbar based on theme */
+	--color-scrollbar-shadow: #232634;
+	--color-scrollbar-background-active: #41455966;
+	--color-scrollbar-background: #62688080;
+	--color-scrollbar-thumb: #737994;
 	--color-titlebar: #232634;
 	--color-keyword: #81c8be;
 	--color-classname: #df8e1d;
