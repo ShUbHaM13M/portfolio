@@ -20,12 +20,11 @@
 			{project.name}
 		</h1>
 		{#if project.technologies.length}
-			<div class="flex gap-2">
+			<div class="flex flex-wrap gap-2">
 				{#each project.technologies as tag}
 					<Tag
 						label={tag.label}
 						color={tag.accentColor}
-						text={tag.textColor}
 						linkPrefix="project/category"
 						highlightOnHover={false}
 					/>
