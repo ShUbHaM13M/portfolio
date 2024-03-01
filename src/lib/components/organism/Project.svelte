@@ -2,7 +2,6 @@
 	import Section from '$lib/components/atoms/Section.svelte';
 	import ProjectCard from '$lib/components/molecules/ProjectCard.svelte';
 
-	// TODO: Rendering project links
 	import type { Project as ProjectType } from '$lib/utils/types';
 
 	export let projects: ProjectType[] = [];

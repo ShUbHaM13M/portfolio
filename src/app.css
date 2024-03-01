@@ -304,7 +304,6 @@ body.custom-cursor:hover #cursor {
 
 .icon-link {
 	@apply text-primary dark:text-white transition-all ease-out duration-300;
-	/* TODO: Fix all the icons hover state */
 }
 .icon-link:hover,
 .icon-link:focus {

@@ -89,7 +89,6 @@
 	class={`fixed inset-0 border-2 border-accent-light border-opacity-30 dark:border-accent dark:border-opacity-30 z-50 opacity-0 transition-opacity pointer-events-none grid place-items-center ${interactingElementType} transition-all ease-out duration-300`}
 	style={`--size: ${size}px`}
 >
-	<!-- TODO: Better indicator using svg elements -->
 	{#if interactingElementType === 'video'}
 		<div transition:scale={{ duration: 350 }}>
 			<IconPlay />
