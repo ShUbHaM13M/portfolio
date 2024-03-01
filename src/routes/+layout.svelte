@@ -4,6 +4,8 @@
 	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { swatch } from '$lib/stores/swatch';
+	import { navigating } from '$app/stores';
+	import Loader from '$lib/components/atoms/Loader.svelte';
 
 	let root: HTMLElement;
 	onMount(() => {
@@ -37,3 +39,7 @@
 <slot />
 
 <Cursor />
+
+{#if $navigating}
+	<Loader />
+{/if}

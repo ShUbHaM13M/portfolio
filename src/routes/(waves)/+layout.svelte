@@ -1,5 +1,4 @@
 <script>
-	import Cursor from '$lib/components/atoms/Cursor.svelte';
 	import Header from '$lib/components/organism/Header.svelte';
 </script>
 
