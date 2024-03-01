@@ -17,11 +17,14 @@
 	class={`text-current ${ordered ? 'ordered-list' : 'flex flex-col gap-1'}`}
 >
 	{#each items as item}
-		<li class="flex gap-1.5 md:gap-2.5 items-center">
+		<li class="flex gap-1.5 md:gap-2.5 items-start">
 			{#if item.task}
 				<IconCheck checked={item.checked} />
 			{:else if !ordered}
-				<div class="h-3 w-3 rounded-full bg-accent-light dark:bg-accent"></div>
+				<div
+					style="min-height: 0.75rem; min-width: 0.75rem"
+					class="size-3 mt-1.5 rounded-full bg-accent-light dark:bg-accent"
+				></div>
 			{/if}
 			{item.text}
 		</li>
