@@ -1,6 +1,6 @@
 <script lang="ts">
+	import Image from '$lib/components/atoms/Image.svelte';
 	import Tag from '$lib/components/atoms/Tag.svelte';
-	import Carousel from '$lib/components/molecules/Carousel.svelte';
 	import Markdown from '$lib/components/molecules/Markdown.svelte';
 	import type { Project } from '$lib/utils/types';
 
@@ -31,9 +31,22 @@
 				{/each}
 			</div>
 		{/if}
+
 		{#if project.images}
-			<Carousel images={project.images} />
+			<div class="flex sm:flex-wrap gap-4 align-center overflow-x-auto w-full">
+				{#each project.images as image, index}
+					<div class="image-container w-fit sm:w-80 h-fit sm:h-96 pb-4 sm:pb-0">
+						<!-- TODO: Add support for image alt -->
+						<Image
+							src={image}
+							alt=""
+							additionalClasses="h-auto max-w-full w-full object-contain rounded-lg object-top"
+						/>
+					</div>
+				{/each}
+			</div>
 		{/if}
+
 		{#if project.content}
 			<div class="markdown-content flex flex-col gap-6 md:gap-10">
 				<Markdown content={project.content} />
@@ -41,3 +54,24 @@
 		{/if}
 	</div>
 {/key}
+
+<style lang="postcss">
+	.image-container::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+	.image-container {
+		min-width: 90%;
+	}
+	:global(.image-container img) {
+		max-height: 60svh;
+	}
+	@screen sm {
+		.image-container {
+			min-width: 0;
+			max-height: 100%;
+		}
+		:global(.image-container img) {
+			max-height: auto;
+		}
+	}
+</style>
