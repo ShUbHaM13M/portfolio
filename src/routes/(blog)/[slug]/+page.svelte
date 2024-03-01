@@ -28,9 +28,9 @@
 			{blog.title}
 		</h1>
 		{#if blog.tags.length}
-			<div class="flex gap-2">
+			<div class="flex flex-wrap gap-2">
 				{#each blog.tags as tag}
-					<Tag label={tag.label} color={tag.accentColor} text={tag.textColor} showHash />
+					<Tag label={tag.label} color={tag.accentColor} showHash />
 				{/each}
 			</div>
 		{/if}

@@ -3,7 +3,6 @@
 
 	export let label = '';
 	export let color = '';
-	export let text = '#F8EDFF';
 	export let showHash = false;
 	export let highlightOnHover = true;
 	export let linkPrefix: string = 'blog';
@@ -34,6 +33,7 @@
 	title={label}
 	style={`
 		--hover-color: ${getRgbaString(colorRGB, 0.2)};
+		min-width: fit-content;
 	`}
 	href={`/${linkPrefix}/${label}`}
 	class:highlightOnHover
