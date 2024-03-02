@@ -33,7 +33,7 @@
 
 <div
 	transition:fade={{ easing: expoOut }}
-	class="loader fixed inset-0 bg-primary bg-opacity-40 dark:bg-opacity-40 w-screen h-screen grid place-items-center"
+	class="loader fixed backdrop-blur-md inset-0 bg-primary bg-opacity-60 dark:bg-opacity-40 w-screen h-screen grid place-items-center"
 >
 	<svg
 		style="transform: scale({$scale})"

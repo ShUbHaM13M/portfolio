@@ -58,7 +58,7 @@
 			<IconCopy {copied} />
 		</button>
 	</div>
-	<div class="code-block p-4 md:p-6 text-base md:text-lg rounded-b-xl">
+	<div class="code-block p-4 md:p-6 text-lg md:text-xl rounded-b-xl">
 		{#if code}
 			{#if lang}
 				<pre class={`language-${lang} overflow-x-auto font-fira-code`}>{@html Prism.highlight(
