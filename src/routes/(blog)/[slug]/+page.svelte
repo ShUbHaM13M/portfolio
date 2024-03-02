@@ -34,7 +34,7 @@
 				{/each}
 			</div>
 		{/if}
-		<div class="markdown-content flex flex-col gap-6 md:gap-10">
+		<div class="markdown-content flex flex-col gap-6">
 			<Markdown content={blog.content} />
 		</div>
 	</div>
@@ -62,14 +62,5 @@
 	}
 	.container.has-cover-image {
 		@apply -mt-6 md:-mt-16 dark:bg-slate-200 dark:bg-opacity-10;
-	}
-	:global(.markdown-content > *) {
-		/* @apply mt-10; */
-	}
-	:global(.markdown-content > p) {
-		@apply text-base md:text-2xl;
-	}
-	:global(.markdown-content > p + p) {
-		@apply mt-0;
 	}
 </style>

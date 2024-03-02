@@ -3,6 +3,7 @@
 	import Tag from '$lib/components/atoms/Tag.svelte';
 	import Markdown from '$lib/components/molecules/Markdown.svelte';
 	import type { Project } from '$lib/utils/types';
+	import '$lib/themes/codeblock/frappe.css';
 
 	export let data: { project: Project };
 	$: ({ project } = data);
@@ -48,7 +49,7 @@
 		{/if}
 
 		{#if project.content}
-			<div class="markdown-content flex flex-col gap-6 md:gap-10">
+			<div class="markdown-content flex flex-col gap-6">
 				<Markdown content={project.content} />
 			</div>
 		{/if}

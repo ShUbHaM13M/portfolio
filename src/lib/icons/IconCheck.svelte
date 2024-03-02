@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let size: number = 20;
 	export let checked: boolean = false;
+	export let classes: string = '';
 </script>
 
 <svg
@@ -9,6 +10,7 @@
 	viewBox="0 0 20 20"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
+	class={classes}
 >
 	<rect
 		x="0.75"

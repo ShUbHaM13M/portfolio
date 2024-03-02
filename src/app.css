@@ -327,3 +327,10 @@ body.custom-cursor:hover #cursor {
 .order-2 {
 	order: 2;
 }
+
+.markdown-content > p {
+	@apply text-base md:text-lg;
+}
+.markdown-content > p + p {
+	@apply mt-0;
+}

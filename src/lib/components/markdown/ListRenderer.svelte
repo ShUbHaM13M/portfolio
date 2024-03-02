@@ -14,12 +14,12 @@
 
 <svelte:element
 	this={ordered ? 'ol' : 'ul'}
-	class={`text-current ${ordered ? 'ordered-list' : 'flex flex-col gap-1'}`}
+	class={`text-current text-base md:text-lg ${ordered ? 'ordered-list' : 'flex flex-col gap-1'}`}
 >
 	{#each items as item}
 		<li class="flex gap-1.5 md:gap-2.5 items-start">
 			{#if item.task}
-				<IconCheck checked={item.checked} />
+				<IconCheck checked={item.checked} classes="mt-1" />
 			{:else if !ordered}
 				<div
 					style="min-height: 0.75rem; min-width: 0.75rem"

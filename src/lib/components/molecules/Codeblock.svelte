@@ -10,6 +10,7 @@
 	import 'prismjs/components/prism-markdown';
 	import 'prismjs/components/prism-rust';
 	import 'prismjs/components/prism-c';
+	import 'prismjs/components/prism-dart';
 
 	import 'prism-svelte';
 	import type { CodeBlockTheme } from '$lib/utils/types';
@@ -57,7 +58,7 @@
 			<IconCopy {copied} />
 		</button>
 	</div>
-	<div class="code-block p-4 md:p-6 text-base md:text-xl rounded-b-xl">
+	<div class="code-block p-4 md:p-6 text-base md:text-lg rounded-b-xl">
 		{#if code}
 			{#if lang}
 				<pre class={`language-${lang} overflow-x-auto font-fira-code`}>{@html Prism.highlight(
