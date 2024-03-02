@@ -4,6 +4,7 @@
 	import Markdown from '$lib/components/molecules/Markdown.svelte';
 	import type { Project } from '$lib/utils/types';
 	import '$lib/themes/codeblock/frappe.css';
+	import IconGithub from '$lib/icons/IconGithub.svelte';
 
 	export let data: { project: Project };
 	$: ({ project } = data);
@@ -17,9 +18,16 @@
 		p-6 rounded-t-xl md:mx-auto md:w-11/12 md:rounded-xl h-full
 		backdrop-blur-md md:backdrop-blur-lg md:border md:border-white md:border-opacity-20"
 	>
-		<h1 class="leading-tight md:leading-none text-[28px] md:text-[42px] font-bold">
-			{project.name}
-		</h1>
+		<div class="flex flex-col sm:flex-row justify-between">
+			<h1 class="leading-tight md:leading-none text-[28px] md:text-[42px] font-bold">
+				{project.name}
+			</h1>
+			{#if project.githubLink}
+				<a target="_blank" rel="noopener noreferrer" href={project.githubLink}>
+					<IconGithub classes="icon-link size-9 md:size-12 opacity-100" />
+				</a>
+			{/if}
+		</div>
 		{#if project.technologies.length}
 			<div class="flex flex-wrap gap-2">
 				{#each project.technologies as tag}
