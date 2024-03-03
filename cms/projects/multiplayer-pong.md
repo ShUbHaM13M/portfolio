@@ -22,3 +22,10 @@ technologies:
     fieldGroup: customTag
 type: Project
 ---
+
+### Multiplayer Pong
+
+- [ ] TODO: Push latest changes to Github
+
+Its Pong but multiplayer.  
+It uses pygame for managing window and rendering. And uses UDP sockets for synchronizing data between clients
