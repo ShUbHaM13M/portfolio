@@ -2,9 +2,9 @@
 slug: opensource-contribution
 title: Opensource Contribution
 excerpt: A guide to open source contribution
-coverImage: ''
-coverImageAlt: ''
-showImage: false
+coverImage: /blogs/opensource-contribution/Open-source-contribution-cover.png
+coverImageAlt: 'Open-source contribution cover'
+showImage: true
 socialImage: ''
 date: 2023-11-14T09:13:33.000Z
 updated: 2023-11-14T09:13:33.000Z
