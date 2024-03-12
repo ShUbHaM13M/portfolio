@@ -42,7 +42,7 @@ And a link to deployed version - [boids](https://shubham13m.github.io/boids?show
 
 References:  
 [wikipedia](https://en.wikipedia.org/wiki/Boids)  
-[vanhunderadams.com](https://vanhunteradams.com/Pico/Animal_Movement/Boids-algorithm.html)
+[vanhunteradams.com](https://vanhunteradams.com/Pico/Animal_Movement/Boids-algorithm.html)
 
 Todos:
 
