@@ -11,6 +11,7 @@
 	import 'prismjs/components/prism-rust';
 	import 'prismjs/components/prism-c';
 	import 'prismjs/components/prism-dart';
+	import 'prismjs/components/prism-toml';
 
 	import 'prism-svelte';
 	import type { CodeBlockTheme } from '$lib/utils/types';
