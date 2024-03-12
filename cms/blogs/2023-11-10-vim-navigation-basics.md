@@ -2,7 +2,8 @@
 slug: vim-navigation-basics
 title: Vim 'navigation' basics
 excerpt: Learn the basics of navigating with VIM
-coverImage:
+coverImage: /blogs/vim-navigation-basics/Vim-navigation-basics-cover.png
+coverImageAlt: Vim Navitation Basics cover
 showImage: true
 date: 2023-09-10
 updated: null
