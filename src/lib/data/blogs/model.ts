@@ -1,4 +1,4 @@
-import type { Blog } from '$lib/utils/types';
+import { ArticleType, Blog } from '$lib/utils/types';
 
 const WORD_REGEX = /\b\S+\b/g;
 const AVERAGE_WPM = 225;
@@ -17,15 +17,15 @@ export function parseBlogs(frontmatter: any, content: string): Blog {
 		content,
 		coverImage: frontmatter.coverImage
 			? {
-				src: '/images' + frontmatter.coverImage,
-				alt: frontmatter.coverImageAlt
-			}
+					src: '/images' + frontmatter.coverImage,
+					alt: frontmatter.coverImageAlt
+				}
 			: undefined,
 		socialImage: frontmatter.socialImage
 			? {
-				src: '/images' + frontmatter.socialImage,
-				alt: ''
-			}
+					src: '/images' + frontmatter.socialImage,
+					alt: ''
+				}
 			: undefined,
 		date: frontmatter.date,
 		excerpt: frontmatter.excerpt,
@@ -34,6 +34,7 @@ export function parseBlogs(frontmatter: any, content: string): Blog {
 		tags: frontmatter.tags,
 		updated: frontmatter.updated,
 		categories: frontmatter.categories,
-		readTime: getReadTime(content)
+		readTime: getReadTime(content),
+		type: ArticleType.blog
 	};
 }
