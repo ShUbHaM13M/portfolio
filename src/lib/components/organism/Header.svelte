@@ -66,7 +66,12 @@
 	class="fixed w-full max-w-full lg:max-w-[94%] lg:rounded-2xl p-6 py-6 lg:px-7 lg:py-4 flex items-center backdrop-blur-xl lg:mt-6 lg:left-2/4 lg:-translate-x-2/4 transition-all ease-out duration-300 z-50 dark:bg-slate-200 dark:bg-opacity-10 bg-opacity-10 bg-primary text-primary dark:text-white"
 >
 	<nav class="flex w-full justify-between">
-		<a href="/" aria-label="Site logo" on:click={onLogoClick}>
+		<a
+			href="/"
+			aria-label="Site logo"
+			on:click={onLogoClick}
+			class="grid place-items-center hover:rotate-180 focus-visible:rotate-180 transition-transform ease-out duration-300 focus-visible:outline-none"
+		>
 			<Logo />
 		</a>
 
