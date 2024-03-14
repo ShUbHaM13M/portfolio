@@ -5,7 +5,6 @@
 	export let color = '';
 	export let showHash = false;
 	export let highlightOnHover = true;
-	export let linkPrefix: string = 'blog';
 
 	let colorRGB = {
 		r: 0,
@@ -35,7 +34,7 @@
 		--hover-color: ${getRgbaString(colorRGB, 0.2)};
 		min-width: fit-content;
 	`}
-	href={`/${linkPrefix}/${label}`}
+	href={`/category/${label.toLowerCase()}`}
 	class:highlightOnHover
 	class="py-1 px-1.5 rounded-md border-2 text-primary dark:text-white border-transparent transition-colors ease-out duration-300"
 >

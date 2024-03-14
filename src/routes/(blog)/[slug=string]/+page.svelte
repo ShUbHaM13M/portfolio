@@ -80,7 +80,7 @@
 		{#if blog.tags.length}
 			<div class="flex flex-wrap gap-2">
 				{#each blog.tags as tag}
-					<Tag label={tag.label} color={tag.accentColor} showHash />
+					<Tag label={tag.label[0]} color={tag.accentColor} showHash />
 				{/each}
 			</div>
 		{/if}

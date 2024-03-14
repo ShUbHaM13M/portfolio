@@ -1,4 +1,4 @@
-import type { Project } from '$lib/utils/types';
+import { ArticleType, Project } from '$lib/utils/types';
 
 export const parseProjects = (frontmatter: any, content: string): Project => {
 	return {
@@ -10,6 +10,7 @@ export const parseProjects = (frontmatter: any, content: string): Project => {
 			: undefined,
 		githubLink: frontmatter.githubLink,
 		technologies: frontmatter.technologies,
-		content
+		content,
+		type: ArticleType.project
 	};
 };

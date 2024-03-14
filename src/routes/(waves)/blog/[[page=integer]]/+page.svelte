@@ -30,8 +30,8 @@
 						class={`px-4 w-fit py-2 text-xl rounded-md transition-colors ease-out duration-300
 						${
 							currentPage === index + 1
-								? 'bg-accent text-primary font-semibold'
-								: 'text-accent bg-transparent outline outline-1 outline-accent font-medium hover:bg-accent hover:bg-opacity-20'
+								? 'bg-accent-light dark:bg-accent text-white dark:text-primary font-semibold'
+								: 'text-accent-light dark:text-accent bg-transparent outline outline-1 outline-accent-light dark:outline-accent font-medium hover:bg-accent-light hover:bg-opacity-20 dark:hover:bg-accent dark:hover:bg-opacity-20'
 						}`}
 					>
 						{index + 1}

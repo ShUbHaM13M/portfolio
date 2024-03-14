@@ -3,6 +3,11 @@ export type Tag = {
 	color?: 'primary' | 'secondary' | string;
 };
 
+export enum ArticleType {
+	'project',
+	'blog'
+}
+
 export type Palette = {
 	[key: string]: number[];
 };
@@ -22,6 +27,7 @@ export type Project = {
 	githubLink?: string;
 	technologies: CustomTag[];
 	content?: string;
+	type: ArticleType.project;
 };
 
 export type Skill = {
@@ -50,7 +56,7 @@ export type Image = {
 };
 
 export type CustomTag = {
-	label: string;
+	label: string[];
 	accentColor: string;
 	textColor: string;
 };
@@ -69,6 +75,7 @@ export type Blog = {
 	tags: CustomTag[];
 	categories: string[];
 	readTime: number;
+	type: ArticleType.blog;
 };
 
 export type CodeBlockTheme = 'frappe' | 'machiato' | 'latte';

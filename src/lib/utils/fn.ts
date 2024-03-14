@@ -13,15 +13,15 @@ export async function getFileNamesFromDir(
 	return fileNames;
 }
 
-export const paginate = (
-	items: string[],
+export function paginate<T>(
+	items: T[],
 	page?: number,
 	count?: number,
 	max: number = MAX_PER_PAGE
-): string[] => {
+): T[] {
 	const pageSize = count ?? max;
 	const startIndex = page ? (page - 1) * pageSize : 0;
 	const endIndex = page ? page * pageSize : count ?? 9999;
 	const paginatedItems = items.slice(startIndex, endIndex);
 	return paginatedItems;
-};
+}
