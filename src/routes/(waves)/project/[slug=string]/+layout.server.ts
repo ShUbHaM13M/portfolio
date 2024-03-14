@@ -1,16 +1,20 @@
 import { getProjectBySlug } from '$lib/data/projects/api.js';
 import type { Project } from '$lib/utils/types.js';
+import { error } from '@sveltejs/kit';
 import Vibrant from 'node-vibrant';
 
 export async function load({ params, fetch }) {
 	const { slug } = params;
 	if (!slug) {
-		return { status: 404 };
+		error(404, 'Slug Not found');
 	}
 
 	const project = await getProjectBySlug(slug);
+	if (!project) {
+		error(404, 'Project not found, maybe I am still working on this');
+	}
 	const response: {
-		project: Project | null;
+		project: Project;
 		colours?: { [key: string]: number[] };
 	} = {
 		project
