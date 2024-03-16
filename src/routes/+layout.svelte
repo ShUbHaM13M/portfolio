@@ -6,6 +6,7 @@
 	import { swatch } from '$lib/stores/swatch';
 	import { navigating } from '$app/stores';
 	import Loader from '$lib/components/atoms/Loader.svelte';
+	import ScrollToTop from '$lib/components/atoms/ScrollToTop.svelte';
 
 	let root: HTMLElement;
 	onMount(() => {
@@ -39,6 +40,7 @@
 <slot />
 
 <Cursor />
+<ScrollToTop />
 
 {#if $navigating}
 	<Loader />
