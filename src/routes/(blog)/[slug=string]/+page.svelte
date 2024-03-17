@@ -31,7 +31,7 @@
 		const shareableData: ShareData = {
 			title: blog.title,
 			text: blog.excerpt,
-			url: `${siteBaseUrl}/blog/${blog.slug}`
+			url: `${siteBaseUrl}/${blog.slug}`
 		};
 		canShare = navigator.canShare(shareableData);
 		if (canShare) {
