@@ -46,6 +46,4 @@ References:
 
 Todos:
 
-- [x] Add LICENSE
 - [ ] Add Readme
-- [ ] Blog about the implementation
