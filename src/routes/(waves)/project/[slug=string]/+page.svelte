@@ -35,6 +35,9 @@
 			text: project.description,
 			url: `${siteBaseUrl}/project/${project.slug}`
 		};
+		
+		if (!Object.hasOwn(navigator, 'canShare')) return;
+		
 		canShare = navigator.canShare(shareableData);
 		if (canShare) {
 			shareData = shareableData;

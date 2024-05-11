@@ -33,7 +33,10 @@
 			text: blog.excerpt,
 			url: `${siteBaseUrl}/${blog.slug}`
 		};
-		canShare = navigator.canShare(shareableData);
+
+		if (!Object.hasOwn(navigator, 'canShare')) return;
+		
+		canShare = navigator?.canShare(shareableData);
 		if (canShare) {
 			shareData = shareableData;
 		}
