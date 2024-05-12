@@ -1,9 +1,9 @@
 ---
 slug: hot-reloading-with-c
 title: Hot Reloading with C
-excerpt: Learn how to add hot reloading in a C project
+excerpt: How to add hot reloading in a C project
 coverImage: /blogs/hot-reloading-with-c/cover.png
-coverImageAlt: Vim Navitation Basics cover
+coverImageAlt: Hot reloading with C - cover
 showImage: true
 date: 2024-05-11
 updated: null
@@ -200,3 +200,13 @@ int main (void)
   }
 }
 ```
+
+TODO: Completing this blog
+
+#### Hot reloading demo with Raylib
+
+<video controls muted loading="lazy">
+  <source src="/videos/blogs/hot-reloading-with-c/raylib-test.mp4" type="video/mp4">
+  <source src="/videos/blogs/hot-reloading-with-c/raylib-test.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
