@@ -36,7 +36,7 @@
 	on:click={scrollToTop}
 	class="fixed bottom-10 right-6 hide md:right-10 ring-1 ring-accent-light dark:ring-accent hover:ring-2 focus-visible:ring-2 hover:bg-accent-light hover:bg-opacity-10 focus-visible:bg-accent-light focus-visible:bg-opacity-10
 	dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-10 dark:hover:bg-accent dark:hover:bg-opacity-10
-	rounded-full size-14 grid place-items-center transition ease-out duration-300"
+	rounded-full size-14 grid place-items-center transition ease-out duration-300 backdrop-blur-sm"
 >
 	<svg
 		width="19"
