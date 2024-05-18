@@ -19,9 +19,6 @@ devDependencies:
   '@types/fs-extra':
     specifier: ^11.0.4
     version: 11.0.4
-  '@types/prismjs':
-    specifier: ^1.26.3
-    version: 1.26.3
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.0.0
     version: 6.0.0(@typescript-eslint/parser@6.0.0)(eslint@8.56.0)(typescript@5.0.2)
@@ -73,12 +70,9 @@ devDependencies:
   prettier-plugin-svelte:
     specifier: ^3.1.2
     version: 3.1.2(prettier@3.1.1)(svelte@4.2.7)
-  prism-svelte:
-    specifier: ^0.5.0
-    version: 0.5.0
-  prismjs:
-    specifier: ^1.29.0
-    version: 1.29.0
+  shiki:
+    specifier: ^1.5.2
+    version: 1.5.2
   svelte:
     specifier: ^4.2.7
     version: 4.2.7
@@ -831,6 +825,10 @@ packages:
     dev: true
     optional: true
 
+  /@shikijs/core@1.5.2:
+    resolution: {integrity: sha512-wSAOgaz48GmhILFElMCeQypSZmj6Ru6DttOOtl3KNkdJ17ApQuGNCfzpk4cClasVrnIu45++2DBwG4LNMQAfaA==}
+    dev: true
+
   /@sveltejs/adapter-auto@3.0.0(@sveltejs/kit@2.0.0):
     resolution: {integrity: sha512-UNWSs/rOReBRfI/xFwSO2WYF1a7PT74SrWOHJmSNLY3Lq+zbH0uuvnlP+TmrTUBvOTkou3WJDjL6lK3n6aOUgQ==}
     peerDependencies:
@@ -984,10 +982,6 @@ packages:
     resolution: {integrity: sha512-+EOokTnksGVgip2PbYbr3xnR7kZigh4LbybAfBAw5BpnQ+FqBYUsvCEjYd70IXKlbohQ64mzEYmMtlWUY8q//Q==}
     dependencies:
       undici-types: 5.26.5
-    dev: true
-
-  /@types/prismjs@1.26.3:
-    resolution: {integrity: sha512-A0D0aTXvjlqJ5ZILMz3rNfDBOx9hHxLZYv2by47Sm/pqW35zzjusrZTryatjN/Rf8Us2gZrJD+KeHbUSTux1Cw==}
     dev: true
 
   /@types/pug@2.0.10:
@@ -3460,15 +3454,6 @@ packages:
     hasBin: true
     dev: true
 
-  /prism-svelte@0.5.0:
-    resolution: {integrity: sha512-db91Bf3pRGKDPz1lAqLFSJXeW13mulUJxhycysFpfXV5MIK7RgWWK2E5aPAa71s8TCzQUXxF5JOV42/iOs6QkA==}
-    dev: true
-
-  /prismjs@1.29.0:
-    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
-    engines: {node: '>=6'}
-    dev: true
-
   /process@0.11.10:
     resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
     engines: {node: '>= 0.6.0'}
@@ -3735,6 +3720,12 @@ packages:
   /shiki-es@0.2.0:
     resolution: {integrity: sha512-RbRMD+IuJJseSZljDdne9ThrUYrwBwJR04FvN4VXpfsU3MNID5VJGHLAD5je/HGThCyEKNgH+nEkSFEWKD7C3Q==}
     deprecated: Please migrate to https://github.com/antfu/shikiji
+    dev: true
+
+  /shiki@1.5.2:
+    resolution: {integrity: sha512-fpPbuSaatinmdGijE7VYUD3hxLozR3ZZ+iAx8Iy2X6REmJGyF5hQl94SgmiUNTospq346nXUVZx0035dyGvIVw==}
+    dependencies:
+      '@shikijs/core': 1.5.2
     dev: true
 
   /side-channel@1.0.5:

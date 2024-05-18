@@ -1,0 +1,8 @@
+.github-dark {
+	--color-scrollbar-shadow: #232634;
+	--color-scrollbar-background-active: #41455966;
+	--color-scrollbar-background: #62688080;
+	--color-scrollbar-thumb: #737994;
+	--color-titlebar: #1f2428;
+	--color-background: #24292e;
+}

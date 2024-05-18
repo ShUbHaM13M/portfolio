@@ -6,7 +6,6 @@
 	import Tag from '$lib/components/atoms/Tag.svelte';
 	import Markdown from '$lib/components/molecules/Markdown.svelte';
 	import type { Project } from '$lib/utils/types';
-	import '$lib/themes/codeblock/frappe.css';
 	import IconGithub from '$lib/icons/IconGithub.svelte';
 	import IconShare from '$lib/icons/IconShare.svelte';
 	import { siteBaseUrl } from '$lib/data/meta';
@@ -35,9 +34,9 @@
 			text: project.description,
 			url: `${siteBaseUrl}/project/${project.slug}`
 		};
-		
+
 		if (!Object.hasOwn(navigator, 'canShare')) return;
-		
+
 		canShare = navigator.canShare(shareableData);
 		if (canShare) {
 			shareData = shareableData;
