@@ -340,5 +340,5 @@ body.custom-cursor:hover #cursor {
 }
 
 *::selection {
-	@apply bg-accent-light bg-opacity-40 dark:bg-opacity-40 text-primary dark:bg-accent dark:text-white;
+	@apply bg-accent-light bg-opacity-40 dark:bg-opacity-40 text-white dark:bg-accent dark:text-white;
 }
