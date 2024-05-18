@@ -1,39 +1,29 @@
 <script lang="ts">
+	import '$lib/themes/codeblock/frappe.css';
+	import '$lib/themes/codeblock/github.css';
+	import '$lib/themes/codeblock/slack.css';
+
 	import IconCopy from '$lib/icons/IconCopy.svelte';
-	import Prism from 'prismjs';
-
-	import 'prismjs/components/prism-json';
-	import 'prismjs/components/prism-css';
-	import 'prismjs/components/prism-typescript';
-	import 'prismjs/components/prism-bash';
-	import 'prismjs/components/prism-javascript';
-	import 'prismjs/components/prism-markdown';
-	import 'prismjs/components/prism-rust';
-	import 'prismjs/components/prism-c';
-	import 'prismjs/components/prism-dart';
-	import 'prismjs/components/prism-toml';
-
-	import 'prism-svelte';
-	import type { CodeBlockTheme } from '$lib/utils/types';
-
-	Prism.manual = true;
-	const prism = Prism as any;
+	import { codeblockTheme } from '$lib/stores/codeblock-theme';
+	import codeHighlighter from '$lib/utils/codeHighlighter';
 
 	export let filename: string | undefined = undefined;
 	export let lang: string;
 	export let code: string | undefined = undefined;
-	export let theme: CodeBlockTheme = 'frappe';
+
+	let theme = $codeblockTheme;
+	$: theme = $codeblockTheme;
 
 	let copied = false;
+
+	const changeCodeblockTheme = (theme: string) => codeblockTheme.set(theme);
 
 	function onCopyClick() {
 		if (code) {
 			navigator.clipboard.writeText(code);
 			copied = true;
+			setTimeout(() => (copied = false), 2000);
 		}
-	}
-	$: if (copied) {
-		setTimeout(() => (copied = false), 2000);
 	}
 </script>
 
@@ -44,30 +34,53 @@
 	>
 		<div class="flex items-center gap-2.5">
 			<div class="flex gap-1 md:flex">
-				<div class="w-3 h-3 rounded-full bg-red-400"></div>
-				<div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-				<div class="w-3 h-3 rounded-full bg-green-400"></div>
+				<button
+					tabindex="-1"
+					on:click={() => changeCodeblockTheme('catppuccin-frappe')}
+					type="button"
+					class="w-3 h-3 rounded-full bg-red-400 outline-none"
+				></button>
+				<button
+					tabindex="-1"
+					on:click={() => changeCodeblockTheme('github-dark')}
+					type="button"
+					class="w-3 h-3 rounded-full bg-yellow-400 outline-none"
+				></button>
+				<button
+					tabindex="-1"
+					on:click={() => changeCodeblockTheme('slack-dark')}
+					type="button"
+					class="w-3 h-3 rounded-full bg-green-400 outline-none"
+				></button>
 			</div>
-			<div class="text-subtitle">
+			<div style="color: var(--color-titlebar-text)" class="text-subtitle">
 				{#if filename}
 					<span>{filename} · </span>
 				{/if}
 				<span class="capitalize">{lang}</span>
 			</div>
 		</div>
-		<button on:click={onCopyClick}>
+		<button class="copy-button" on:click={onCopyClick}>
 			<IconCopy {copied} />
 		</button>
 	</div>
-	<div class="code-block p-4 md:p-6 text-lg md:text-xl rounded-b-xl">
+	<div class="code-block font-fira-code p-4 md:p-6 text-lg md:text-xl rounded-b-xl">
 		{#if code}
 			{#if lang}
-				<pre class={`language-${lang} overflow-x-auto font-fira-code`}>{@html Prism.highlight(
-						code,
-						prism.languages[lang],
-						lang
-					)}
-				</pre>
+				<!-- Some skeleton loading  -->
+				{@html codeHighlighter.codeToHtml(code, {
+					lang,
+					theme,
+					transformers: [
+						{
+							// @ts-ignore
+							pre(node, hast) {
+								// @ts-ignore
+								this.addClassToHast(node, 'overflow-x-auto');
+							}
+						}
+					]
+				})}
 			{:else}
 				<pre>{code}</pre>
 			{/if}
@@ -76,3 +89,12 @@
 		{/if}
 	</div>
 </div>
+
+<style lang="postcss">
+	:global(.code-block code) {
+		@apply font-fira-code;
+	}
+	:global(.code-block pre) {
+		@apply focus-visible:outline-none;
+	}
+</style>

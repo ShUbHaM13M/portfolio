@@ -77,5 +77,3 @@ export type Blog = {
 	readTime: number;
 	type: ArticleType.blog;
 };
-
-export type CodeBlockTheme = 'frappe' | 'machiato' | 'latte';
