@@ -3,17 +3,23 @@
 	import IconPlay from '$lib/icons/IconPlay.svelte';
 	import { scale } from 'svelte/transition';
 	// TODO: Try to set the size of cursor when hovering over Icons so it would look like its like a shadow of the icon
+	// TODO: Create a kind of state machine to manage the state of the cursor depending on the type of the element being hovered upon
 
-	type InteractiveElementType = 'link' | 'text' | 'action' | 'video';
+	type InteractiveElementType = 'link' | 'text' | 'action' | 'video' | 'action-copy';
 	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span, video';
 
 	let interactingElementType: InteractiveElementType | null = null;
 	export let size: number = 50;
 	let cursor: HTMLDivElement;
 
-	function setInteractiveElementType(element: string) {
-		switch (element) {
+	function setInteractiveElementType(element: HTMLElement) {
+		const tag = element.tagName.toLowerCase();
+		switch (tag) {
 			case 'button':
+				if (element.classList.contains('copy-button')) {
+					interactingElementType = 'action-copy';
+					break;
+				}
 			case 'input':
 				interactingElementType = 'action';
 				break;
@@ -39,10 +45,9 @@
 	}
 
 	function onMouseMove(e: MouseEvent) {
-		const closest = (e.target as HTMLElement).closest(INTERACTABLE_ELEMENTS);
+		const closest: HTMLElement | null = (e.target as HTMLElement).closest(INTERACTABLE_ELEMENTS);
 		if (closest) {
-			const element = closest.tagName.toLowerCase();
-			setInteractiveElementType(element);
+			setInteractiveElementType(closest);
 		} else {
 			interactingElementType = null;
 		}
@@ -86,7 +91,7 @@
 <div
 	id="cursor"
 	bind:this={cursor}
-	class={`fixed inset-0 border-2 border-accent-light border-opacity-30 dark:border-accent dark:border-opacity-30 z-50 opacity-0 transition-opacity pointer-events-none grid place-items-center ${interactingElementType} transition-all ease-out duration-300`}
+	class={`fixed inset-0 border-2 border-accent-light border-opacity-30 dark:border-accent dark:border-opacity-30 z-50 opacity-0 pointer-events-none grid place-items-center ${interactingElementType} transition-all ease-in-out duration-300`}
 	style={`--size: ${size}px`}
 >
 	{#if interactingElementType === 'video'}
@@ -123,5 +128,11 @@
 	}
 	#cursor .action {
 		@apply h-1/4 w-1/4;
+	}
+	#cursor .action-copy {
+		@apply bg-transparent;
+	}
+	#cursor.action-copy {
+		@apply border-4;
 	}
 </style>

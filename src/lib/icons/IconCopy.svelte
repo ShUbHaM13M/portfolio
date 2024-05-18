@@ -2,40 +2,40 @@
 	export let copied: boolean = false;
 </script>
 
-<svg
-	width="24"
-	height="24"
-	viewBox="0 0 24 24"
-	fill="none"
-	xmlns="http://www.w3.org/2000/svg"
-	class="relative"
->
-	<path
-		d="M15 9V4.6C15 4.44087 14.9368 4.28826 14.8243 4.17574C14.7117 4.06321 14.5591 4 14.4 4H4.6C4.44087 4 4.28826 4.06321 4.17574 4.17574C4.06321 4.28826 4 4.44087 4 4.6V14.4C4 14.5591 4.06321 14.7117 4.17574 14.8243C4.28826 14.9368 4.44087 15 4.6 15H9"
+<div class="relative size-6 hover:scale-110 transition-transform ease-in-out duration-200">
+	<svg
+		width="20"
+		height="20"
+		viewBox="0 0 20 20"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		stroke="currentColor"
 		stroke-width="1.5"
 		stroke-linecap="round"
 		stroke-linejoin="round"
-		class:copied
-		class="first absolute transition-all ease-out duration-200 stroke-white"
-	/>
-	<path
-		d="M19.4 20H9.6C9.44087 20 9.28826 19.9368 9.17574 19.8243C9.06321 19.7117 9 19.5591 9 19.4V9.6C9 9.44087 9.06321 9.28826 9.17574 9.17574C9.28826 9.06321 9.44087 9 9.6 9H19.4C19.5591 9 19.7117 9.06321 19.8243 9.17574C19.9368 9.28826 20 9.44087 20 9.6V19.4C20 19.5591 19.9368 19.7117 19.8243 19.8243C19.7117 19.9368 19.5591 20 19.4 20Z"
-		stroke-width="1.5"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-		class="second transition-colors duration-100 delay-150 ease-out stroke-white"
-		class:copied
-	/>
-</svg>
+		stroke-dasharray="50"
+		stroke-dashoffset={copied ? -50 : 0}
+		class="absolute inset-0 transition-all ease-in-out duration-300"
+	>
+		<path d="M7.1875 5.9375H12.8125V2.1875H7.1875V5.9375Z" />
+		<path
+			d="M4.0625 3.60474C3.68887 3.82086 3.4375 4.22484 3.4375 4.68751V16.5625C3.4375 17.2529 3.99715 17.8125 4.6875 17.8125H15.3125C16.0029 17.8125 16.5625 17.2529 16.5625 16.5625V4.68751C16.5625 4.22484 16.3111 3.82086 15.9375 3.60474"
+		/>
+	</svg>
 
-<style lang="postcss" scoped>
-	.first.copied {
-		transform: translate(21%, 21%);
-	}
-	.second {
-		fill: var(--color-titlebar);
-	}
-	.second.copied {
-		@apply fill-accent stroke-accent;
-	}
-</style>
+	<svg
+		width="20"
+		height="20"
+		viewBox="0 0 20 20"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		stroke-width="1.5"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		stroke-dasharray="50"
+		stroke-dashoffset={copied ? 0 : -50}
+		class="absolute inset-0 transition-all ease-in-out duration-300 stroke-accent"
+	>
+		<path d="M16.5625 5.9375L7.5 15L3.4375 10.9375" />
+	</svg>
+</div>
