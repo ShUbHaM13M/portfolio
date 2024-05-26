@@ -4,8 +4,8 @@
 
 <div class="relative size-6 hover:scale-110 transition-transform ease-in-out duration-200">
 	<svg
-		width="20"
-		height="20"
+		width="24"
+		height="24"
 		viewBox="0 0 20 20"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +24,8 @@
 	</svg>
 
 	<svg
-		width="20"
-		height="20"
+		width="24"
+		height="24"
 		viewBox="0 0 20 20"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
