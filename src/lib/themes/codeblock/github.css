@@ -5,4 +5,5 @@
 	--color-scrollbar-thumb: #737994;
 	--color-titlebar: #1f2428;
 	--color-background: #24292e;
+	color: theme(colors.white);
 }

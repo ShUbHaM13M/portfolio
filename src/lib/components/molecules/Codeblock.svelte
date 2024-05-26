@@ -60,7 +60,7 @@
 				<span class="capitalize">{lang}</span>
 			</div>
 		</div>
-		<button class="copy-button" on:click={onCopyClick}>
+		<button style="color: var(--color-titlebar-text)" class="copy-button" on:click={onCopyClick}>
 			<IconCopy {copied} />
 		</button>
 	</div>
