@@ -302,6 +302,15 @@ body.custom-cursor:hover #cursor {
 	}
 }
 
+@media all and (display-mode: fullscreen) {
+	body.custom-cursor:has(video:hover) #cursor {
+		opacity: 0;
+	}
+	body.custom-cursor video {
+		cursor: auto !important;
+	}
+}
+
 .icon-link {
 	@apply text-primary dark:text-white transition-all ease-out duration-300;
 }
