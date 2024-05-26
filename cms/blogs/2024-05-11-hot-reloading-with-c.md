@@ -59,7 +59,7 @@ Now we can start implementing module which consists of two files:
 
 void (*module_init)(void) = NULL;
 void *(*module_pre_reload)(void) = NULL;
-void (*module_post_reload)(*void) = NULL;
+void (*module_post_reload)(void *) = NULL;
 void (*module_update)(void) = NULL;
 
 #endif // MODULE_H_
@@ -71,6 +71,7 @@ Now let's define these functions in `module.c` file.
 
 ```c
 ~filename module.c
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
@@ -91,7 +92,7 @@ void module_init (void)
   memset(state, 0, sizeof(*state));
 
   // Setting initial value of state
-  state->name = "Shubham";
+  state->name = "World";
 }
 
 void *module_pre_reload (void) { return state; }
@@ -104,7 +105,7 @@ void module_update (void) {
 
 ```
 
-Now I will be creating a simple shell file for compiling these files
+Creating a simple shell file for easily compiling these files.
 
 ```sh
 ~filename build.sh
@@ -121,7 +122,9 @@ The `-fPIC` and `-shared` options are used with clang to generate position-indep
 
 Executing this script in shell will compile and generate libmodule.so file (Same as DLL on Windows)
 
-Next we include the `module.h` file in `main.c` and setup to use the libmodule.so file.
+> Remember to also give execute permisson to build.sh to be able to execute the script.
+
+Next we include the `module.h` file in `main.c` and functions defined in `dlfcn.h` file to use the generated libmodule.so file.
 
 ```c
 ~filename main.c
@@ -171,6 +174,7 @@ bool initialize_libmodule (void)
 
 void reload_libmodule (void)
 {
+  // Storing the previous state before unloading the module
   void *previous_state = module_pre_reload();
   initialize_libmodule();
   module_post_reload(previous_state);
@@ -186,24 +190,59 @@ int main (void)
   module_init();
   char ch;
   while (1) {
-    printf("Press 'q' to quit");
+    module_update();
+
+    printf("Press 'q' to quit | 'r' to reload\n");
     scanf("%c", &ch);
 
     if (ch == 'q') break;
 
     // Using keypress 'r' to trigger a reload
     if (ch == 'r') {
-      reload_libmodule()
+      reload_libmodule();
     }
-
-    module_update();
   }
 }
 ```
 
-TODO: Completing this blog
+Now compile the main program using the `build.sh` script and running it we get
 
-#### Hot reloading demo with Raylib
+```
+> ./main
+Hello World
+Press 'q' to quit | 'r' to reload
+```
+
+Now we can easily udpate the state in `module.c` and see the updates reflected without the need to re-compile the main program.
+
+```c
+~filename module.c
+void module_init (void)
+{
+  // Updating the state
+  state->name = "Link";
+}
+```
+
+Now we just need to compile `module.c` file to re-generate `libmodule.so`  
+we do this in another terminal since we don't have to close the running main program. We can use the `./build.sh` script to compile.  
+Once compiled we can just enter `r` in the main program and we can see the name in the state changes.
+
+```
+> ./main
+Hello World
+Press 'q' to quit | 'r' to reload
+Hello Link
+Press 'q' to quit | 'r' to reload
+```
+
+> Here we are using the 'r' keypress to trigger a reload for simplicity, however we can also trigger reload automatically whenever a change is detected just like in build tools like vite or other development tools.
+
+- [ ] Add link to Github gist that dynamically builds without key triggers
+
+---
+
+### Hot reloading demo with Raylib
 
 <video controls muted loading="lazy">
   <source src="/videos/blogs/hot-reloading-with-c/raylib-test.mp4" type="video/mp4">
