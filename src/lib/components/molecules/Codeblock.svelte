@@ -67,7 +67,6 @@
 	<div class="code-block font-fira-code p-4 md:p-6 text-lg md:text-xl rounded-b-xl">
 		{#if code}
 			{#if lang}
-				<!-- Some skeleton loading  -->
 				{@html codeHighlighter.codeToHtml(code, {
 					lang,
 					theme,
@@ -82,7 +81,7 @@
 					]
 				})}
 			{:else}
-				<pre>{code}</pre>
+				<pre class="overflow-x-auto">{code}</pre>
 			{/if}
 		{:else}
 			<slot />
