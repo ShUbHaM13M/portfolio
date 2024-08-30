@@ -1,0 +1,4 @@
+This is a Brave Creators publisher verification file.
+
+Domain: shubham-maurya.vercel.app
+Token: ce8609e5bc7fede5d23e677039aaed68d1fd52a77d90289c24e6d530581f28e0

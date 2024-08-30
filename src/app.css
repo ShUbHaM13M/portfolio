@@ -302,6 +302,15 @@ body.custom-cursor:hover #cursor {
 	}
 }
 
+@media all and (display-mode: fullscreen) {
+	body.custom-cursor:has(video:hover) #cursor {
+		opacity: 0;
+	}
+	body.custom-cursor video {
+		cursor: auto !important;
+	}
+}
+
 .icon-link {
 	@apply text-primary dark:text-white transition-all ease-out duration-300;
 }
@@ -335,8 +344,8 @@ body.custom-cursor:hover #cursor {
 	@apply mt-0;
 }
 
-.markdown-content code {
-	@apply text-base md:text-lg;
+.markdown-content code:not(.code-block code) {
+	@apply text-sm md:text-base bg-secondary dark:bg-primary dark:bg-opacity-40 font-semibold text-primary dark:text-white p-1 rounded-sm;
 }
 
 *::selection {

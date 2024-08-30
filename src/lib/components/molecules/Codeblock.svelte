@@ -60,14 +60,13 @@
 				<span class="capitalize">{lang}</span>
 			</div>
 		</div>
-		<button class="copy-button" on:click={onCopyClick}>
+		<button style="color: var(--color-titlebar-text)" class="copy-button" on:click={onCopyClick}>
 			<IconCopy {copied} />
 		</button>
 	</div>
 	<div class="code-block font-fira-code p-4 md:p-6 text-lg md:text-xl rounded-b-xl">
 		{#if code}
 			{#if lang}
-				<!-- Some skeleton loading  -->
 				{@html codeHighlighter.codeToHtml(code, {
 					lang,
 					theme,
@@ -82,7 +81,7 @@
 					]
 				})}
 			{:else}
-				<pre>{code}</pre>
+				<pre class="overflow-x-auto">{code}</pre>
 			{/if}
 		{:else}
 			<slot />
