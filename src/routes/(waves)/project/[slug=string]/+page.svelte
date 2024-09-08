@@ -45,7 +45,7 @@
 </script>
 
 {#key project}
-	<div
+	<article
 		class="relative container flex flex-col mt-6 md:mt-28 lg:mt-32
 		md:bg-primary md:bg-opacity-10 md:dark:bg-header dark:bg-opacity-10
 		text-primary dark:text-white gap-6
@@ -114,7 +114,7 @@
 				<Markdown content={project.content} />
 			</div>
 		{/if}
-	</div>
+	</article>
 {/key}
 
 <style lang="postcss">

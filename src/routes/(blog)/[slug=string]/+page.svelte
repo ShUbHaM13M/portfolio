@@ -35,7 +35,7 @@
 		};
 
 		if (!Object.hasOwn(navigator, 'canShare')) return;
-		
+
 		canShare = navigator?.canShare(shareableData);
 		if (canShare) {
 			shareData = shareableData;
@@ -52,7 +52,7 @@
 			alt={blog.coverImage.alt}
 		/>
 	{/if}
-	<div
+	<article
 		class:has-cover-image={!!blog.coverImage}
 		class="container flex flex-col mt-6 md:mt-28 lg:mt-32 md:bg-primary md:bg-opacity-10 md:dark:bg-header dark:bg-opacity-10 relative text-primary dark:text-white gap-6 md:gap-10
 		p-6 rounded-t-xl md:mx-auto md:w-11/12 md:rounded-xl h-full
@@ -60,7 +60,7 @@
 	>
 		<BlogUserProfile date={blog.date.toDateString()} readTime={blog.readTime} />
 
-		<div class="flex flex-col sm:flex-row gap-2 items-baseline justify-between overflow-hidden">
+		<section class="flex flex-col sm:flex-row gap-2 items-baseline justify-between overflow-hidden">
 			<h1 class="leading-tight md:leading-none text-[28px] md:text-[42px] font-bold">
 				{blog.title}
 			</h1>
@@ -79,18 +79,18 @@
 					/>
 				</button>
 			{/if}
-		</div>
+		</section>
 		{#if blog.tags.length}
-			<div class="flex flex-wrap gap-2">
+			<section class="flex flex-wrap gap-2">
 				{#each blog.tags as tag}
 					<Tag label={tag.label[0]} color={tag.accentColor} showHash />
 				{/each}
-			</div>
+			</section>
 		{/if}
-		<div class="markdown-content flex flex-col gap-6">
+		<section class="markdown-content flex flex-col gap-6">
 			<Markdown content={blog.content} />
-		</div>
-	</div>
+		</section>
+	</article>
 {/key}
 
 <style lang="postcss">
