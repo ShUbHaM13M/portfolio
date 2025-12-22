@@ -1,6 +1,6 @@
-import { getHighlighter } from 'shiki';
+import { createHighlighter } from 'shiki';
 
-const codeHighlighter = await getHighlighter({
+const codeHighlighter = await createHighlighter({
 	themes: ['catppuccin-frappe', 'slack-dark', 'github-dark'],
 	langs: [
 		'javascript',
