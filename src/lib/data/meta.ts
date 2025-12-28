@@ -4,6 +4,7 @@ export const keywords = [
 	'Shubham Maurya',
 	'Shubham',
 	'Software Developer',
+	'Full Stack Developer',
 	'Web Development',
 	'Open Source'
 ];
