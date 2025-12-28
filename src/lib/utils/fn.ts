@@ -6,7 +6,8 @@ export async function getFileNamesFromDir(
 	path: string,
 	fileExtension: null | string = null
 ): Promise<string[]> {
-	const fileNames = await fs.readdir(path);
+	let fileNames = await fs.readdir(path);
+	fileNames = fileNames.filter((fileName) => !fileName.startsWith('_'));
 	if (fileExtension) {
 		return fileNames.filter((fileName) => fileName.endsWith(fileExtension));
 	}
@@ -21,7 +22,7 @@ export function paginate<T>(
 ): T[] {
 	const pageSize = count ?? max;
 	const startIndex = page ? (page - 1) * pageSize : 0;
-	const endIndex = page ? page * pageSize : count ?? 9999;
+	const endIndex = page ? page * pageSize : (count ?? 9999);
 	const paginatedItems = items.slice(startIndex, endIndex);
 	return paginatedItems;
 }
