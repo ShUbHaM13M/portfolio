@@ -24,9 +24,9 @@ technologies:
 type: Project
 ---
 
-### A\* Path Finding
+### A* Path Finding
 
-A\* is a graph traversal and pathfinding algorithm.
+A* is a graph traversal and pathfinding algorithm.
 It is widely used in Computer Science and Aritifical Intelligence.
 It is designed to find the shortest path from a starting point to an end point in a graph, considering both the cost of reaching the goal and an estimated heuristic cost from the current node to the goal.  
 The algorithm maintains a priority queue to explore nodes in order of their total estimated cost, which is the sum of the actual cost from the start to the current node (g-value) and the estimated cost from the current node to the goal (h-value). A\* selects nodes from the priority queue, explores their neighbors, and updates the cost estimates accordingly. The process continues until the goal is reached or the entire graph is explored.
