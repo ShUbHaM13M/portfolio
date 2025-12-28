@@ -3,10 +3,9 @@
 	import IconPlay from '$lib/icons/IconPlay.svelte';
 	import { scale } from 'svelte/transition';
 	// TODO: Try to set the size of cursor when hovering over Icons so it would look like its like a shadow of the icon
-	// TODO: Create a kind of state machine to manage the state of the cursor depending on the type of the element being hovered upon
 
-	type InteractiveElementType = 'link' | 'text' | 'action' | 'video' | 'action-copy';
-	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span, video';
+	type InteractiveElementType = 'link' | 'text' | 'action' | 'video' | 'action-copy' | 'canvas';
+	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span, video, canvas';
 
 	let interactingElementType: InteractiveElementType | null = null;
 	export let size: number = 50;
@@ -39,6 +38,9 @@
 			case 'video':
 				interactingElementType = 'video';
 				break;
+			case 'canvas':
+				interactingElementType = 'canvas';
+				break;
 			default:
 				interactingElementType = null;
 		}
@@ -59,6 +61,9 @@
 			`
 		};
 		cursor?.animate(keyframes, { duration: 300, fill: 'forwards' });
+
+		if (interactingElementType === 'canvas' && e.shiftKey) cursor.classList.add('canvas');
+		else cursor.classList.remove('canvas');
 	}
 
 	function onMouseDown(e: PointerEvent) {
@@ -134,5 +139,8 @@
 	}
 	#cursor.action-copy {
 		@apply border-4;
+	}
+	#cursor.canvas {
+		@apply ring-2 dark:ring-accent ring-accent-light;
 	}
 </style>
