@@ -2,9 +2,12 @@
 company: Lemon Yellow
 companySlug: lemon-yellow
 designation: Full-Stack Developer
-timeFrame: 2022 → 2023
+timeFrame: 2021 → 2023
 current: false
-description: Development of PWA with CI/CD and development of User facing UI Screens with Animations and API Integration and Authentication. Worked on development of custom CMS using Django for the management of blogs and clients.
+description: 
+  - Development of PWA and User facing screens with interactive animations, API integration and Authentication.
+  - Collaborated with the client for the UI development, and adding features such as authentication and real-time network monitoring.
+  - Led a team of developers for developing and mainttaining the company's website. Setting up and developing both the Front-end and Back-end. And optimizing the performance and SEO of the website.
 technologies:
   - label:
       - React
