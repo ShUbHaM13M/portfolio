@@ -19,7 +19,7 @@
 				<p class="text-subtitle text-xs">{experience.timeFrame.split(' ')[0]}</p>
 				{#if index < workExperience.length - 1}
 					<div
-						style="height: 80%"
+						style="height: 90%"
 						class="absolute hidden sm:block top-12 border border-dashed border-accent-light dark:border-accent border-opacity-80"
 					></div>
 				{/if}
@@ -29,9 +29,11 @@
 				<div class="text-subtitle text-sm">
 					<p>{experience.company}</p>
 				</div>
-				<p class="font-medium text-base">
-					{experience.description}
-				</p>
+				<ol class="font-medium text-base list-disc">
+					{#each experience.description as description}
+						<li>{description}</li>
+					{/each}
+				</ol>
 			</div>
 		</div>
 	{/each}

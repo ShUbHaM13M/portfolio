@@ -13,9 +13,9 @@
 		'React',
 		'React Native',
 		'Svelte',
-		'VueJS',
+		'Angular',
 		'NextJS',
-		'TailwindCSS',
+		'Docker',
 
 		'NodeJS',
 		'Django',
