@@ -19,7 +19,7 @@
 			metaKeywords = blog.categories.concat(metaKeywords);
 		}
 		if (blog?.tags?.length) {
-			metaKeywords = blog.tags.map((tag) => tag.label).concat(metaKeywords);
+			metaKeywords = [...blog.tags.flatMap((tag) => tag.label), ...metaKeywords];
 		}
 		// if (blog?.keywords?.length) {
 		// 	metaKeywords = blog.keywords.concat(metaKeywords);
