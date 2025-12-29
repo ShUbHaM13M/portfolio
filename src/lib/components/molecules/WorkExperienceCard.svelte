@@ -13,7 +13,12 @@
 		<p class="text-lg">{work.designation}</p>
 		<p class="text-base">{work.timeFrame}</p>
 	</div>
-	<p class="text-lg leading-tight">{work.description}</p>
+	<p class="line-clamp-5 text-lg leading-tight">
+		{#each work.description as description}
+			{description}
+			<br />
+		{/each}
+	</p>
 
 	<!-- <div class="flex gap-1 md:gap-2 mt-4 md:mt-auto">
 		{#each work.tags as tag}
