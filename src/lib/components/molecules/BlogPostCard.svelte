@@ -16,7 +16,6 @@
 	>
 		{#if coverImage}
 			<Image
-				style="max-width: 350px"
 				class="max-w-full w-full object-cover aspect-video rounded-md"
 				src={coverImage.src}
 				alt={title}
