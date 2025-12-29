@@ -17,12 +17,12 @@ tags:
     textColor: '#F8EDFF'
     fieldGroup: customTag
   - label:
-      - productivity
+      - Productivity
     accentColor: '#0052FE'
     textColor: '#F8EDFF'
     fieldGroup: customTag
   - label:
-      - beginners
+      - Beginners
     accentColor: '#19D645'
     textColor: '#F8EDFF'
     fieldGroup: customTag
