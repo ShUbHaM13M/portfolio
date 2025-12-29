@@ -32,16 +32,16 @@
 	title={label}
 	style={`
 		--hover-color: ${getRgbaString(colorRGB, 0.2)};
-		min-width: fit-content;
+		--current-color: var(--hover-color);
 	`}
 	href={`/category/${label.toLowerCase()}`}
 	class:highlightOnHover
-	class="py-1 px-1.5 rounded-md border-2 text-primary dark:text-white border-transparent transition-colors ease-out duration-300"
+	class="py-1 px-1.5 rounded-md border-2 text-primary dark:text-white transition-colors ease-out duration-300 flex gap-1"
 >
 	{#if showHash}
-		<span style={`color: ${getRgbaString(colorRGB)}`}>#</span>
+		<span class="pointer-events-none" style={`color: ${getRgbaString(colorRGB)}`}>#</span>
 	{/if}
-	{label}
+	<span class="min-w-10 inline-block">{label}</span>
 </a>
 
 <style scoped>
