@@ -9,7 +9,7 @@
 
 <a
 	class="blog-card min-h-full flex-1 block rounded-lg overflow-hidden transition-shadow ease-out duration-300"
-	href={`/${slug}`}
+	href={`/blog/${slug}`}
 >
 	<div
 		class="container p-4 py-5 flex min-h-full flex-col gap-4 bg-neutral-200 dark:bg-card text-primary dark:text-white pointer-events-none"
