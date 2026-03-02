@@ -87,10 +87,10 @@ const xml = (blogs: Blog[], projects: Project[]) => `
           <description>${blog.excerpt}</description>
           <link>${siteBaseUrl}/${blog.slug}</link>
           <pubDate>${blog.date}</pubDate>
-          ${blog.tags ? blog.tags.map((tag) => `<category>${tag}</category>`).join('') : ''}
+          ${blog.tags ? blog.tags.map((tag) => `<category>${tag.label[0]}</category>`).join('') : ''}
           <content:encoded><![CDATA[
             <div style="margin: 50px 0; font-style: italic;">
-              If anything looks wrong, 
+              If anything looks wrong,
               <strong>
                 <a href="${siteBaseUrl}/${blog.slug}">
                   read on the site!
@@ -109,7 +109,7 @@ const xml = (blogs: Blog[], projects: Project[]) => `
 						blog.coverImage
 							? `<media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="${siteBaseUrl}${blog.coverImage.src}"/>`
 							: ''
-					}          
+					}
         </item>
       `
 			)
@@ -129,7 +129,7 @@ const xml = (blogs: Blog[], projects: Project[]) => `
 					}
           <content:encoded><![CDATA[
             <div style="margin: 50px 0; font-style: italic;">
-              If anything looks wrong, 
+              If anything looks wrong,
               <strong>
                 <a href="${siteBaseUrl}/project/${project.slug}">
                   read on the site!
@@ -148,7 +148,7 @@ const xml = (blogs: Blog[], projects: Project[]) => `
 						project.images
 							? `<media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="${siteBaseUrl}${project.images[0]}"/>`
 							: ''
-					}          
+					}
         </item>
         `
 			)
