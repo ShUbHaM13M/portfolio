@@ -5,9 +5,11 @@ designation: Full-Stack Developer
 timeFrame: 2021 → 2023
 current: false
 description: 
-  - Development of PWA and User facing screens with interactive animations, API integration and Authentication.
-  - Collaborated with the client for the UI development, and adding features such as authentication and real-time network monitoring.
-  - Led a team of developers for developing and mainttaining the company's website. Setting up and developing both the Front-end and Back-end. And optimizing the performance and SEO of the website.
+  - Developed Progressive Web Apps (PWA) with real-time features, authentication, and REST API integrations.
+  - Built responsive UI components and interactive animations improving user engagement and UX.
+  - Led a team of 4+ developers to build and maintain the company website.
+  - Optimized performance and SEO, improving page load speed and search visibility.
+  - Collaborated directly with clients to deliver high-quality features and enhancements.
 technologies:
   - label:
       - React

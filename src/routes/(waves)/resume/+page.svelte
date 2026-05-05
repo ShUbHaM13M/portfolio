@@ -11,9 +11,7 @@
 	additionalClass="pt-20 pb-10 flex justify-center pl-0 md:pl-6 pr-0 md:pr-6 backdrop-brightness-90 dark:backdrop-brightness-50 transition-colors ease-out duration-300"
 >
 	<div class="resume-container flex flex-col mt-10 gap-4 w-full mx-4 md:mx-auto">
-		<Button href="/Shubham_Maurya_Senior_Software_Developer.pdf" variant="filled">
-			Download as PDF
-		</Button>
+		<Button href="/Shubham_Maurya.pdf" variant="filled">Download as PDF</Button>
 		<Resume workExperience={data.workExperience} />
 	</div>
 </Section>

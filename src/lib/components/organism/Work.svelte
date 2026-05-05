@@ -12,7 +12,7 @@
 	description="I've worked on a lot of cool projects and learned a lot from great people."
 	additionalClass="flex flex-col gap-4 min-h-screen md:pr-20 pb-10"
 >
-	<div class="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 md:mt-8">
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-4 md:mt-8">
 		{#each workExperiences as work}
 			<WorkExperienceCard {work} />
 		{/each}

@@ -5,16 +5,16 @@ designation: Developer Intern
 timeFrame: 3 Months
 current: false
 description: 
-  - Developed a redesign of an existing site, ensuring performance, scalability and responsiveness. Wrote structured, readable and maintainable code.
+  - Redesigned and developed client website focusing on performance, scalability, and clean architecture.
 technologies:
   - label:
       - Wordpress
-    accentColor: '#09aada'
+    accentColor: '#09AADA'
     textColor: '#F8EDFF'
     fieldGroup: customTag
   - label:
       - Angular
-    accentColor: '#c3002f'
+    accentColor: '#C3002F'
     textColor: '#F8EDFF'
     fieldGroup: customTag
 type: Work Experience
