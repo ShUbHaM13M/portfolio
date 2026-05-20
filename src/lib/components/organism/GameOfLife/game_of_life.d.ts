@@ -9,8 +9,11 @@ export class Grid {
   get_height(): number;
   get_cells_ptr(): number;
   get_cells_len(): number;
+  is_cell_alive(x: number, y: number): boolean;
   update(): void;
   update_cell_state(x: number, y: number, state: number): void;
+  clear(): void;
+  set_state(state: Uint8Array): void;
 }
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
@@ -23,9 +26,13 @@ export interface InitOutput {
   readonly grid_get_height: (a: number) => number;
   readonly grid_get_cells_ptr: (a: number) => number;
   readonly grid_get_cells_len: (a: number) => number;
+  readonly grid_is_cell_alive: (a: number, b: number, c: number) => number;
   readonly grid_update: (a: number) => void;
   readonly grid_update_cell_state: (a: number, b: number, c: number, d: number) => void;
+  readonly grid_clear: (a: number) => void;
+  readonly grid_set_state: (a: number, b: number, c: number) => void;
   readonly __wbindgen_externrefs: WebAssembly.Table;
+  readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_start: () => void;
 }
 

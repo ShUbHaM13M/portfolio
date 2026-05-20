@@ -4,7 +4,14 @@
 	import { scale } from 'svelte/transition';
 	// TODO: Try to set the size of cursor when hovering over Icons so it would look like its like a shadow of the icon
 
-	type InteractiveElementType = 'link' | 'text' | 'action' | 'video' | 'action-copy' | 'canvas';
+	type InteractiveElementType =
+		| 'link'
+		| 'text'
+		| 'action'
+		| 'video'
+		| 'action-copy'
+		| 'canvas'
+		| 'action-focus';
 	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span, video, canvas';
 
 	let interactingElementType: InteractiveElementType | null = null;
@@ -17,6 +24,9 @@
 			case 'button':
 				if (element.classList.contains('copy-button')) {
 					interactingElementType = 'action-copy';
+					break;
+				} else if (element.classList.contains('action-focus')) {
+					interactingElementType = 'action-focus';
 					break;
 				}
 			case 'input':
@@ -57,7 +67,7 @@
 		const keyframes = {
 			transform: `
 				translate(${e.clientX - size / 2}px, ${e.clientY - size / 2}px)
-				scale(${interactingElementType === 'action' || interactingElementType === 'link' ? 1.2 : 1})
+				scale(${interactingElementType === 'action' || interactingElementType === 'link' || interactingElementType === 'action-focus' ? 1.2 : 1})
 			`
 		};
 		cursor?.animate(keyframes, { duration: 300, fill: 'forwards' });
@@ -134,10 +144,12 @@
 	#cursor .action {
 		@apply h-1/4 w-1/4;
 	}
-	#cursor .action-copy {
+	#cursor .action-copy,
+	#cursor .action-focus {
 		@apply bg-transparent;
 	}
-	#cursor.action-copy {
+	#cursor.action-copy,
+	#cursor.action-focus {
 		@apply border-4;
 	}
 	#cursor.canvas {

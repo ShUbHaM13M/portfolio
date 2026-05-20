@@ -2,9 +2,10 @@
 	import Logo from '$lib/components/atoms/Logo.svelte';
 	import Hamburger from '$lib/components/molecules/Hamburger.svelte';
 	import { swatch } from '$lib/stores/swatch';
-	import { isColorDark, rgbToRgba } from '$lib/utils/color';
+	import { rgbToRgba } from '$lib/utils/color';
 	import type { Palette } from '$lib/utils/types';
-	import { onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
+	import type { Writable } from 'svelte/store';
 
 	const links = [
 		{ href: '/#expertise', text: 'Expertise' },
@@ -17,18 +18,30 @@
 	let prevScrollPos = 0;
 	let navbar: HTMLElement;
 
+	const showMainContent = getContext<Writable<boolean>>('showMainContent');
+
 	function onLogoClick() {
 		const menuToggle = document.querySelector('#menuToggle') as HTMLInputElement;
 		menuToggle.checked = false;
+	}
+
+	function hideNavbar() {
+		if (!navbar) return;
+		navbar.style.top = -navbar.offsetHeight * 2 + 'px';
+	}
+
+	function showNavbar() {
+		if (!navbar) return;
+		navbar.style.top = '0px';
 	}
 
 	function handleOnWindowScroll(e: Event) {
 		if (!navbar) return;
 		let currentScrollPos = window.scrollY || window.pageYOffset;
 		if (currentScrollPos > prevScrollPos && currentScrollPos > navbar.offsetHeight * 0.5) {
-			navbar.style.top = -navbar.offsetHeight * 2 + 'px';
+			hideNavbar();
 		} else {
-			navbar.style.top = 0 + 'px';
+			showNavbar();
 		}
 		prevScrollPos = currentScrollPos;
 	}
@@ -54,8 +67,15 @@
 			if (!value) return;
 			updateAccentColors(value);
 		});
+
+		const unsubContent = showMainContent.subscribe((value) => {
+			if (!value) hideNavbar();
+			else showNavbar();
+		});
+
 		return () => {
 			unsubscribe();
+			unsubContent();
 		};
 	});
 </script>

@@ -15,6 +15,13 @@ function getUint8ArrayMemory0() {
     return cachedUint8ArrayMemory0;
 }
 
+function passArray8ToWasm0(arg, malloc) {
+    const ptr = malloc(arg.length * 1, 1) >>> 0;
+    getUint8ArrayMemory0().set(arg, ptr / 1);
+    WASM_VECTOR_LEN = arg.length;
+    return ptr;
+}
+
 let cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: true });
 cachedTextDecoder.decode();
 const MAX_SAFARI_DECODE_BYTES = 2146435072;
@@ -28,6 +35,8 @@ function decodeText(ptr, len) {
     }
     return cachedTextDecoder.decode(getUint8ArrayMemory0().subarray(ptr, ptr + len));
 }
+
+let WASM_VECTOR_LEN = 0;
 
 const GridFinalization = (typeof FinalizationRegistry === 'undefined')
     ? { register: () => {}, unregister: () => {} }
@@ -83,6 +92,15 @@ export class Grid {
         const ret = wasm.grid_get_cells_len(this.__wbg_ptr);
         return ret >>> 0;
     }
+    /**
+     * @param {number} x
+     * @param {number} y
+     * @returns {boolean}
+     */
+    is_cell_alive(x, y) {
+        const ret = wasm.grid_is_cell_alive(this.__wbg_ptr, x, y);
+        return ret !== 0;
+    }
     update() {
         wasm.grid_update(this.__wbg_ptr);
     }
@@ -93,6 +111,17 @@ export class Grid {
      */
     update_cell_state(x, y, state) {
         wasm.grid_update_cell_state(this.__wbg_ptr, x, y, state);
+    }
+    clear() {
+        wasm.grid_clear(this.__wbg_ptr);
+    }
+    /**
+     * @param {Uint8Array} state
+     */
+    set_state(state) {
+        const ptr0 = passArray8ToWasm0(state, wasm.__wbindgen_malloc);
+        const len0 = WASM_VECTOR_LEN;
+        wasm.grid_set_state(this.__wbg_ptr, ptr0, len0);
     }
 }
 if (Symbol.dispose) Grid.prototype[Symbol.dispose] = Grid.prototype.free;
