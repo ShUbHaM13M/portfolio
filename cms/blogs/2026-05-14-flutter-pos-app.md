@@ -68,7 +68,7 @@ Built entirely using **Flutter**, with Supabase as backend
 
 ### Core Features
 
-<div style="display: flex;flex-wrap: wrap;">
+<div style="display: flex;overflow-x:auto;gap:1em">
     <img src="/images/blogs/flutter-pos-app/order-screen.png" alt="Order Screen" width="200" style="border-radius: 0.7rem; margin-inline: auto;" />
     <img src="/images/blogs/flutter-pos-app/order-creation-screen.png" alt="Order Creation Screen" width="200" style="border-radius: 0.7rem; margin-inline: auto;" />
     <img src="/images/blogs/flutter-pos-app/order-creation-variant.png" alt="Order Creation Screen" width="200" style="border-radius: 0.7rem; margin-inline: auto;" />
@@ -164,7 +164,7 @@ This is critical for
 #### 6. Intelligent Search & Suggestions
 
 <figure class="w-full h-full object-cover">
-    <img src="/images/blogs/flutter-pos-app/order-creation-sideitem.png" alt="Order Creation Screen" style="border-radius: 0.7rem;max-width: 440px;margin-inline:auto;" decoding="async" />
+    <img src="/images/blogs/flutter-pos-app/order-creation-sideitem.png" alt="Order Creation Screen" style="border-radius: 0.7rem;margin-inline:auto;" class="w-full md:w-4/5" decoding="async" />
 	<figcaption class="mt-4 text-center text-base text-current">Custom Item search & suggestions</figcaption>
 </figure>
 
