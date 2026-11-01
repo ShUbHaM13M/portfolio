@@ -1,20 +1,40 @@
-<script context="module" lang="ts">
+<script module lang="ts">
 	export type Variant = 'filled' | 'outlined';
 </script>
 
 <script lang="ts">
-	export let variant: Variant = 'outlined';
-	export let additionalClass: string | undefined = undefined;
-	export let href: string | undefined = undefined;
-	export let target: '' | '_blank' = '';
-	// TODO: Update based on external link
-	export let rel = 'noopener noreferrer';
-	$: tag = href ? 'a' : 'button';
-	$: linkProps = {
+	import { createBubbler } from 'svelte/legacy';
+
+	const bubble = createBubbler();
+	
+	interface Props {
+		variant?: Variant;
+		additionalClass?: string | undefined;
+		href?: string | undefined;
+		target?: '' | '_blank';
+		// TODO: Update based on external link
+		rel?: string;
+		icon?: import('svelte').Snippet;
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		variant = 'outlined',
+		additionalClass = undefined,
+		href = undefined,
+		target = '',
+		rel = 'noopener noreferrer',
+		icon,
+		children,
+		...rest
+	}: Props = $props();
+	let tag = $derived(href ? 'a' : 'button');
+	let linkProps = $derived({
 		href,
 		target,
 		rel
-	};
+	});
 </script>
 
 <svelte:element
@@ -22,17 +42,17 @@
 	{...linkProps}
 	role="button"
 	tabindex="0"
-	data-sveltekit-preload-data
-	on:click
+	data-sveltekit-preload-data="hover"
+	onclick={bubble('click')}
 	class={`${variant} px-4 w-fit py-3 font-medium text-xl rounded-md transition-colors ease-out duration-300 ${additionalClass}`}
-	{...$$restProps}
+	{...rest}
 >
-	{#if $$slots['icon']}
+	{#if icon}
 		<div class="icon">
-			<slot name="icon" />
+			{@render icon?.()}
 		</div>
 	{/if}
-	<slot />
+	{@render children?.()}
 </svelte:element>
 
 <style lang="postcss" scoped>

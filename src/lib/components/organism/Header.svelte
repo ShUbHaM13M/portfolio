@@ -16,7 +16,7 @@
 	];
 
 	let prevScrollPos = 0;
-	let navbar: HTMLElement;
+	let navbar: HTMLElement = $state();
 
 	const showMainContent = getContext<Writable<boolean>>('showMainContent');
 
@@ -89,7 +89,7 @@
 		<a
 			href="/"
 			aria-label="Site logo"
-			on:click={onLogoClick}
+			onclick={onLogoClick}
 			class="grid place-items-center hover:rotate-180 focus-visible:rotate-180 transition-transform ease-out duration-300 focus-visible:outline-none"
 		>
 			<Logo />
@@ -103,7 +103,7 @@
 	header {
 		view-transition-name: header;
 	}
-	header:has(#menuToggle:checked) {
+	header:has(:global(#menuToggle:checked)) {
 		@apply bg-zinc-50 dark:bg-primary;
 	}
 	:global(header.hide) {

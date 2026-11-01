@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 
@@ -10,23 +12,29 @@
 	import IconShare from '$lib/icons/IconShare.svelte';
 	import { siteBaseUrl } from '$lib/data/meta';
 
-	export let data: { project: Project };
-	$: ({ project } = data);
+	interface Props {
+		data: { project: Project };
+	}
 
-	let shareButton: HTMLButtonElement | null = null;
-	let canShare: boolean = false;
+	let { data }: Props = $props();
+	let { project } = $derived(data);
+
+	let shareButton: HTMLButtonElement | null = $state(null);
+	let canShare: boolean = $state(false);
 	let shareData: ShareData | null = null;
 
 	async function onShareClick() {
 		await navigator.share(shareData!);
 	}
 
-	$: if (canShare) {
-		const timeout = setTimeout(() => {
-			shareButton?.addEventListener('click', onShareClick);
-		}, 510);
-		() => clearTimeout(timeout);
-	}
+	run(() => {
+		if (canShare) {
+			const timeout = setTimeout(() => {
+				shareButton?.addEventListener('click', onShareClick);
+			}, 510);
+			() => clearTimeout(timeout);
+		}
+	});
 
 	onMount(() => {
 		const shareableData = {

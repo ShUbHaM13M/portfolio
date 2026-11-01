@@ -1,22 +1,33 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	const RGB = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
 
-	export let label = '';
-	export let color = '';
-	export let showHash = false;
-	export let highlightOnHover = true;
+	interface Props {
+		label?: string;
+		color?: string;
+		showHash?: boolean;
+		highlightOnHover?: boolean;
+	}
 
-	let colorRGB = {
+	let {
+		label = '',
+		color = '',
+		showHash = false,
+		highlightOnHover = true
+	}: Props = $props();
+
+	let colorRGB = $state({
 		r: 0,
 		g: 0,
 		b: 0
-	};
+	});
 
 	function getRgbaString(c: typeof colorRGB, alpha: number = 1): string {
 		return `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
 	}
 
-	$: {
+	run(() => {
 		const result = RGB.exec(color);
 		if (result) {
 			colorRGB = {
@@ -25,7 +36,7 @@
 				b: parseInt(result[3], 16)
 			};
 		}
-	}
+	});
 </script>
 
 <a

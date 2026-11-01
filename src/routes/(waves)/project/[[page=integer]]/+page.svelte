@@ -3,11 +3,15 @@
 	import Section from '$lib/components/atoms/Section.svelte';
 	import ProjectCard from '$lib/components/molecules/ProjectCard.svelte';
 
-	export let data: PaginatedResult<Project>;
+	interface Props {
+		data: PaginatedResult<Project>;
+	}
 
-	$: projects = data.items;
-	$: totalPages = data.totalPages;
-	$: currentPage = data.currentPage;
+	let { data }: Props = $props();
+
+	let projects = $derived(data.items);
+	let totalPages = $derived(data.totalPages);
+	let currentPage = $derived(data.currentPage);
 </script>
 
 {#key currentPage}

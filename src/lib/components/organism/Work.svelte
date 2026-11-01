@@ -3,7 +3,11 @@
 	import Button from '../atoms/Button.svelte';
 	import WorkExperienceCard from '../molecules/WorkExperienceCard.svelte';
 	import Section from '../atoms/Section.svelte';
-	export let workExperiences: WorkExperience[] = [];
+	interface Props {
+		workExperiences?: WorkExperience[];
+	}
+
+	let { workExperiences = [] }: Props = $props();
 </script>
 
 <Section

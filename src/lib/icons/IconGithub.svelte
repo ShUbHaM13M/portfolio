@@ -1,5 +1,10 @@
 <script lang="ts">
-	export let classes: string = '';
+	interface Props {
+		classes?: string;
+		[key: string]: any
+	}
+
+	let { classes = '', ...rest }: Props = $props();
 </script>
 
 <svg
@@ -9,7 +14,7 @@
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
 	class={`${classes}`}
-	{...$$restProps}
+	{...rest}
 >
 	<path
 		fill-rule="evenodd"

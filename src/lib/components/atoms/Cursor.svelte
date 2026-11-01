@@ -14,9 +14,13 @@
 		| 'action-focus';
 	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span, video, canvas';
 
-	let interactingElementType: InteractiveElementType | null = null;
-	export let size: number = 50;
-	let cursor: HTMLDivElement;
+	let interactingElementType: InteractiveElementType | null = $state(null);
+	interface Props {
+		size?: number;
+	}
+
+	let { size = 50 }: Props = $props();
+	let cursor: HTMLDivElement = $state();
 
 	function setInteractiveElementType(element: HTMLElement) {
 		const tag = element.tagName.toLowerCase();
@@ -73,7 +77,7 @@
 		cursor?.animate(keyframes, { duration: 300, fill: 'forwards' });
 
 		if (interactingElementType === 'canvas' && e.shiftKey) cursor.classList.add('canvas');
-		else cursor.classList.remove('canvas');
+		else cursor?.classList.remove('canvas');
 	}
 
 	function onMouseDown(e: PointerEvent) {

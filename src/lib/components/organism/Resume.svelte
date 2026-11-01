@@ -7,7 +7,11 @@
 	import ResumeWorkExperience from '../resume/ResumeWorkExperience.svelte';
 	import ResumeEducation from '../resume/ResumeEducation.svelte';
 
-	export let workExperience: WorkExperience[] = [];
+	interface Props {
+		workExperience?: WorkExperience[];
+	}
+
+	let { workExperience = [] }: Props = $props();
 </script>
 
 <section

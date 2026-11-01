@@ -1,8 +1,12 @@
 <script lang="ts">
-	export let raw: string;
+	interface Props {
+		raw: string;
+	}
+
+	let { raw }: Props = $props();
 	export const text: string = '';
 
-	let lines = raw.split('>').slice(1);
+	let lines = $state(raw.split('>').slice(1));
 	lines = lines.map((line) => line.trim());
 </script>
 

@@ -4,12 +4,16 @@
 	import { onDestroy } from 'svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
-	export let links: {
+	interface Props {
+		links?: {
 		href: string;
 		text: string;
-	}[] = [];
+	}[];
+	}
 
-	let input: HTMLInputElement;
+	let { links = [] }: Props = $props();
+
+	let input: HTMLInputElement = $state();
 
 	function getActiveSectionIndex() {
 		return links.findIndex(({ href }) => {
@@ -17,7 +21,7 @@
 		});
 	}
 
-	let activeSectionIndex = getActiveSectionIndex();
+	let activeSectionIndex = $state(getActiveSectionIndex());
 	const unsubscribe = page.subscribe((_) => {
 		activeSectionIndex = getActiveSectionIndex();
 	});
@@ -41,9 +45,9 @@
 />
 
 <div class="lines flex flex-col gap-1.5 justify-center">
-	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full one" />
-	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full two" />
-	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full three" />
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full one"></span>
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full two"></span>
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full three"></span>
 </div>
 
 <!-- TODO: Staggered transition when animating the links -->

@@ -8,8 +8,12 @@
 		raw: string;
 	};
 
-	export let ordered: boolean = false;
-	export let items: ListItem[] = [];
+	interface Props {
+		ordered?: boolean;
+		items?: ListItem[];
+	}
+
+	let { ordered = false, items = [] }: Props = $props();
 </script>
 
 <svelte:element

@@ -3,8 +3,8 @@
 
 	const MAX_STROKE_DASHOFFSET = 170;
 
-	let scrollButton: HTMLButtonElement;
-	let strokeDashOffset = MAX_STROKE_DASHOFFSET;
+	let scrollButton: HTMLButtonElement = $state();
+	let strokeDashOffset = $state(MAX_STROKE_DASHOFFSET);
 
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -34,7 +34,7 @@
 
 <button
 	bind:this={scrollButton}
-	on:click={scrollToTop}
+	onclick={scrollToTop}
 	class="fixed group bottom-10 hide right-6 md:right-10 outline-none focus:outline-none
 	hover:bg-accent-light hover:bg-opacity-10 focus-visible:bg-accent-light focus-visible:bg-opacity-10
 	dark:hover:bg-accent dark:hover:bg-opacity-10 dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-10

@@ -1,15 +1,28 @@
 <script lang="ts">
 	import Image from '$lib/components/atoms/Image.svelte';
 
-	export let index: string = '';
-	export let icon: string = '';
-	export let title: string = '';
-	export let description: string = '';
-	export let tagBegin: string = '';
-	export let tagEnd: string = '';
 
-	export let containerClasses: string | undefined = undefined;
-	export let descriptionClasses: string | undefined = undefined;
+	interface Props {
+		index?: string;
+		icon?: string;
+		title?: string;
+		description?: string;
+		tagBegin?: string;
+		tagEnd?: string;
+		containerClasses?: string | undefined;
+		descriptionClasses?: string | undefined;
+	}
+
+	let {
+		index = '',
+		icon = '',
+		title = '',
+		description = '',
+		tagBegin = '',
+		tagEnd = '',
+		containerClasses = undefined,
+		descriptionClasses = undefined
+	}: Props = $props();
 </script>
 
 <div

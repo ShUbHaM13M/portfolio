@@ -10,7 +10,7 @@
 </script>
 
 <button
-	on:click={toggleContent}
+	onclick={toggleContent}
 	class="outline-none focus:outline-none row-start-3 col-start-2 md:row-start-2 md:col-start-2
    hover:bg-accent-light hover:bg-opacity-10 focus-visible:bg-accent-light focus-visible:bg-opacity-10
    dark:hover:bg-accent dark:hover:bg-opacity-10 dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-10

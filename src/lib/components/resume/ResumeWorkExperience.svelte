@@ -1,7 +1,11 @@
 <script lang="ts">
 	import type WorkExperience from '$lib/data/work-experiences/model';
 	import ResumeSection from './ResumeSection.svelte';
-	export let workExperience: WorkExperience[] = [];
+	interface Props {
+		workExperience?: WorkExperience[];
+	}
+
+	let { workExperience = [] }: Props = $props();
 </script>
 
 <ResumeSection title="Work Experience" containerClasses="order-1 md:order-0">

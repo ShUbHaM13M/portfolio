@@ -1,7 +1,11 @@
 <script lang="ts">
-	export let size: number = 20;
-	export let checked: boolean = false;
-	export let classes: string = '';
+	interface Props {
+		size?: number;
+		checked?: boolean;
+		classes?: string;
+	}
+
+	let { size = 20, checked = false, classes = '' }: Props = $props();
 </script>
 
 <svg

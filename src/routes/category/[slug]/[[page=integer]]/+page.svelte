@@ -4,11 +4,15 @@
 	import ProjectCard from '$lib/components/molecules/ProjectCard.svelte';
 	import { ArticleType, type Blog, type PaginatedResult, type Project } from '$lib/utils/types';
 
-	export let data: PaginatedResult<Blog | Project> & { currentCategory: string };
-	$: articles = data.items;
-	$: totalPages = data.totalPages;
-	$: currentPage = data.currentPage;
-	$: currentCategory = data.currentCategory;
+	interface Props {
+		data: PaginatedResult<Blog | Project> & { currentCategory: string };
+	}
+
+	let { data }: Props = $props();
+	let articles = $derived(data.items);
+	let totalPages = $derived(data.totalPages);
+	let currentPage = $derived(data.currentPage);
+	let currentCategory = $derived(data.currentCategory);
 </script>
 
 {#if articles}

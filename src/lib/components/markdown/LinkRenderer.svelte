@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let text: string;
-	export let href: string;
+	interface Props {
+		text: string;
+		href: string;
+	}
+
+	let { text, href }: Props = $props();
 
 	const target = href.startsWith('#') ? '_self' : '_blank';
 </script>

@@ -1,7 +1,11 @@
 <script lang="ts">
 	import Image from '$lib/components/atoms/Image.svelte';
-	export let readTime: number = 0;
-	export let date: string = '';
+	interface Props {
+		readTime?: number;
+		date?: string;
+	}
+
+	let { readTime = 0, date = '' }: Props = $props();
 </script>
 
 <div class="flex gap-3 md:gap-4 items-center text-primary dark:text-white">

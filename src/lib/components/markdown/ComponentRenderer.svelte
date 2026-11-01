@@ -3,15 +3,19 @@
 
 	const imports: any = {};
 
-	export let lang: string;
-	export let text: string;
+	interface Props {
+		lang: string;
+		text: string;
+	}
 
-	let componentName: string;
+	let { lang, text = $bindable() }: Props = $props();
+
+	let componentName: string = $state();
 	let componentConfig: any;
-	let componentChildren: any;
+	let componentChildren: any = $state();
 	let componentProps: any;
 
-	let codeFilename: string;
+	let codeFilename: string = $state();
 	if (lang === 'sveltecomponent') {
 		componentConfig = JSON.parse(text);
 		componentName = componentConfig.component;
@@ -30,11 +34,11 @@
 
 {#if lang === 'sveltecomponent' && componentName}
 	{#await imports[componentName]() then module}
-		<svelte:component this={module.default} ...componentProps>
+		<module.default ...componentProps>
 			{#if componentChildren}
 				{@html componentChildren}
 			{/if}
-		</svelte:component>
+		</module.default>
 	{/await}
 {:else}
 	<Codeblock {lang} filename={codeFilename} code={text} />

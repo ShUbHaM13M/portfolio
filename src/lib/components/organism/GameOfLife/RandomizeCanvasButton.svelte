@@ -4,8 +4,12 @@
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
-	export let randomize: () => void;
-	let isMobile = false;
+	interface Props {
+		randomize: () => void;
+	}
+
+	let { randomize }: Props = $props();
+	let isMobile = $state(false);
 
 	if (browser) {
 		isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -34,7 +38,7 @@
 		duration: 500,
 		opacity: 0
 	}}
-	on:click={randomize}
+	onclick={randomize}
 	class="outline-none focus:outline-none border-accent border col-start-2 md:col-start-1 row-start-1 md:row-start-2
 			hover:bg-accent-light hover:bg-opacity-10 focus-visible:bg-accent-light focus-visible:bg-opacity-10
 	dark:hover:bg-accent dark:hover:bg-opacity-10 dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-10

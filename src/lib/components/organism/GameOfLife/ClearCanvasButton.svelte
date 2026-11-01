@@ -2,11 +2,15 @@
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
-	export let clearCanvas: () => void;
+	interface Props {
+		clearCanvas: () => void;
+	}
+
+	let { clearCanvas }: Props = $props();
 </script>
 
 <button
-	on:click={clearCanvas}
+	onclick={clearCanvas}
 	in:fly={{ y: '100%', easing: expoOut, duration: 500 }}
 	out:fly={{ y: '100%', easing: expoOut, duration: 500, opacity: 0 }}
 	class="outline-none focus:outline-none border-accent border col-start-2

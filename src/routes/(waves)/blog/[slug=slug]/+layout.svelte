@@ -1,20 +1,26 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import type { Blog, Palette } from '$lib/utils/types';
-	import Header from '$lib/components/organism/Header.svelte';
-	export let data: { blog: Blog; colours?: Palette };
 	import { swatch } from '$lib/stores/swatch';
 
 	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
+	interface Props {
+		data: { blog: Blog; colours?: Palette };
+		children?: import('svelte').Snippet;
+	}
 
-	$: ({ blog } = data);
+	let { data, children }: Props = $props();
+
+	let { blog } = $derived(data);
 
 	if (data.colours) {
 		swatch.set(data.colours);
 	}
 
-	let metaKeywords = keywords;
+	let metaKeywords = $state(keywords);
 
-	$: {
+	run(() => {
 		if (blog?.categories?.length) {
 			metaKeywords = blog.categories.concat(metaKeywords);
 		}
@@ -24,7 +30,7 @@
 		// if (blog?.keywords?.length) {
 		// 	metaKeywords = blog.keywords.concat(metaKeywords);
 		// }
-	}
+	});
 </script>
 
 <svelte:head>
@@ -55,10 +61,10 @@
 </svelte:head>
 
 {#if blog}
-	<Header />
+	<!-- <Header /> -->
 	<main
 		class="bg-checkered pt-[75px] pb-6 md:pt-px bg-light-white backdrop-brightness-50 dark:bg-primary dark:backdrop-brightness-100 bg-top"
 	>
-		<slot />
+		{@render children?.()}
 	</main>
 {/if}

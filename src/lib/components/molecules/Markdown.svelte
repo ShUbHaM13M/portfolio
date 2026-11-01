@@ -10,7 +10,11 @@
 	import LinkRenderer from '../markdown/LinkRenderer.svelte';
 	import ListRenderer from '../markdown/ListRenderer.svelte';
 
-	export let content: string = '';
+	interface Props {
+		content?: string;
+	}
+
+	let { content = '' }: Props = $props();
 	const options = {
 		...marked.defaults,
 		mangle: false

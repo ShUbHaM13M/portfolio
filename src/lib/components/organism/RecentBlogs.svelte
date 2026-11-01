@@ -3,7 +3,12 @@
 	import type { Blog } from '$lib/utils/types';
 	import BlogPostCard from '../molecules/BlogPostCard.svelte';
 	import Section from '../atoms/Section.svelte';
-	export let blogs: Blog[] = [];
+	interface Props {
+		blogs?: Blog[];
+		description?: import('svelte').Snippet;
+	}
+
+	let { blogs = [], description }: Props = $props();
 </script>
 
 <Section
@@ -11,12 +16,12 @@
 	title="Recent Blogs"
 	additionalClass="flex flex-col px-6 pb-10 md:px-20 pt-10 min-h-screen"
 >
-	<slot name="description">
+	{#if description}{@render description()}{:else}
 		<h2 class="leading-6 sm:leading-tight text-subtitle text-lg md:text-2xl mt-2">
 			Every now and then I like to write about technology and experiences. <br /> Here are some of the
 			recent blogs.
 		</h2>
-	</slot>
+	{/if}
 	<div class="flex flex-col flex-wrap md:flex-row gap-4 mt-6 md:mt-8">
 		{#each blogs as blog}
 			<BlogPostCard

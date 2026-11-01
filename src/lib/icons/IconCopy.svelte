@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let copied: boolean = false;
+	interface Props {
+		copied?: boolean;
+	}
+
+	let { copied = false }: Props = $props();
 </script>
 
 <div class="relative size-6 hover:scale-110 transition-transform ease-in-out duration-200">

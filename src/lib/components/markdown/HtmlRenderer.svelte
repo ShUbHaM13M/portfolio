@@ -1,8 +1,12 @@
 <script lang="ts">
-	export let raw: string;
+	interface Props {
+		raw: string;
+	}
+
+	let { raw }: Props = $props();
 
 	const ATTRIBUTE_REGEX = /(\w+)\s*(?:=\s*["']([^"']*)["'])?/g;
-	const attributes: { [key: string]: string } = {};
+	const attributes: { [key: string]: string } = $state({});
 
 	function getAttributes() {
 		const matches = [...raw.matchAll(ATTRIBUTE_REGEX)];

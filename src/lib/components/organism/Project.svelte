@@ -4,7 +4,11 @@
 
 	import type { Project as ProjectType } from '$lib/utils/types';
 
-	export let projects: ProjectType[] = [];
+	interface Props {
+		projects?: ProjectType[];
+	}
+
+	let { projects = [] }: Props = $props();
 </script>
 
 <Section

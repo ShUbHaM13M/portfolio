@@ -1,8 +1,12 @@
 <script lang="ts">
 	import type { WorkExperience } from '$lib/utils/types';
 
-	export let additionalClass: string = '';
-	export let work: WorkExperience;
+	interface Props {
+		additionalClass?: string;
+		work: WorkExperience;
+	}
+
+	let { additionalClass = '', work }: Props = $props();
 </script>
 
 <div

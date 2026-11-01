@@ -2,9 +2,13 @@
 	import { page } from '$app/stores';
 	import { marked } from 'marked';
 
-	export let text: string;
-	export let depth: string;
-	export let raw: string;
+	interface Props {
+		text: string;
+		depth: string;
+		raw: string;
+	}
+
+	let { text, depth, raw }: Props = $props();
 
 	const slugger = new marked.Slugger();
 

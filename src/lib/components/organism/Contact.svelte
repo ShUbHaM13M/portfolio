@@ -1,10 +1,15 @@
-<script>
+<script lang="ts">
 	import Section from '../atoms/Section.svelte';
 	import IconPhone from '$lib/icons/IconPhone.svelte';
 	import IconMail from '$lib/icons/IconMail.svelte';
 	import IconGithub from '$lib/icons/IconGithub.svelte';
 	import IconLinkedIn from '$lib/icons/IconLinkedIn.svelte';
 	import IconRss from '$lib/icons/IconRss.svelte';
+	interface Props {
+		description?: import('svelte').Snippet;
+	}
+
+	let { description }: Props = $props();
 </script>
 
 <Section
@@ -12,7 +17,7 @@
 	title="Contact"
 	additionalClass="flex flex-col gap-0 min-h-screen md:pr-20 pb-10"
 >
-	<slot name="description">
+	{#if description}{@render description()}{:else}
 		<h2 class="leading-6 sm:leading-10 text-gray-600 dark:text-subtitle text-lg md:text-2xl mt-4">
 			I am open to full-time, or contract work and actively seeking freelance opportunities,
 			particularly those that involves ambitious or large-scale projects.
@@ -25,7 +30,7 @@
 		<span class="text-accent-light dark:text-accent text-2xl md:text-3xl font-medium mt-2">
 			Let's connect and bring your ideas to life!
 		</span>
-	</slot>
+	{/if}
 	<div class="flex gap-4 md:gap-6 mt-6 md:mt-12">
 		<a href="tel:+919004890938">
 			<IconPhone classes="icon-link h-9 w-9 md:h-12 md:w-12 " />

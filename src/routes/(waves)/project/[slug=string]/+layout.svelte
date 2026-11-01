@@ -1,26 +1,33 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import type { Palette, Project } from '$lib/utils/types';
 
 	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
 	import { swatch } from '$lib/stores/swatch';
 
-	export let data: { project: Project; colours?: Palette };
-	$: ({ project } = data);
+	interface Props {
+		data: { project: Project; colours?: Palette };
+		children?: import('svelte').Snippet;
+	}
+
+	let { data, children }: Props = $props();
+	let { project } = $derived(data);
 
 	if (data.colours) {
 		swatch.set(data.colours);
 	}
 
-	let metaKeywords = keywords;
+	let metaKeywords = $state(keywords);
 
-	$: {
+	run(() => {
 		if (project?.technologies?.length) {
 			metaKeywords = project.technologies.map((tag) => tag.label).concat(metaKeywords);
 		}
 		// if (project?.keywords?.length) {
 		// 	metaKeywords = project.keywords.concat(metaKeywords);
 		// }
-	}
+	});
 </script>
 
 <svelte:head>
@@ -54,6 +61,6 @@
 
 {#if project}
 	<section class="mt-0 bg-checkered pt-[75px] pb-6 md:pt-px min-h-screen">
-		<slot />
+		{@render children?.()}
 	</section>
 {/if}

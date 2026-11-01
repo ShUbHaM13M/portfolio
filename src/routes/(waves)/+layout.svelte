@@ -1,7 +1,12 @@
-<script>
+<script lang="ts">
 	import Header from '$lib/components/organism/Header.svelte';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 
 	const showMainContent = writable(true);
 
@@ -14,5 +19,5 @@
 
 <main class="relative overflow-x-hidden">
 	<Header />
-	<slot />
+	{@render children?.()}
 </main>

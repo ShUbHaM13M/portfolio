@@ -3,7 +3,11 @@
 	import Section from '$lib/components/atoms/Section.svelte';
 	import SkillCard from '$lib/components/molecules/SkillCard.svelte';
 
-	export let skills: Skill[] = [];
+	interface Props {
+		skills?: Skill[];
+	}
+
+	let { skills = [] }: Props = $props();
 </script>
 
 <Section

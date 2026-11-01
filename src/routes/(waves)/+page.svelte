@@ -13,12 +13,16 @@
 		Project as ProjectType
 	} from '$lib/utils/types';
 
-	export let data: {
+	interface Props {
+		data: {
 		skills: Skill[];
 		workExperiences: WorkExperience[];
 		blogs: BlogType[];
 		projects: ProjectType[];
 	};
+	}
+
+	let { data }: Props = $props();
 	let { skills, workExperiences, blogs, projects } = data;
 </script>
 

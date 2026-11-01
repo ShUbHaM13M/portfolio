@@ -16,7 +16,7 @@
 			transition:fade
 			style="background: radial-gradient(circle at 20% 40%, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));"
 			class="absolute inset-0 size-full pointer-events-none user-select-none opacity-0 dark:opacity-100"
-		/>
+		></div>
 		<div transition:fade style="max-width: 900px;" class="flex flex-col relative">
 			<span class="text-accent-light dark:text-accent text-2xl font-medium">Hi, I'm</span>
 			<h1

@@ -1,10 +1,19 @@
 <script lang="ts">
 	import type { Image as ImageType } from '$lib/utils/types';
 	import Image from '$lib/components/atoms/Image.svelte';
-	export let slug: string;
-	export let coverImage: ImageType | undefined = undefined;
-	export let title: string;
-	export let excerpt: string;
+	interface Props {
+		slug: string;
+		coverImage?: ImageType | undefined;
+		title: string;
+		excerpt: string;
+	}
+
+	let {
+		slug,
+		coverImage = undefined,
+		title,
+		excerpt
+	}: Props = $props();
 </script>
 
 <a

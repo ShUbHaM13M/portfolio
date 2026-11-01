@@ -3,11 +3,15 @@
 	import BlogPostCard from '$lib/components/molecules/BlogPostCard.svelte';
 	import type { Blog, PaginatedResult } from '$lib/utils/types';
 
-	export let data: PaginatedResult<Blog>;
+	interface Props {
+		data: PaginatedResult<Blog>;
+	}
 
-	$: blogs = data.items;
-	$: totalPages = data.totalPages;
-	$: currentPage = data.currentPage;
+	let { data }: Props = $props();
+
+	let blogs = $derived(data.items);
+	let totalPages = $derived(data.totalPages);
+	let currentPage = $derived(data.currentPage);
 </script>
 
 {#key currentPage}

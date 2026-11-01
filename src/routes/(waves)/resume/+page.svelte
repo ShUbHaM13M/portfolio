@@ -4,7 +4,11 @@
 	import Resume from '$lib/components/organism/Resume.svelte';
 	import type WorkExperience from '$lib/data/work-experiences/model';
 
-	export let data: { workExperience: WorkExperience[] };
+	interface Props {
+		data: { workExperience: WorkExperience[] };
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <Section
