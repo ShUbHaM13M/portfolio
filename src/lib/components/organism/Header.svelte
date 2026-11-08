@@ -5,7 +5,7 @@
 	import { rgbToRgba } from '$lib/utils/color';
 	import type { Palette } from '$lib/utils/types';
 	import { getContext, onMount } from 'svelte';
-	import type { Writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 
 	const links = [
 		{ href: '/#expertise', text: 'Expertise' },
@@ -18,7 +18,7 @@
 	let prevScrollPos = 0;
 	let navbar: HTMLElement = $state();
 
-	const showMainContent = getContext<Writable<boolean>>('showMainContent');
+	const showMainContent = getContext<Writable<boolean> | undefined>('showMainContent') ?? writable(true);
 
 	function onLogoClick() {
 		const menuToggle = document.querySelector('#menuToggle') as HTMLInputElement;
