@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/components/atoms/Button.svelte';
-	import Section from '$lib/components/atoms/Section.svelte';
-	import GameOfLife from '$lib/components/organism/GameOfLife/index.svelte';
+	import Button from '#lib/components/atoms/Button.svelte';
+	import Section from '#lib/components/atoms/Section.svelte';
+	import GameOfLife from '#lib/components/organism/GameOfLife/index.svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
@@ -16,7 +16,7 @@
 			transition:fade
 			style="background: radial-gradient(circle at 20% 40%, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));"
 			class="absolute inset-0 size-full pointer-events-none user-select-none opacity-0 dark:opacity-100"
-		/>
+		></div>
 		<div transition:fade style="max-width: 900px;" class="flex flex-col relative">
 			<span class="text-accent-light dark:text-accent text-2xl font-medium">Hi, I'm</span>
 			<h1
@@ -41,7 +41,7 @@
 </Section>
 
 <style lang="postcss">
-	@screen md {
+	@media (width >= 48rem) {
 		.description {
 			letter-spacing: 1px;
 		}

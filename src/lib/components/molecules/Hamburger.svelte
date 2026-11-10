@@ -1,33 +1,31 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import NavLink from '$lib/components/atoms/NavLink.svelte';
-	import { onDestroy } from 'svelte';
+	import { page } from '$app/state';
+	import NavLink from '#lib/components/atoms/NavLink.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
-	export let links: {
-		href: string;
-		text: string;
-	}[] = [];
-
-	let input: HTMLInputElement;
-
-	function getActiveSectionIndex() {
-		return links.findIndex(({ href }) => {
-			return $page.url.href.includes(href) || $page.url.hash.includes(href.replace('/', ''));
-		});
+	interface Props {
+		links?: {
+		  href: string;
+		  text: string;
+		}[];
 	}
 
-	let activeSectionIndex = getActiveSectionIndex();
-	const unsubscribe = page.subscribe((_) => {
-		activeSectionIndex = getActiveSectionIndex();
-	});
+	let { links = [] }: Props = $props();
 
-	onDestroy(() => {
-		unsubscribe();
-	});
+	let input: HTMLInputElement | undefined = $state();
+
+	const activeSectionIndex = $derived.by(() => {
+        return links.findIndex(({ href }) => {
+			return (
+				page.url.href.includes(href) ||
+				page.url.hash.includes(href.replace('/', ''))
+			);
+		});
+	})
 
 	function handleOnLinkClick() {
-		input.checked = false;
+	    if (input)
+			input.checked = false;
 	}
 </script>
 
@@ -41,9 +39,9 @@
 />
 
 <div class="lines flex flex-col gap-1.5 justify-center">
-	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full one" />
-	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full two" />
-	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full three" />
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full one"></span>
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full two"></span>
+	<span class="sm:hidden block line bg-primary dark:bg-zinc-50 w-8 h-1 rounded-full three"></span>
 </div>
 
 <!-- TODO: Staggered transition when animating the links -->
@@ -59,7 +57,7 @@
 				active={index === activeSectionIndex}
 				href={link.href}
 				text={link.text}
-				on:click={handleOnLinkClick}
+				onclick={handleOnLinkClick}
 			/>
 		{:else}
 			<div>
@@ -67,7 +65,7 @@
 					active={index === activeSectionIndex}
 					href={link.href}
 					text={link.text}
-					on:click={handleOnLinkClick}
+					onclick={handleOnLinkClick}
 				/>
 			</div>
 		{/if}
@@ -83,7 +81,9 @@
 </div>
 
 <style lang="postcss">
-	@screen sm {
+	@reference "#app.css";
+
+	@media (width >= 40rem) {
 		#menu {
 			@apply static pl-10 py-0 h-auto w-full flex-row bg-transparent translate-x-0 justify-center transition-none text-lg;
 		}

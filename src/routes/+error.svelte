@@ -1,6 +1,6 @@
 <script>
-	import Button from '$lib/components/atoms/Button.svelte';
-	import Header from '$lib/components/organism/Header.svelte';
+	import Button from '#lib/components/atoms/Button.svelte';
+	import Header from '#lib/components/organism/Header.svelte';
 </script>
 
 <Header />

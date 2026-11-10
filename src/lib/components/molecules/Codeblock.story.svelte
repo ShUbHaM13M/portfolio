@@ -1,8 +1,9 @@
+https://svelte.dev/e/js_parse_error -->
 <script lang="ts">
-	import type { Hst } from '@histoire/plugin-svelte';
+	import type { Hst as HstType } from '@histoire/plugin-svelte';
 	import Code from './Codeblock.svelte';
 
-	export let Hst: Hst;
+	export let Hst: HstType;
 
 	let props = {
 		filename: 'types.ts',

@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let classes: string = '';
+	interface Props {
+		classes?: string;
+	}
+
+	let { classes = 'h-12 w-12' }: Props = $props();
 </script>
 
 <svg
@@ -8,7 +12,7 @@
 	viewBox="0 0 24 24"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
-	class={`h-12 w-12 ${classes}`}
+	class={classes}
 >
 	<path
 		opacity="0.4"

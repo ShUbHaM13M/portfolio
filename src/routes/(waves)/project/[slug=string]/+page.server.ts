@@ -1,5 +1,5 @@
-import { getAllProjectSlugs } from '$lib/data/projects/api.js';
-import { EntryGenerator } from './$types.js';
+import { getAllProjectSlugs } from '#lib/data/projects/api.js';
+import type { EntryGenerator } from './$types.js';
 
 export async function load({ parent }) {
 	const data = await parent();

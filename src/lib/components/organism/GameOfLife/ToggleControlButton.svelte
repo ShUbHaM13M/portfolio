@@ -10,10 +10,11 @@
 </script>
 
 <button
-	on:click={toggleContent}
+    title="Toggle Controls"
+	onclick={toggleContent}
 	class="outline-none focus:outline-none row-start-3 col-start-2 md:row-start-2 md:col-start-2
-   hover:bg-accent-light hover:bg-opacity-10 focus-visible:bg-accent-light focus-visible:bg-opacity-10
-   dark:hover:bg-accent dark:hover:bg-opacity-10 dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-10
+	   hover:bg-accent-light/10 focus-visible:bg-accent-light/10
+	   dark:hover:bg-accent/10 dark:focus-visible:bg-accent/10
    rounded-full size-14 grid place-items-center transition-all ease-out duration-300 backdrop-blur-sm action-focus"
 >
 	<svg

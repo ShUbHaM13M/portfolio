@@ -2,8 +2,8 @@ import fs from 'fs-extra';
 import grayMatter from 'gray-matter';
 import path from 'path';
 import { parseBlogs } from './model';
-import type { Blog, PaginatedResult } from '$lib/utils/types';
-import { getFileNamesFromDir, paginate } from '$lib/utils/fn';
+import type { Blog, PaginatedResult } from '#lib/utils/types';
+import { getFileNamesFromDir, paginate } from '#lib/utils/fn';
 
 const MAX_BLOGS_PER_PAGE = 9;
 const MD_FILES_PATH = path.join(process.cwd(), 'cms/blogs');

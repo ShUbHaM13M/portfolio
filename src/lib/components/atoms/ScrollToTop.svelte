@@ -3,8 +3,8 @@
 
 	const MAX_STROKE_DASHOFFSET = 170;
 
-	let scrollButton: HTMLButtonElement;
-	let strokeDashOffset = MAX_STROKE_DASHOFFSET;
+	let scrollButton: HTMLButtonElement | undefined = $state();
+	let strokeDashOffset = $state(MAX_STROKE_DASHOFFSET);
 
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -23,7 +23,7 @@
 
 	onMount(() => {
 		if ((window.scrollY || window.pageYOffset) > window.innerHeight) {
-			scrollButton.classList.remove('hide');
+			scrollButton?.classList.remove('hide');
 		}
 		window.addEventListener('scroll', onScroll);
 		() => {
@@ -33,11 +33,12 @@
 </script>
 
 <button
+    title="Scroll to top"
 	bind:this={scrollButton}
-	on:click={scrollToTop}
+	onclick={scrollToTop}
 	class="fixed group bottom-10 hide right-6 md:right-10 outline-none focus:outline-none
-	hover:bg-accent-light hover:bg-opacity-10 focus-visible:bg-accent-light focus-visible:bg-opacity-10
-	dark:hover:bg-accent dark:hover:bg-opacity-10 dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-10
+	hover:bg-accent-light/10 focus-visible:bg-accent-light/10
+	dark:hover:bg-accent/10 dark:focus-visible:bg-accent/10
 	rounded-full size-14 grid place-items-center transition-all ease-out duration-300 backdrop-blur-sm"
 >
 	<svg

@@ -1,7 +1,7 @@
-import { getBlogs } from '$lib/data/blogs/api';
-import { getProjects } from '$lib/data/projects/api';
-import { getSkills } from '$lib/data/skills/api';
-import { getWorkExperiences } from '$lib/data/work-experiences/api';
+import { getBlogs } from '#lib/data/blogs/api';
+import { getProjects } from '#lib/data/projects/api';
+import { getSkills } from '#lib/data/skills/api';
+import { getWorkExperiences } from '#lib/data/work-experiences/api';
 
 export async function load() {
 	const skills = await getSkills();

@@ -1,11 +1,15 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
-	export let randomize: () => void;
-	let isMobile = false;
+	interface Props {
+		randomize: () => void;
+	}
+
+	let { randomize }: Props = $props();
+	let isMobile = $state(false);
 
 	if (browser) {
 		isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -23,6 +27,7 @@
 </script>
 
 <button
+    title="Randomize..."
 	in:fly={{
 		...(isMobile ? { y: '100%' } : { x: '100%' }),
 		easing: expoOut,
@@ -34,10 +39,10 @@
 		duration: 500,
 		opacity: 0
 	}}
-	on:click={randomize}
+	onclick={randomize}
 	class="outline-none focus:outline-none border-accent border col-start-2 md:col-start-1 row-start-1 md:row-start-2
-			hover:bg-accent-light hover:bg-opacity-10 focus-visible:bg-accent-light focus-visible:bg-opacity-10
-	dark:hover:bg-accent dark:hover:bg-opacity-10 dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-10
+			hover:bg-accent-light/10 focus-visible:bg-accent-light/10
+	dark:hover:bg-accent/10 dark:focus-visible:bg-accent/10
 	rounded-full size-14 grid place-items-center transition-all ease-out duration-300 backdrop-blur-sm action-focus"
 >
 	<svg width="24" height="24" viewBox="0 0 24 24" fill="none">

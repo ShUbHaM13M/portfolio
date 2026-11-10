@@ -1,13 +1,17 @@
 <script lang="ts">
 	// TODO: Add a profile photo in the resume
-	import type WorkExperience from '$lib/data/work-experiences/model';
+	import type WorkExperience from '#lib/data/work-experiences/model';
 	import ResumeQuickLinks from '../resume/ResumeQuickLinks.svelte';
 	import ResumeSection from '../resume/ResumeSection.svelte';
 	import ResumeSkills from '../resume/ResumeSkills.svelte';
 	import ResumeWorkExperience from '../resume/ResumeWorkExperience.svelte';
 	import ResumeEducation from '../resume/ResumeEducation.svelte';
 
-	export let workExperience: WorkExperience[] = [];
+	interface Props {
+		workExperience?: WorkExperience[];
+	}
+
+	let { workExperience = [] }: Props = $props();
 </script>
 
 <section
@@ -21,10 +25,6 @@
 	</div>
 	<div class="flex flex-col md:flex-row gap-10">
 		<div class="flex flex-col flex-1 gap-9 order-1 md:order-0">
-			<ResumeWorkExperience {workExperience} />
-			<ResumeEducation />
-		</div>
-		<div class="flex flex-col flex-1 gap-9 order-0 md:order-1">
 			<ResumeSection title="About" containerClasses="grow-0">
 				<p class="text-base">
 					I am passionate about problem-solving, transforming designs into reality, and iteratively
@@ -36,10 +36,16 @@
 			</ResumeSection>
 			<ResumeSkills />
 		</div>
+		<div class="flex flex-col flex-1 gap-9 order-0 md:order-1">
+			<ResumeWorkExperience {workExperience} />
+			<ResumeEducation />
+		</div>
 	</div>
 </section>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	:global(#resume *) {
 		@apply transition-colors ease-out duration-300;
 	}

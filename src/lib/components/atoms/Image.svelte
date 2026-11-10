@@ -1,24 +1,30 @@
 <script lang="ts">
-	import { dev } from '$app/environment';
-	import { HttpRegex } from '$lib/utils/regex';
+	import { dev } from '$app/env';
+	import { HttpRegex } from '#lib/utils/regex';
 
-	export let additionalClasses: string = '';
-
-	export let src: string;
-	export let alt: string;
-	export let figcaption: string | undefined = undefined;
-	export let lazy: boolean = true;
-
-	export let formats: string[] = ['avif', 'webp', 'png'];
-	export let widths: string[] | undefined = undefined;
-
-	let fileName: string;
-	let srcset: string | undefined;
-
-	$: {
-		fileName = src ? src.split('.')[0] : '';
-		srcset = buildSrcSet();
+	interface Props {
+		additionalClasses?: string;
+		src: string;
+		alt: string;
+		figcaption?: string | undefined;
+		lazy?: boolean;
+		formats?: string[];
+		widths?: string[] | undefined;
+		[key: string]: any
 	}
+
+	let {
+		additionalClasses = '',
+		src,
+		alt,
+		figcaption = undefined,
+		lazy = true,
+		formats = ['avif', 'webp', 'png'],
+		widths = undefined,
+		...rest
+	}: Props = $props();
+
+	let fileName = $derived(src ? src.split('.')[0] : '');
 
 	function buildSrcSet() {
 		if (dev || HttpRegex.test(src)) return;
@@ -44,11 +50,12 @@
 		}
 		return srcset;
 	}
+	let srcset = $derived(buildSrcSet());
 </script>
 
 {#if src}
 	{#if figcaption}
-		<figure class={`w-full h-full object-cover ${additionalClasses}`} {...$$restProps}>
+		<figure class={`w-full h-full object-cover ${additionalClasses}`} {...rest}>
 			<img
 				class="mx-auto rounded-xl"
 				{srcset}
@@ -67,7 +74,7 @@
 			class={`w-full h-full object-cover ${additionalClasses}`}
 			loading={lazy ? 'lazy' : 'eager'}
 			decoding="async"
-			{...$$restProps}
+			{...rest}
 		/>
 	{/if}
 {/if}

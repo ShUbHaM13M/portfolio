@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Logo from '$lib/components/atoms/Logo.svelte';
-	import Hamburger from '$lib/components/molecules/Hamburger.svelte';
-	import { swatch } from '$lib/stores/swatch';
-	import { rgbToRgba } from '$lib/utils/color';
-	import type { Palette } from '$lib/utils/types';
+	import Logo from '#lib/components/atoms/Logo.svelte';
+	import Hamburger from '#lib/components/molecules/Hamburger.svelte';
+	import { swatch } from '#lib/stores/swatch';
+	import { rgbToRgba } from '#lib/utils/color';
+	import type { Palette } from '#lib/utils/types';
 	import { getContext, onMount } from 'svelte';
-	import type { Writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 
 	const links = [
 		{ href: '/#expertise', text: 'Expertise' },
@@ -16,9 +16,9 @@
 	];
 
 	let prevScrollPos = 0;
-	let navbar: HTMLElement;
+	let navbar: HTMLElement | undefined = $state();
 
-	const showMainContent = getContext<Writable<boolean>>('showMainContent');
+	const showMainContent = getContext<Writable<boolean> | undefined>('showMainContent') ?? writable(true);
 
 	function onLogoClick() {
 		const menuToggle = document.querySelector('#menuToggle') as HTMLInputElement;
@@ -53,6 +53,7 @@
 		const bgDarkColorString = rgbToRgba(bgDarkColorArray, 0.2);
 		bgColorArray.push(0.3);
 		bgDarkColorArray.push(0.2);
+		if (!navbar) return;
 		navbar.style.setProperty('--color-bg', bgColorString);
 		navbar.style.setProperty('--color-text', rgbToRgba(swatch.darkVibrant));
 		navbar.style.setProperty('--color-bg-dark', bgDarkColorString);
@@ -83,13 +84,13 @@
 <header
 	bind:this={navbar}
 	class:has-custom-colours={!!$swatch}
-	class="fixed w-full max-w-full lg:max-w-[94%] lg:rounded-2xl p-6 py-6 lg:px-7 lg:py-4 flex items-center backdrop-blur-xl lg:mt-6 lg:left-2/4 lg:-translate-x-2/4 transition-all ease-out duration-300 z-50 dark:bg-slate-200 dark:bg-opacity-10 bg-opacity-10 bg-primary text-primary dark:text-white"
+	class="fixed w-full max-w-full lg:max-w-[94%] lg:rounded-2xl p-6 py-6 lg:px-7 lg:py-4 flex items-center backdrop-blur-xl lg:mt-6 lg:left-2/4 lg:-translate-x-2/4 transition-all ease-out duration-300 z-50 dark:bg-slate-200/10 bg-primary/10 text-primary dark:text-white"
 >
 	<nav class="flex w-full justify-between">
 		<a
 			href="/"
 			aria-label="Site logo"
-			on:click={onLogoClick}
+			onclick={onLogoClick}
 			class="grid place-items-center hover:rotate-180 focus-visible:rotate-180 transition-transform ease-out duration-300 focus-visible:outline-none"
 		>
 			<Logo />
@@ -100,10 +101,12 @@
 </header>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	header {
 		view-transition-name: header;
 	}
-	header:has(#menuToggle:checked) {
+	header:has(:global(#menuToggle:checked)) {
 		@apply bg-zinc-50 dark:bg-primary;
 	}
 	:global(header.hide) {

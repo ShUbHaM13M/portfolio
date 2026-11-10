@@ -2,18 +2,18 @@
 	import ResumeSection from './ResumeSection.svelte';
 </script>
 
-<ResumeSection title="Education" containerClasses="order-0 md:order-1">
+<ResumeSection title="Education">
 	<!-- <div class="flex gap-4">
 		<div class="flex flex-col items-center h-full relative">
 			<div
-				class="grid place-items-center border-accent-light dark:border-accent border-2 border-opacity-50 rounded-full h-5 w-5 mt-2"
+				class="grid place-items-center border-accent-light/50 dark:border-accent/50 border-2 rounded-full h-5 w-5 mt-2"
 			>
 				<div class="bg-accent-light dark:bg-accent rounded-full h-2.5 w-2.5"></div>
 			</div>
 			<p class="text-subtitle text-xs">2023</p>
 			<div
 				style="height: 50%"
-				class="absolute hidden sm:block top-12 border border-dashed border-accent-light dark:border-accent border-opacity-80"
+				class="absolute hidden sm:block top-12 border border-dashed border-accent-light/80 dark:border-accent/80"
 			></div>
 		</div>
 		<div class="flex flex-col">
@@ -29,7 +29,7 @@
 	<div class="flex gap-4">
 		<div class="flex flex-col items-center h-full relative">
 			<div
-				class="grid place-items-center border-accent-light dark:border-accent border-2 border-opacity-80 rounded-full h-5 w-5 mt-2"
+				class="grid place-items-center border-accent-light/80 dark:border-accent/80 border-2 rounded-full h-5 w-5 mt-2"
 			></div>
 			<p class="text-subtitle text-xs">2019</p>
 		</div>

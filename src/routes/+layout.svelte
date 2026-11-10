@@ -1,12 +1,18 @@
+<!-- @migration task: review uses of `navigating` -->
 <script lang="ts">
 	import '../app.css';
-	import Cursor from '$lib/components/atoms/Cursor.svelte';
+	import Cursor from '#lib/components/atoms/Cursor.svelte';
 	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { swatch } from '$lib/stores/swatch';
-	import { navigating } from '$app/stores';
-	import Loader from '$lib/components/atoms/Loader.svelte';
-	import ScrollToTop from '$lib/components/atoms/ScrollToTop.svelte';
+	import { swatch } from '#lib/stores/swatch';
+	import { navigating } from '$app/state';
+	import Loader from '#lib/components/atoms/Loader.svelte';
+	import ScrollToTop from '#lib/components/atoms/ScrollToTop.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 
 	let root: HTMLElement;
 	onMount(() => {
@@ -37,11 +43,11 @@
 	});
 </script>
 
-<slot />
+{@render children?.()}
 
 <Cursor />
 <ScrollToTop />
 
-{#if $navigating}
+{#if navigating.to}
 	<Loader />
 {/if}

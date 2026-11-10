@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { Hst } from '@histoire/plugin-svelte';
+	import type { Hst as HstType } from '@histoire/plugin-svelte';
 	import Header from './Header.svelte';
 
-	export let Hst: Hst;
+	export let Hst: HstType;
 </script>
 
 <svelte:component this={Hst.Story} title="Organism/Header" layout={{ type: 'single' }}>

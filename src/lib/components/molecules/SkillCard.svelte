@@ -1,19 +1,31 @@
 <script lang="ts">
-	import Image from '$lib/components/atoms/Image.svelte';
+	import Image from '#lib/components/atoms/Image.svelte';
 
-	export let index: string = '';
-	export let icon: string = '';
-	export let title: string = '';
-	export let description: string = '';
-	export let tagBegin: string = '';
-	export let tagEnd: string = '';
+	interface Props {
+		index?: string;
+		icon?: string;
+		title?: string;
+		description?: string;
+		tagBegin?: string;
+		tagEnd?: string;
+		containerClasses?: string | undefined;
+		descriptionClasses?: string | undefined;
+	}
 
-	export let containerClasses: string | undefined = undefined;
-	export let descriptionClasses: string | undefined = undefined;
+	let {
+		index = '',
+		icon = '',
+		title = '',
+		description = '',
+		tagBegin = '',
+		tagEnd = '',
+		containerClasses = undefined,
+		descriptionClasses = undefined
+	}: Props = $props();
 </script>
 
 <div
-	class={`skill-card relative text-primary dark:text-white flex flex-col flex-1 gap-4 
+	class={`skill-card relative text-primary dark:text-white flex flex-col flex-1 gap-4
 	p-6 sm:py-10 sm:pt-14 rounded-lg bg-card-light dark:bg-card
 	hover:scale-105
 	transition-transform ease-out duration-300 ${containerClasses}`}
@@ -37,7 +49,7 @@
 			class="tag pointer-events-none flex flex-col gap-1 h-full font-extrabold text-primary opacity-40 dark:opacity-20 dark:text-white transition-opacity ease-out duration-300"
 		>
 			<span>{tagBegin}</span>
-			<div class="border h-full w-px border-dashed border-current border-opacity-50 ml-1"></div>
+			<div class="border h-full w-px border-dashed border-current/50 ml-1"></div>
 			<span>{tagEnd}</span>
 		</div>
 		<p class={`text-base py-7 sm:py-8 sm:text-xl leading-5 sm:leading-6 ${descriptionClasses}`}>
@@ -47,20 +59,22 @@
 </div>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	.tag * {
 		@apply transition-colors ease-out duration-300;
 	}
 	.skill-card:hover .tag {
 		& * {
-			color: theme(colors.accent-light);
-			border-color: theme(colors.accent-light);
+			color: var(--color-accent-light);
+			border-color: var(--color-accent-light);
 		}
 		opacity: 100%;
 	}
-	html[data-theme='dark'] .skill-card:hover .tag {
+	:global(html[data-theme='dark']) .skill-card:hover .tag {
 		& * {
-			color: theme(colors.accent);
-			border-color: theme(colors.accent);
+			color: var(--color-accent);
+			border-color: var(--color-accent);
 		}
 		opacity: 100%;
 	}

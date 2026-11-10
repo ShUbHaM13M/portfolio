@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { SvelteComponent } from 'svelte';
 	export type Link = {
 		href: string;
@@ -7,14 +7,25 @@
 </script>
 
 <script lang="ts">
-	import Image from '$lib/components/atoms/Image.svelte';
-	export let slug: string;
-	export let imageUrl: string | undefined = undefined;
-	export let name: string = '';
-	export let excerpt: string = '';
-	export let link: Link | undefined = undefined;
+	import Image from '#lib/components/atoms/Image.svelte';
 
-	export let containerClasses: string | undefined = undefined;
+	interface Props {
+		slug: string;
+		imageUrl?: string | undefined;
+		name?: string;
+		excerpt?: string;
+		link?: Link | undefined;
+		containerClasses?: string | undefined;
+	}
+
+	let {
+		slug,
+		imageUrl = undefined,
+		name = '',
+		excerpt = '',
+		link = undefined,
+		containerClasses = undefined
+	}: Props = $props();
 </script>
 
 <a href={`/${slug}`} class={`h-full block ${containerClasses}`}>
@@ -30,11 +41,11 @@
 		{/if}
 		<div class="flex justify-between items-center">
 			<h3 class="font-medium text-2xl leading-6">{name}</h3>
-			{#if link}
+			<!-- {#if link}
 				<a href={link.href} target="_blank">
-					<svelte:component this={link.icon} classes="h-7 w-7" />
+					<link.icon classes="h-7 w-7" />
 				</a>
-			{/if}
+			{/if} -->
 		</div>
 		<p class="text-lg leading-tight line-clamp-3">
 			{excerpt}
@@ -43,6 +54,8 @@
 </a>
 
 <style lang="postcss" scoped>
+	@reference "#app.css";
+
 	.project-card {
 		max-width: 400px;
 	}

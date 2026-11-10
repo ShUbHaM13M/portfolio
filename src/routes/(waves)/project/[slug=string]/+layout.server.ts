@@ -1,7 +1,7 @@
-import { getProjectBySlug } from '$lib/data/projects/api.js';
-import type { Project } from '$lib/utils/types.js';
+import { getProjectBySlug } from '#lib/data/projects/api.js';
+import type { Project } from '#lib/utils/types.js';
 import { error } from '@sveltejs/kit';
-import Vibrant from 'node-vibrant';
+import { Vibrant } from 'node-vibrant/node';
 
 export async function load({ params, fetch }) {
 	const { slug } = params;

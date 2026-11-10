@@ -1,10 +1,14 @@
 <script lang="ts">
-	import Button from '$lib/components/atoms/Button.svelte';
-	import Section from '$lib/components/atoms/Section.svelte';
-	import Resume from '$lib/components/organism/Resume.svelte';
-	import type WorkExperience from '$lib/data/work-experiences/model';
+	import Button from '#lib/components/atoms/Button.svelte';
+	import Section from '#lib/components/atoms/Section.svelte';
+	import Resume from '#lib/components/organism/Resume.svelte';
+	import type WorkExperience from '#lib/data/work-experiences/model';
 
-	export let data: { workExperience: WorkExperience[] };
+	interface Props {
+		data: { workExperience: WorkExperience[] };
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <Section
@@ -17,7 +21,7 @@
 </Section>
 
 <style lang="postcss">
-	@screen sm {
+	@media (width >= 40rem) {
 		.resume-container {
 			max-width: 900px;
 		}

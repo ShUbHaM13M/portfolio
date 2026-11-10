@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconCheck from '$lib/icons/IconCheck.svelte';
+	import IconCheck from '#lib/icons/IconCheck.svelte';
 
 	type ListItem = {
 		text: string;
@@ -8,8 +8,12 @@
 		raw: string;
 	};
 
-	export let ordered: boolean = false;
-	export let items: ListItem[] = [];
+	interface Props {
+		ordered?: boolean;
+		items?: ListItem[];
+	}
+
+	let { ordered = false, items = [] }: Props = $props();
 </script>
 
 <svelte:element
@@ -32,6 +36,8 @@
 </svelte:element>
 
 <style lang="postcss" scoped>
+	@reference "#app.css";
+
 	.ordered-list {
 		display: list-item;
 		list-style-position: inside;

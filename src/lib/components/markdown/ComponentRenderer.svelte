@@ -3,39 +3,45 @@
 
 	const imports: any = {};
 
-	export let lang: string;
-	export let text: string;
+	interface Props {
+		lang: string;
+		text: string;
+	}
 
-	let componentName: string;
-	let componentConfig: any;
-	let componentChildren: any;
-	let componentProps: any;
+	let { lang, text = $bindable() }: Props = $props();
 
-	let codeFilename: string;
-	if (lang === 'sveltecomponent') {
-		componentConfig = JSON.parse(text);
-		componentName = componentConfig.component;
-		componentChildren = componentConfig.props?.children;
-		componentProps = componentConfig.props;
-		delete componentProps.children;
-	} else {
+	let componentName: string | undefined = $state();
+	let componentConfig = $derived(
+	  lang === "sveltecomponent" ? JSON.parse(text) : undefined
+	);
+	let componentChildren: any = $state();
+	let componentProps = $derived.by(() => {
+	    if(!componentConfig?.props) return {};
+		const {children, ...props} = componentConfig.props;
+		return props;
+	});
+
+	let codeFilename = $derived.by(() => {
+	    if (lang === "sveltecomponent") return undefined;
 		// Pattern: ~filename example.js
 		const match = text.match(/^~filename\s*(.*)/);
-		if (match && match[1]) {
-			codeFilename = match[1];
-			text = text.replace(/^~filename.*(?:\n|$)/, '');
-		}
-	}
+		return match?.[1] || undefined;
+	});
+
+	let code = $derived.by(() => {
+	    if (lang === "sveltecomponent") return text;
+		return text.replace(/^~filename.*(?:\n|$)/, '')
+	})
 </script>
 
 {#if lang === 'sveltecomponent' && componentName}
 	{#await imports[componentName]() then module}
-		<svelte:component this={module.default} ...componentProps>
+		<module.default {...componentProps}>
 			{#if componentChildren}
 				{@html componentChildren}
 			{/if}
-		</svelte:component>
+		</module.default>
 	{/await}
 {:else}
-	<Codeblock {lang} filename={codeFilename} code={text} />
+	<Codeblock {lang} filename={codeFilename} {code} />
 {/if}

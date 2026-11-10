@@ -1,5 +1,5 @@
-import { getAllSlugs } from '$lib/data/blogs/api';
-import { EntryGenerator } from './$types.js';
+import { getAllSlugs } from '#lib/data/blogs/api';
+import type { EntryGenerator } from './$types.js';
 
 export async function load({ parent }) {
 	const data = await parent();

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import IconPlay from '$lib/icons/IconPlay.svelte';
+	import IconPlay from '#lib/icons/IconPlay.svelte';
 	import { scale } from 'svelte/transition';
 	// TODO: Try to set the size of cursor when hovering over Icons so it would look like its like a shadow of the icon
 
@@ -14,9 +14,13 @@
 		| 'action-focus';
 	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span, video, canvas';
 
-	let interactingElementType: InteractiveElementType | null = null;
-	export let size: number = 50;
-	let cursor: HTMLDivElement;
+	let interactingElementType: InteractiveElementType | null = $state(null);
+	interface Props {
+		size?: number;
+	}
+
+	let { size = 50 }: Props = $props();
+	let cursor: HTMLDivElement | undefined = $state();
 
 	function setInteractiveElementType(element: HTMLElement) {
 		const tag = element.tagName.toLowerCase();
@@ -72,8 +76,8 @@
 		};
 		cursor?.animate(keyframes, { duration: 300, fill: 'forwards' });
 
-		if (interactingElementType === 'canvas' && e.shiftKey) cursor.classList.add('canvas');
-		else cursor.classList.remove('canvas');
+		if (interactingElementType === 'canvas' && e.shiftKey) cursor?.classList.add('canvas');
+		else cursor?.classList.remove('canvas');
 	}
 
 	function onMouseDown(e: PointerEvent) {
@@ -106,7 +110,7 @@
 <div
 	id="cursor"
 	bind:this={cursor}
-	class={`fixed inset-0 border-2 border-accent-light border-opacity-30 dark:border-accent dark:border-opacity-30 z-50 opacity-0 pointer-events-none grid place-items-center ${interactingElementType} transition-all ease-in-out duration-300`}
+	class={`fixed inset-0 border-2 border-accent-light/30 dark:border-accent/30 z-50 opacity-0 pointer-events-none grid place-items-center ${interactingElementType} transition-all ease-in-out duration-300`}
 	style={`--size: ${size}px`}
 >
 	{#if interactingElementType === 'video'}
@@ -115,27 +119,29 @@
 		</div>
 	{:else}
 		<div
-			class={`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-1/6 h-1/6 rounded-full bg-opacity-80 bg-accent-light dark:bg-accent transition-all ease-out duration-300 ${interactingElementType}`}
+			class={`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-1/6 h-1/6 rounded-full bg-accent-light/80 dark:bg-accent/80 transition-all ease-out duration-300 ${interactingElementType}`}
 			transition:scale={{ duration: 350 }}
 		></div>
 		<div
 			style="height: 6%"
-			class={`w-1/2 rounded-full bg-primary dark:bg-white transition-all ease-out duration-300 bg-opacity-0 dark:bg-opacity-0 ${
-				interactingElementType === 'link' ? 'bg-opacity-80 dark:bg-opacity-80' : ''
+			class={`w-1/2 rounded-full bg-primary/0 dark:bg-white/0 transition-all ease-out duration-300 ${
+				interactingElementType === 'link' ? 'bg-primary/80 dark:bg-white/80' : ''
 			}`}
 		></div>
 	{/if}
 </div>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	#cursor.text {
-		@apply border-primary border-opacity-30 dark:border-white dark:border-opacity-30;
+		@apply border-primary/30 dark:border-white/30;
 	}
 	#cursor.link {
-		@apply border-primary border-opacity-30 dark:border-white dark:border-opacity-30;
+		@apply border-primary/30 dark:border-white/30;
 	}
 	#cursor .text {
-		@apply h-2/4 bg-primary bg-opacity-60 dark:bg-white dark:bg-opacity-60;
+		@apply h-2/4 bg-primary/60 dark:bg-white/60;
 	}
 	#cursor .link {
 		width: 6%;

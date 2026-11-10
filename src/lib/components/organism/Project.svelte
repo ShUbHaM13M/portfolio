@@ -1,10 +1,14 @@
 <script lang="ts">
-	import Section from '$lib/components/atoms/Section.svelte';
-	import ProjectCard from '$lib/components/molecules/ProjectCard.svelte';
+	import Section from '#lib/components/atoms/Section.svelte';
+	import ProjectCard from '#lib/components/molecules/ProjectCard.svelte';
 
-	import type { Project as ProjectType } from '$lib/utils/types';
+	import type { Project as ProjectType } from '#lib/utils/types';
 
-	export let projects: ProjectType[] = [];
+	interface Props {
+		projects?: ProjectType[];
+	}
+
+	let { projects = [] }: Props = $props();
 </script>
 
 <Section
@@ -27,8 +31,8 @@
 			title="See All Projects"
 			href="/project"
 			class="project-card mt-0 grid py-2 place-items-center w-full h-full
-			bg-accent-light bg-opacity-30 hover:bg-opacity-40 border-accent-light border-opacity-20
-			dark:bg-accent dark:bg-opacity-30 dark:hover:bg-opacity-40 border-2 dark:border-accent dark:border-opacity-20 backdrop-blur-md
+			bg-accent-light/30 hover:bg-accent-light/40 border-accent-light/20
+			dark:bg-accent/30 dark:hover:bg-accent/40 border-2 dark:border-accent/20 backdrop-blur-md
 			rounded-lg text-xl md:text-2xl font-medium text-primary dark:text-white focus:outline-none focus-visible:outline-none
 			transition-all duration-300 ease-out"
 		>

@@ -1,9 +1,9 @@
-import { getFileNamesFromDir, paginate } from '$lib/utils/fn';
+import { getFileNamesFromDir, paginate } from '#lib/utils/fn';
 import fs from 'fs-extra';
 import grayMatter from 'gray-matter';
 import path from 'path';
 import { parseProjects } from './model';
-import type { Project, PaginatedResult } from '$lib/utils/types';
+import type { Project, PaginatedResult } from '#lib/utils/types';
 
 const MAX_PROJECTS_PER_PAGE = 6;
 const MD_FILES_PATH = path.join(process.cwd(), 'cms/projects');

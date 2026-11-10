@@ -1,25 +1,37 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { marked } from 'marked';
+	// import { page } from '$app/state';
+	import GithubSlugger from 'github-slugger';
 
-	export let text: string;
-	export let depth: string;
-	export let raw: string;
+	interface Props {
+		text: string;
+		depth: string;
+		raw: string;
+	}
 
-	const slugger = new marked.Slugger();
+	let { text, depth, raw }: Props = $props();
 
-	const headingLevel = depth ?? raw.match(/#/g)?.length;
-	const element = `h${headingLevel}`;
-	const slug = slugger.slug(text);
+	const slugger = new GithubSlugger();
 
-	const fullUrl = `${$page.url.origin}${$page.url.pathname}#${slug}`;
+	const headingLevel = $derived(
+	  Number(depth) || (raw.match(/^#+/g)?.[0].length ?? 1)
+	);
+	const element = $derived(`h${headingLevel}`);
+	const slug = $derived(slugger.slug(text));
+
+	// const fullUrl = $derived(`${page.url.origin}${page.url.pathname}#${slug}`);
 </script>
 
-<svelte:element this={element} id={slug} class="text-primary dark:text-white">
+<svelte:element
+    this={element}
+    id={slug}
+    class="text-primary dark:text-white"
+>
 	{text}
 </svelte:element>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	h1 {
 		@apply text-4xl md:text-5xl;
 	}

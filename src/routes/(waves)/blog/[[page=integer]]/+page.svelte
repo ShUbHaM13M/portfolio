@@ -1,13 +1,17 @@
 <script lang="ts">
-	import Section from '$lib/components/atoms/Section.svelte';
-	import BlogPostCard from '$lib/components/molecules/BlogPostCard.svelte';
-	import type { Blog, PaginatedResult } from '$lib/utils/types';
+	import Section from '#lib/components/atoms/Section.svelte';
+	import BlogPostCard from '#lib/components/molecules/BlogPostCard.svelte';
+	import type { Blog, PaginatedResult } from '#lib/utils/types';
 
-	export let data: PaginatedResult<Blog>;
+	interface Props {
+		data: PaginatedResult<Blog>;
+	}
 
-	$: blogs = data.items;
-	$: totalPages = data.totalPages;
-	$: currentPage = data.currentPage;
+	let { data }: Props = $props();
+
+	let blogs = $derived(data.items);
+	let totalPages = $derived(data.totalPages);
+	let currentPage = $derived(data.currentPage);
 </script>
 
 {#key currentPage}
@@ -31,7 +35,7 @@
 						${
 							currentPage === index + 1
 								? 'bg-accent-light dark:bg-accent text-white dark:text-primary font-semibold'
-								: 'text-accent-light dark:text-accent bg-transparent outline outline-1 outline-accent-light dark:outline-accent font-medium hover:bg-accent-light hover:bg-opacity-20 dark:hover:bg-accent dark:hover:bg-opacity-20'
+								: 'text-accent-light dark:text-accent bg-transparent outline outline-1 outline-accent-light dark:outline-accent font-medium hover:bg-accent-light/20 dark:hover:bg-accent/20'
 						}`}
 					>
 						{index + 1}

@@ -1,10 +1,19 @@
 <script lang="ts">
-	import type { Image as ImageType } from '$lib/utils/types';
-	import Image from '$lib/components/atoms/Image.svelte';
-	export let slug: string;
-	export let coverImage: ImageType | undefined = undefined;
-	export let title: string;
-	export let excerpt: string;
+	import type { Image as ImageType } from '#lib/utils/types';
+	import Image from '#lib/components/atoms/Image.svelte';
+	interface Props {
+		slug: string;
+		coverImage?: ImageType | undefined;
+		title: string;
+		excerpt: string;
+	}
+
+	let {
+		slug,
+		coverImage = undefined,
+		title,
+		excerpt
+	}: Props = $props();
 </script>
 
 <a
@@ -29,18 +38,18 @@
 <style lang="postcss" scoped>
 	a:hover,
 	a:focus {
-		box-shadow: 0 0 4px 8px theme('colors.accent-light' / 20%);
+		box-shadow: 0 0 4px 8px --alpha(var(--color-accent-light) / 20%);
 		outline: none;
 	}
 	:global(html[data-theme='dark'] .blog-card:hover) {
-		box-shadow: 0 0 4px 8px theme('colors.accent' / 10%);
+		box-shadow: 0 0 4px 8px --alpha(var(--color-accent) / 10%);
 		outline: none;
 	}
 	.container {
 		min-height: 200px;
 		height: 100%;
 	}
-	@screen md {
+	@media (width >= 48rem) {
 		.container {
 			min-height: 250px;
 		}

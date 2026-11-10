@@ -2,10 +2,14 @@
 	import { cubicOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
-	export let onPatternChange: (pattern: number[][]) => void;
 
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
+	interface Props {
+		onPatternChange: (pattern: number[][]) => void;
+	}
+
+	let { onPatternChange }: Props = $props();
 
 	const showMainContent = getContext<Writable<boolean>>('showMainContent');
 
@@ -199,13 +203,13 @@
 			>
 				<button
 					class={`p-2 rounded-xl grid place-items-center
-					bg-accent-light dark:bg-accent bg-opacity-40 dark:bg-opacity-10
-			hover:bg-accent-light hover:bg-opacity-20 focus-visible:bg-accent-light focus-visible:bg-opacity-20 dark:hover:bg-accent dark:hover:bg-opacity-20
-			dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-20
+					bg-accent-light/40 dark:bg-accent/10
+			hover:bg-accent-light/20 focus-visible:bg-accent-light/20 dark:hover:bg-accent/20
+			dark:focus-visible:bg-accent/20
 			transition-all ease-out duration-300 backdrop-blur-sm action
-			border border-1 border-accent-light dark:border-accent border-opacity-50 dark:border-opacity-50
+			border border-accent-light/50 dark:border-accent/50
 			h-full min-w-20`}
-					on:click={() => onPatternChange(pattern)}
+					onclick={() => onPatternChange(pattern)}
 				>
 					{@html patternToSVG(pattern, 6, 0)}
 				</button>

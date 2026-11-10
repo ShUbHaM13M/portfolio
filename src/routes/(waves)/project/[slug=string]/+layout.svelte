@@ -1,31 +1,40 @@
 <script lang="ts">
-	import type { Palette, Project } from '$lib/utils/types';
+    import type { Snippet } from 'svelte';
 
-	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
-	import { swatch } from '$lib/stores/swatch';
+	import type { Palette, Project } from '#lib/utils/types';
+	import { swatch } from '#lib/stores/swatch';
 
-	export let data: { project: Project; colours?: Palette };
-	$: ({ project } = data);
+	import {
+	    title,
+		siteBaseUrl,
+		keywords,
+		image as metaImage
+	} from '#lib/data/meta';
 
-	if (data.colours) {
-		swatch.set(data.colours);
+	interface Props {
+		data: { project: Project; colours?: Palette };
+		children?: Snippet;
 	}
 
-	let metaKeywords = keywords;
+	let { data, children }: Props = $props();
 
-	$: {
-		if (project?.technologies?.length) {
-			metaKeywords = project.technologies.map((tag) => tag.label).concat(metaKeywords);
-		}
-		// if (project?.keywords?.length) {
-		// 	metaKeywords = project.keywords.concat(metaKeywords);
-		// }
-	}
+	let project = $derived(data.project);
+
+	$effect(() => {
+	    if (data.colours) {
+			swatch.set(data.colours);
+	    }
+	})
+
+	const metaKeywords = $derived([
+	    ...(project.technologies.map((tag) => tag.label) ?? []),
+		...keywords
+	]);
 </script>
 
 <svelte:head>
 	{#if project}
-		<meta name="keywords" content={keywords.join(', ')} />
+		<meta name="keywords" content={metaKeywords.join(', ')} />
 
 		<meta name="description" content={project.description} />
 		<meta name="og:description" content={project.description} />
@@ -54,6 +63,6 @@
 
 {#if project}
 	<section class="mt-0 bg-checkered pt-[75px] pb-6 md:pt-px min-h-screen">
-		<slot />
+		{@render children?.()}
 	</section>
 {/if}

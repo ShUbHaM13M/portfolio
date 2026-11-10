@@ -1,7 +1,7 @@
-import { getBlogs } from '$lib/data/blogs/api';
-import { description, siteBaseUrl, title } from '$lib/data/meta';
-import { getProjects } from '$lib/data/projects/api';
-import type { Blog, Project } from '$lib/utils/types';
+import { getBlogs } from '#lib/data/blogs/api';
+import { description, siteBaseUrl, title } from '#lib/data/meta';
+import { getProjects } from '#lib/data/projects/api';
+import type { Blog, Project } from '#lib/utils/types';
 import { marked } from 'marked';
 
 export const prerender = true;

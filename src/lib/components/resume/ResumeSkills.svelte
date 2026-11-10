@@ -34,7 +34,7 @@
 			<p
 				class="py-1.5 px-2.5 rounded-md
 				border border-accent-light dark:border-accent
-				bg-accent-light dark:bg-accent bg-opacity-30 dark:bg-opacity-30
+				bg-accent-light/30 dark:bg-accent/30
 				md:backdrop-blur text-nowrap"
 			>
 				{skill}

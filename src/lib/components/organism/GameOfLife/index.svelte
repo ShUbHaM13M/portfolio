@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy, getContext } from 'svelte';
 	import init, { Grid, type InitOutput } from './game_of_life.js';
-	import { theme } from '$lib/stores/theme';
+	import { theme } from '#lib/stores/theme';
 	import LexiconCaroussel from './LexiconCaroussel.svelte';
 	import ClearCanvasButton from './ClearCanvasButton.svelte';
 	import RandomizeCanvasButton from './RandomizeCanvasButton.svelte';
@@ -29,7 +29,7 @@
 	let lastTime = 0;
 	let wasm: InitOutput;
 	let grid: Grid;
-	let canvas: HTMLCanvasElement | null = null;
+	let canvas: HTMLCanvasElement | null = $state(null);
 	let gl: WebGL2RenderingContext | null = null;
 	let rafId: number;
 
@@ -383,8 +383,8 @@ void main() {
 <canvas
 	class={`w-full h-svh block absolute top-0 left-0 ${$showMainContent ? 'touch-auto' : 'touch-none'}`}
 	bind:this={canvas}
-	on:pointermove={onCanvasMove}
-/>
+	onpointermove={onCanvasMove}
+></canvas>
 
 <LexiconCaroussel onPatternChange={loadPattern} />
 

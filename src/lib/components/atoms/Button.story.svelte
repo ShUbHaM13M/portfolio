@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { Hst } from '@histoire/plugin-svelte';
+	import type { Hst as HstType } from '@histoire/plugin-svelte';
 	import Button, { type Variant } from './Button.svelte';
 
-	export let Hst: Hst;
+	export let Hst: HstType;
 
 	let props: {
 		variant: Variant;

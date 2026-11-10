@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Hst } from '@histoire/plugin-svelte';
+	import type { Hst as HstType } from '@histoire/plugin-svelte';
 	import ProjectCard from './ProjectCard.svelte';
-	import IconSoftwareDevelopement from '$lib/icons/IconSoftwareDevelopement.svelte';
+	import IconSoftwareDevelopement from '#lib/icons/IconSoftwareDevelopement.svelte';
 
-	export let Hst: Hst;
+	export let Hst: HstType;
 
 	let props = {
 		title: 'Stories.io - Story App',
@@ -25,19 +25,17 @@
 	<div style="padding: 12px;">
 		<Hst.Variant title="Default">
 			<ProjectCard
-				links={[
-					{
-						href: 'https://www.github.com',
-						icon: IconSoftwareDevelopement
-					}
-				]}
+				link={{
+					href: 'https://www.github.com',
+					icon: IconSoftwareDevelopement
+				}}
 				{...props}
 				{imageUrl}
 			/>
 		</Hst.Variant>
 
 		<Hst.Variant title="No Image">
-			<ProjectCard {...props} />
+			<ProjectCard slug="no-image" {...props} />
 		</Hst.Variant>
 	</div>
 </Hst.Story>
