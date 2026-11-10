@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Image from '$lib/components/atoms/Image.svelte';
 
-
 	interface Props {
 		index?: string;
 		icon?: string;
@@ -26,7 +25,7 @@
 </script>
 
 <div
-	class={`skill-card relative text-primary dark:text-white flex flex-col flex-1 gap-4 
+	class={`skill-card relative text-primary dark:text-white flex flex-col flex-1 gap-4
 	p-6 sm:py-10 sm:pt-14 rounded-lg bg-card-light dark:bg-card
 	hover:scale-105
 	transition-transform ease-out duration-300 ${containerClasses}`}
@@ -70,7 +69,7 @@
 		}
 		opacity: 100%;
 	}
-	html[data-theme='dark'] .skill-card:hover .tag {
+	:global(html[data-theme='dark']) .skill-card:hover .tag {
 		& * {
 			color: theme(colors.accent);
 			border-color: theme(colors.accent);

@@ -41,11 +41,11 @@
 		{/if}
 		<div class="flex justify-between items-center">
 			<h3 class="font-medium text-2xl leading-6">{name}</h3>
-			{#if link}
+			<!-- {#if link}
 				<a href={link.href} target="_blank">
 					<link.icon classes="h-7 w-7" />
 				</a>
-			{/if}
+			{/if} -->
 		</div>
 		<p class="text-lg leading-tight line-clamp-3">
 			{excerpt}

@@ -4,10 +4,10 @@
 	}
 
 	let { raw }: Props = $props();
-	export const text: string = '';
 
-	let lines = $state(raw.split('>').slice(1));
-	lines = lines.map((line) => line.trim());
+	let lines = $derived(
+	  raw.split('>').slice(1).map((line) => line.trim())
+	);
 </script>
 
 <div

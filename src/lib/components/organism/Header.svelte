@@ -16,7 +16,7 @@
 	];
 
 	let prevScrollPos = 0;
-	let navbar: HTMLElement = $state();
+	let navbar: HTMLElement | undefined = $state();
 
 	const showMainContent = getContext<Writable<boolean> | undefined>('showMainContent') ?? writable(true);
 
@@ -53,6 +53,7 @@
 		const bgDarkColorString = rgbToRgba(bgDarkColorArray, 0.2);
 		bgColorArray.push(0.3);
 		bgDarkColorArray.push(0.2);
+		if (!navbar) return;
 		navbar.style.setProperty('--color-bg', bgColorString);
 		navbar.style.setProperty('--color-text', rgbToRgba(swatch.darkVibrant));
 		navbar.style.setProperty('--color-bg-dark', bgDarkColorString);

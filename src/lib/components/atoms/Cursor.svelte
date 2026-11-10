@@ -20,7 +20,7 @@
 	}
 
 	let { size = 50 }: Props = $props();
-	let cursor: HTMLDivElement = $state();
+	let cursor: HTMLDivElement | undefined = $state();
 
 	function setInteractiveElementType(element: HTMLElement) {
 		const tag = element.tagName.toLowerCase();
@@ -76,7 +76,7 @@
 		};
 		cursor?.animate(keyframes, { duration: 300, fill: 'forwards' });
 
-		if (interactingElementType === 'canvas' && e.shiftKey) cursor.classList.add('canvas');
+		if (interactingElementType === 'canvas' && e.shiftKey) cursor?.classList.add('canvas');
 		else cursor?.classList.remove('canvas');
 	}
 

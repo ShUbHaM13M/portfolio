@@ -28,7 +28,7 @@
 		...rest
 	}: Props = $props();
 
-	let fileName: string = $state();
+	let fileName: string | undefined = $state();
 	let srcset: string | undefined = $state();
 
 

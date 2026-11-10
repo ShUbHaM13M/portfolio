@@ -10,6 +10,7 @@
 </script>
 
 <button
+    title="Clear Canvas"
 	onclick={clearCanvas}
 	in:fly={{ y: '100%', easing: expoOut, duration: 500 }}
 	out:fly={{ y: '100%', easing: expoOut, duration: 500, opacity: 0 }}

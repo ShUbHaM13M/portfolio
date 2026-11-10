@@ -2,8 +2,8 @@ import fs from 'fs-extra';
 import grayMatter from 'gray-matter';
 import path from 'path';
 import { parseSkills } from './model';
-import type Skill from './model';
 import { getFileNamesFromDir } from '$lib/utils/fn';
+import type { Skill } from '$lib/utils/types';
 
 const MD_FILES_PATH = path.join(process.cwd(), 'cms/skills');
 

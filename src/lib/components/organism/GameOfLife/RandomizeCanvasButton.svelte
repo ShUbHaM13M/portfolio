@@ -27,6 +27,7 @@
 </script>
 
 <button
+    title="Randomize..."
 	in:fly={{
 		...(isMobile ? { y: '100%' } : { x: '100%' }),
 		easing: expoOut,

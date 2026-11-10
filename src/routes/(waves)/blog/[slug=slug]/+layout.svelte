@@ -1,41 +1,41 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+    import type { Snippet } from 'svelte'
 
 	import type { Blog, Palette } from '$lib/utils/types';
 	import { swatch } from '$lib/stores/swatch';
 
-	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
+	import {
+	    title,
+		siteBaseUrl,
+		keywords,
+		image as metaImage
+	} from '$lib/data/meta';
+
 	interface Props {
 		data: { blog: Blog; colours?: Palette };
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let { data, children }: Props = $props();
 
-	let { blog } = $derived(data);
+	let blog = $derived(data.blog);
 
-	if (data.colours) {
-		swatch.set(data.colours);
-	}
+	$effect(() => {
+	    if (data.colours) {
+			swatch.set(data.colours);
+	    }
+	})
 
-	let metaKeywords = $state(keywords);
-
-	run(() => {
-		if (blog?.categories?.length) {
-			metaKeywords = blog.categories.concat(metaKeywords);
-		}
-		if (blog?.tags?.length) {
-			metaKeywords = [...blog.tags.flatMap((tag) => tag.label), ...metaKeywords];
-		}
-		// if (blog?.keywords?.length) {
-		// 	metaKeywords = blog.keywords.concat(metaKeywords);
-		// }
-	});
+	const metaKeywords = $derived([
+		...(blog?.tags?.map((tag) => tag.label) ?? []),
+		...(blog?.categories ?? []),
+		...keywords
+	]);
 </script>
 
 <svelte:head>
 	{#if blog}
-		<meta name="keywords" content={keywords.join(', ')} />
+		<meta name="keywords" content={metaKeywords.join(', ')} />
 
 		<meta name="description" content={blog.excerpt} />
 		<meta name="og:description" content={blog.excerpt} />
@@ -61,7 +61,6 @@
 </svelte:head>
 
 {#if blog}
-	<!-- <Header /> -->
 	<main
 		class="bg-checkered pt-[75px] pb-6 md:pt-px bg-light-white backdrop-brightness-50 dark:bg-primary dark:backdrop-brightness-100 bg-top"
 	>

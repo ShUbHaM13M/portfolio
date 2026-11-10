@@ -3,7 +3,7 @@
 
 	const MAX_STROKE_DASHOFFSET = 170;
 
-	let scrollButton: HTMLButtonElement = $state();
+	let scrollButton: HTMLButtonElement | undefined = $state();
 	let strokeDashOffset = $state(MAX_STROKE_DASHOFFSET);
 
 	function scrollToTop() {
@@ -23,7 +23,7 @@
 
 	onMount(() => {
 		if ((window.scrollY || window.pageYOffset) > window.innerHeight) {
-			scrollButton.classList.remove('hide');
+			scrollButton?.classList.remove('hide');
 		}
 		window.addEventListener('scroll', onScroll);
 		() => {
@@ -33,6 +33,7 @@
 </script>
 
 <button
+    title="Scroll to top"
 	bind:this={scrollButton}
 	onclick={scrollToTop}
 	class="fixed group bottom-10 hide right-6 md:right-10 outline-none focus:outline-none

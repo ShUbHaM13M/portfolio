@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	// import { page } from '$app/state';
 	import { marked } from 'marked';
 
 	interface Props {
@@ -12,14 +12,20 @@
 
 	const slugger = new marked.Slugger();
 
-	const headingLevel = depth ?? raw.match(/#/g)?.length;
-	const element = `h${headingLevel}`;
-	const slug = slugger.slug(text);
+	const headingLevel = $derived(
+	  Number(depth) || (raw.match(/^#+/g)?.[0].length ?? 1)
+	);
+	const element = $derived(`h${headingLevel}`);
+	const slug = $derived(slugger.slug(text));
 
-	const fullUrl = `${$page.url.origin}${$page.url.pathname}#${slug}`;
+	// const fullUrl = $derived(`${page.url.origin}${page.url.pathname}#${slug}`);
 </script>
 
-<svelte:element this={element} id={slug} class="text-primary dark:text-white">
+<svelte:element
+    this={element}
+    id={slug}
+    class="text-primary dark:text-white"
+>
 	{text}
 </svelte:element>
 

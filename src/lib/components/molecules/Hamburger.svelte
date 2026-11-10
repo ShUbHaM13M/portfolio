@@ -1,37 +1,31 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import NavLink from '$lib/components/atoms/NavLink.svelte';
-	import { onDestroy } from 'svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	interface Props {
 		links?: {
-		href: string;
-		text: string;
-	}[];
+		  href: string;
+		  text: string;
+		}[];
 	}
 
 	let { links = [] }: Props = $props();
 
-	let input: HTMLInputElement = $state();
+	let input: HTMLInputElement | undefined = $state();
 
-	function getActiveSectionIndex() {
-		return links.findIndex(({ href }) => {
-			return $page.url.href.includes(href) || $page.url.hash.includes(href.replace('/', ''));
+	const activeSectionIndex = $derived.by(() => {
+        return links.findIndex(({ href }) => {
+			return (
+				page.url.href.includes(href) ||
+				page.url.hash.includes(href.replace('/', ''))
+			);
 		});
-	}
-
-	let activeSectionIndex = $state(getActiveSectionIndex());
-	const unsubscribe = page.subscribe((_) => {
-		activeSectionIndex = getActiveSectionIndex();
-	});
-
-	onDestroy(() => {
-		unsubscribe();
-	});
+	})
 
 	function handleOnLinkClick() {
-		input.checked = false;
+	    if (input)
+			input.checked = false;
 	}
 </script>
 
@@ -63,7 +57,7 @@
 				active={index === activeSectionIndex}
 				href={link.href}
 				text={link.text}
-				on:click={handleOnLinkClick}
+				onclick={handleOnLinkClick}
 			/>
 		{:else}
 			<div>
@@ -71,7 +65,7 @@
 					active={index === activeSectionIndex}
 					href={link.href}
 					text={link.text}
-					on:click={handleOnLinkClick}
+					onclick={handleOnLinkClick}
 				/>
 			</div>
 		{/if}

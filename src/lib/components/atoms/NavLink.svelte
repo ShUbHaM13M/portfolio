@@ -1,18 +1,20 @@
 <script lang="ts">
-	import { createBubbler } from 'svelte/legacy';
-
-	const bubble = createBubbler();
 	interface Props {
 		active?: boolean;
 		href?: string;
 		text?: string;
+		onclick?: (event: MouseEvent) => void;
 	}
 
-	let { active = false, href = '', text = '' }: Props = $props();
+	let { active = false, href = '', text = '', onclick }: Props = $props();
 </script>
 
 <div class:active class="navlink relative text-current transition-all ease-out duration-200">
-	<a {href} class="px-4 py-0.5 text-inherit w-full block" onclick={bubble('click')}>
+	<a
+	    {href}
+		class="px-4 py-0.5 text-inherit w-full block"
+		{onclick}
+	>
 		{text}
 	</a>
 </div>

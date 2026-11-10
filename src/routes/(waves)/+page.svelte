@@ -23,7 +23,7 @@
 	}
 
 	let { data }: Props = $props();
-	let { skills, workExperiences, blogs, projects } = data;
+	let { skills, workExperiences, blogs, projects } = $derived(data);
 </script>
 
 <Main />

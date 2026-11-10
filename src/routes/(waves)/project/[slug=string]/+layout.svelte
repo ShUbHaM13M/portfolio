@@ -1,38 +1,40 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+    import type { Snippet } from 'svelte';
 
 	import type { Palette, Project } from '$lib/utils/types';
-
-	import { title, siteBaseUrl, keywords, image as metaImage } from '$lib/data/meta';
 	import { swatch } from '$lib/stores/swatch';
+
+	import {
+	    title,
+		siteBaseUrl,
+		keywords,
+		image as metaImage
+	} from '$lib/data/meta';
 
 	interface Props {
 		data: { project: Project; colours?: Palette };
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let { data, children }: Props = $props();
-	let { project } = $derived(data);
 
-	if (data.colours) {
-		swatch.set(data.colours);
-	}
+	let project = $derived(data.project);
 
-	let metaKeywords = $state(keywords);
+	$effect(() => {
+	    if (data.colours) {
+			swatch.set(data.colours);
+	    }
+	})
 
-	run(() => {
-		if (project?.technologies?.length) {
-			metaKeywords = project.technologies.map((tag) => tag.label).concat(metaKeywords);
-		}
-		// if (project?.keywords?.length) {
-		// 	metaKeywords = project.keywords.concat(metaKeywords);
-		// }
-	});
+	const metaKeywords = $derived([
+	    ...(project.technologies.map((tag) => tag.label) ?? []),
+		...keywords
+	]);
 </script>
 
 <svelte:head>
 	{#if project}
-		<meta name="keywords" content={keywords.join(', ')} />
+		<meta name="keywords" content={metaKeywords.join(', ')} />
 
 		<meta name="description" content={project.description} />
 		<meta name="og:description" content={project.description} />
