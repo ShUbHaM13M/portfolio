@@ -1,10 +1,6 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
-	import { dev } from '$app/environment';
-	import { HttpRegex } from '$lib/utils/regex';
-
-
+	import { dev } from '$app/env';
+	import { HttpRegex } from '#lib/utils/regex';
 
 	interface Props {
 		additionalClasses?: string;
@@ -28,9 +24,7 @@
 		...rest
 	}: Props = $props();
 
-	let fileName: string | undefined = $state();
-	let srcset: string | undefined = $state();
-
+	let fileName = $derived(src ? src.split('.')[0] : '');
 
 	function buildSrcSet() {
 		if (dev || HttpRegex.test(src)) return;
@@ -56,10 +50,7 @@
 		}
 		return srcset;
 	}
-	run(() => {
-		fileName = src ? src.split('.')[0] : '';
-		srcset = buildSrcSet();
-	});
+	let srcset = $derived(buildSrcSet());
 </script>
 
 {#if src}

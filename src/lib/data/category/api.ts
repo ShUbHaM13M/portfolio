@@ -1,4 +1,4 @@
-import { paginate } from '$lib/utils/fn';
+import { paginate } from '#lib/utils/fn';
 import { getBlogs } from '../blogs/api';
 import { getProjects } from '../projects/api';
 

@@ -1,4 +1,4 @@
-import { getProjects } from '$lib/data/projects/api.js';
+import { getProjects } from '#lib/data/projects/api.js';
 import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {

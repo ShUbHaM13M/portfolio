@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from '$lib/components/organism/Header.svelte';
+	import Header from '#lib/components/organism/Header.svelte';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}

@@ -1,4 +1,4 @@
-import type { Palette } from '$lib/utils/types';
+import type { Palette } from '#lib/utils/types';
 import { writable } from 'svelte/store';
 
 function createSwatch() {

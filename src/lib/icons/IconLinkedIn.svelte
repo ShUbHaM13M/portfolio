@@ -3,7 +3,7 @@
 		classes?: string;
 	}
 
-	let { classes = '' }: Props = $props();
+	let { classes = 'h-12 w-12' }: Props = $props();
 </script>
 
 <svg
@@ -12,7 +12,7 @@
 	viewBox="0 0 24 24"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
-	class={`h-12 w-12 ${classes}`}
+	class={classes}
 >
 	<circle cx="4" cy="4" r="2" class="fill-current" />
 	<path d="M2 8.5H6V22H2V8.5Z" class="fill-current" />

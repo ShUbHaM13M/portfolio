@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { HttpRegex } from '$lib/utils/regex';
+	import { HttpRegex } from '#lib/utils/regex';
 	import Image from '../atoms/Image.svelte';
 
 	interface Props {

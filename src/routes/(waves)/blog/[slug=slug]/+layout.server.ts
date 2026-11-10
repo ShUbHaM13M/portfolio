@@ -1,6 +1,6 @@
-import { getBlogBySlug } from '$lib/data/blogs/api';
-import type { Blog } from '$lib/utils/types.js';
-import Vibrant from 'node-vibrant';
+import { getBlogBySlug } from '#lib/data/blogs/api';
+import type { Blog } from '#lib/utils/types.js';
+import { Vibrant } from 'node-vibrant/node';
 
 export async function load({ params, fetch }) {
 	const { slug } = params;

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Skill } from '$lib/utils/types';
-	import Section from '$lib/components/atoms/Section.svelte';
-	import SkillCard from '$lib/components/molecules/SkillCard.svelte';
+	import type { Skill } from '#lib/utils/types';
+	import Section from '#lib/components/atoms/Section.svelte';
+	import SkillCard from '#lib/components/molecules/SkillCard.svelte';
 
 	interface Props {
 		skills?: Skill[];
@@ -38,7 +38,7 @@
 		width: var(--size);
 		height: var(--size);
 	}
-	@screen sm {
+	@media (width >= 40rem) {
 		:global(.skill-icon) {
 			--size: 50px;
 		}

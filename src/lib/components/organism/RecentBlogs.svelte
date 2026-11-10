@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '../atoms/Button.svelte';
-	import type { Blog } from '$lib/utils/types';
+	import type { Blog } from '#lib/utils/types';
 	import BlogPostCard from '../molecules/BlogPostCard.svelte';
 	import Section from '../atoms/Section.svelte';
 	interface Props {

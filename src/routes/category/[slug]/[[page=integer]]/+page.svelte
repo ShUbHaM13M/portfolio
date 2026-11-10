@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Section from '$lib/components/atoms/Section.svelte';
-	import BlogPostCard from '$lib/components/molecules/BlogPostCard.svelte';
-	import ProjectCard from '$lib/components/molecules/ProjectCard.svelte';
-	import { ArticleType, type Blog, type PaginatedResult, type Project } from '$lib/utils/types';
+	import Section from '#lib/components/atoms/Section.svelte';
+	import BlogPostCard from '#lib/components/molecules/BlogPostCard.svelte';
+	import ProjectCard from '#lib/components/molecules/ProjectCard.svelte';
+	import { ArticleType, type Blog, type PaginatedResult, type Project } from '#lib/utils/types';
 
 	interface Props {
 		data: PaginatedResult<Blog | Project> & { currentCategory: string };
@@ -51,7 +51,7 @@
 						${
 							currentPage === index + 1
 								? 'bg-accent-light dark:bg-accent text-white dark:text-primary font-semibold'
-								: 'text-accent-light dark:text-accent bg-transparent outline outline-1 outline-accent-light dark:outline-accent font-medium hover:bg-accent-light hover:bg-opacity-20 dark:hover:bg-accent dark:hover:bg-opacity-20'
+								: 'text-accent-light dark:text-accent bg-transparent outline outline-1 outline-accent-light dark:outline-accent font-medium hover:bg-accent-light/20 dark:hover:bg-accent/20'
 						}`}
 					>
 						{index + 1}

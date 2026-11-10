@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy, getContext } from 'svelte';
 	import init, { Grid, type InitOutput } from './game_of_life.js';
-	import { theme } from '$lib/stores/theme';
+	import { theme } from '#lib/stores/theme';
 	import LexiconCaroussel from './LexiconCaroussel.svelte';
 	import ClearCanvasButton from './ClearCanvasButton.svelte';
 	import RandomizeCanvasButton from './RandomizeCanvasButton.svelte';

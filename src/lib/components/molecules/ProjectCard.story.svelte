@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Hst as HstType } from '@histoire/plugin-svelte';
 	import ProjectCard from './ProjectCard.svelte';
-	import IconSoftwareDevelopement from '$lib/icons/IconSoftwareDevelopement.svelte';
+	import IconSoftwareDevelopement from '#lib/icons/IconSoftwareDevelopement.svelte';
 
 	export let Hst: HstType;
 

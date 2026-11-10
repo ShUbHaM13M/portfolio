@@ -37,8 +37,8 @@
 	bind:this={scrollButton}
 	onclick={scrollToTop}
 	class="fixed group bottom-10 hide right-6 md:right-10 outline-none focus:outline-none
-	hover:bg-accent-light hover:bg-opacity-10 focus-visible:bg-accent-light focus-visible:bg-opacity-10
-	dark:hover:bg-accent dark:hover:bg-opacity-10 dark:focus-visible:bg-accent dark:focus-visible:bg-opacity-10
+	hover:bg-accent-light/10 focus-visible:bg-accent-light/10
+	dark:hover:bg-accent/10 dark:focus-visible:bg-accent/10
 	rounded-full size-14 grid place-items-center transition-all ease-out duration-300 backdrop-blur-sm"
 >
 	<svg

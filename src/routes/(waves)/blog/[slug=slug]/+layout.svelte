@@ -1,15 +1,15 @@
 <script lang="ts">
     import type { Snippet } from 'svelte'
 
-	import type { Blog, Palette } from '$lib/utils/types';
-	import { swatch } from '$lib/stores/swatch';
+	import type { Blog, Palette } from '#lib/utils/types';
+	import { swatch } from '#lib/stores/swatch';
 
 	import {
 	    title,
 		siteBaseUrl,
 		keywords,
 		image as metaImage
-	} from '$lib/data/meta';
+	} from '#lib/data/meta';
 
 	interface Props {
 		data: { blog: Blog; colours?: Palette };
@@ -62,7 +62,7 @@
 
 {#if blog}
 	<main
-		class="bg-checkered pt-[75px] pb-6 md:pt-px bg-light-white backdrop-brightness-50 dark:bg-primary dark:backdrop-brightness-100 bg-top"
+		class="bg-checkered pt-18.75 pb-6 md:pt-px bg-light-white backdrop-brightness-50 dark:bg-primary dark:backdrop-brightness-100 bg-top"
 	>
 		{@render children?.()}
 	</main>

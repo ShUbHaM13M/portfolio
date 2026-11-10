@@ -1,10 +1,10 @@
 <script lang="ts">
-	import IconLocation from '$lib/icons/IconLocation.svelte';
-	import IconPhone from '$lib/icons/IconPhone.svelte';
-	import IconChat from '$lib/icons/IconChat.svelte';
-	import IconMail from '$lib/icons/IconMail.svelte';
-	import IconGithub from '$lib/icons/IconGithub.svelte';
-	import IconLinkedIn from '$lib/icons/IconLinkedIn.svelte';
+	import IconLocation from '#lib/icons/IconLocation.svelte';
+	import IconPhone from '#lib/icons/IconPhone.svelte';
+	import IconChat from '#lib/icons/IconChat.svelte';
+	import IconMail from '#lib/icons/IconMail.svelte';
+	import IconGithub from '#lib/icons/IconGithub.svelte';
+	import IconLinkedIn from '#lib/icons/IconLinkedIn.svelte';
 </script>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1 sm:gap-y-2 text-lg mt-4 w-fit">

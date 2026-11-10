@@ -1,4 +1,4 @@
-import type { Tag } from '$lib/utils/types';
+import type { Tag } from '#lib/utils/types';
 
 type WorkExperience = {
 	company: string;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	// import { page } from '$app/state';
-	import { marked } from 'marked';
+	import GithubSlugger from 'github-slugger';
 
 	interface Props {
 		text: string;
@@ -10,7 +10,7 @@
 
 	let { text, depth, raw }: Props = $props();
 
-	const slugger = new marked.Slugger();
+	const slugger = new GithubSlugger();
 
 	const headingLevel = $derived(
 	  Number(depth) || (raw.match(/^#+/g)?.[0].length ?? 1)
@@ -30,6 +30,8 @@
 </svelte:element>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	h1 {
 		@apply text-4xl md:text-5xl;
 	}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconCheck from '$lib/icons/IconCheck.svelte';
+	import IconCheck from '#lib/icons/IconCheck.svelte';
 
 	type ListItem = {
 		text: string;
@@ -36,6 +36,8 @@
 </svelte:element>
 
 <style lang="postcss" scoped>
+	@reference "#app.css";
+
 	.ordered-list {
 		display: list-item;
 		list-style-position: inside;

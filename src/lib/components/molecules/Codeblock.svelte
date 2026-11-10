@@ -1,13 +1,11 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+	import '#lib/themes/codeblock/frappe.css';
+	import '#lib/themes/codeblock/github.css';
+	import '#lib/themes/codeblock/slack.css';
 
-	import '$lib/themes/codeblock/frappe.css';
-	import '$lib/themes/codeblock/github.css';
-	import '$lib/themes/codeblock/slack.css';
-
-	import IconCopy from '$lib/icons/IconCopy.svelte';
-	import { codeblockTheme } from '$lib/stores/codeblock-theme';
-	import codeHighlighter from '$lib/utils/codeHighlighter';
+	import IconCopy from '#lib/icons/IconCopy.svelte';
+	import { codeblockTheme } from '#lib/stores/codeblock-theme';
+	import codeHighlighter from '#lib/utils/codeHighlighter';
 
 	interface Props {
 		filename?: string | undefined;
@@ -23,10 +21,7 @@
 		children
 	}: Props = $props();
 
-	let theme = $state($codeblockTheme);
-	run(() => {
-		theme = $codeblockTheme;
-	});
+	let theme = $derived($codeblockTheme);
 
 	let copied = $state(false);
 
@@ -107,6 +102,8 @@
 </div>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	:global(.code-block code) {
 		@apply font-fira-code;
 	}

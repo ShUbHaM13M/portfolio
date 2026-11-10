@@ -56,11 +56,13 @@
 </svelte:element>
 
 <style lang="postcss" scoped>
+	@reference "#app.css";
+
 	.filled {
 		@apply bg-accent-light dark:bg-accent text-white dark:text-primary;
 	}
 	.outlined {
-		@apply text-primary dark:text-white bg-accent-light dark:bg-accent bg-opacity-30 dark:bg-opacity-30 hover:bg-opacity-40 backdrop-blur-md border-2 border-accent-light dark:border-accent border-opacity-20 dark:border-opacity-20
+		@apply text-primary dark:text-white bg-accent-light/30 dark:bg-accent/30 hover:bg-accent-light/40 dark:hover:bg-accent/40 backdrop-blur-md border-2 border-accent-light/20 dark:border-accent/20
 		focus:outline-none dark:focus-visible:bg-accent focus-visible:bg-accent-light;
 	}
 </style>

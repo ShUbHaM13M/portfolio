@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Section from '../atoms/Section.svelte';
-	import IconPhone from '$lib/icons/IconPhone.svelte';
-	import IconMail from '$lib/icons/IconMail.svelte';
-	import IconGithub from '$lib/icons/IconGithub.svelte';
-	import IconLinkedIn from '$lib/icons/IconLinkedIn.svelte';
-	import IconRss from '$lib/icons/IconRss.svelte';
+	import IconPhone from '#lib/icons/IconPhone.svelte';
+	import IconMail from '#lib/icons/IconMail.svelte';
+	import IconGithub from '#lib/icons/IconGithub.svelte';
+	import IconLinkedIn from '#lib/icons/IconLinkedIn.svelte';
+	import IconRss from '#lib/icons/IconRss.svelte';
 	interface Props {
 		description?: import('svelte').Snippet;
 	}

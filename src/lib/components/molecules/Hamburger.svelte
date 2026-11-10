@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import NavLink from '$lib/components/atoms/NavLink.svelte';
+	import NavLink from '#lib/components/atoms/NavLink.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	interface Props {
@@ -81,7 +81,9 @@
 </div>
 
 <style lang="postcss">
-	@screen sm {
+	@reference "#app.css";
+
+	@media (width >= 40rem) {
 		#menu {
 			@apply static pl-10 py-0 h-auto w-full flex-row bg-transparent translate-x-0 justify-center transition-none text-lg;
 		}

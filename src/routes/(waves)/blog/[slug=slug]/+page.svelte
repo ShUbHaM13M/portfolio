@@ -1,16 +1,14 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import { siteBaseUrl } from '$lib/data/meta';
+	import { siteBaseUrl } from '#lib/data/meta';
 
-	import Image from '$lib/components/atoms/Image.svelte';
-	import Tag from '$lib/components/atoms/Tag.svelte';
-	import BlogUserProfile from '$lib/components/molecules/BlogUserProfile.svelte';
-	import Markdown from '$lib/components/molecules/Markdown.svelte';
-	import type { Blog } from '$lib/utils/types';
-	import IconShare from '$lib/icons/IconShare.svelte';
+	import Image from '#lib/components/atoms/Image.svelte';
+	import Tag from '#lib/components/atoms/Tag.svelte';
+	import BlogUserProfile from '#lib/components/molecules/BlogUserProfile.svelte';
+	import Markdown from '#lib/components/molecules/Markdown.svelte';
+	import type { Blog } from '#lib/utils/types';
+	import IconShare from '#lib/icons/IconShare.svelte';
 	interface Props {
 		data: { blog: Blog };
 	}
@@ -18,22 +16,12 @@
 	let { data }: Props = $props();
 	let { blog } = $derived(data);
 
-	let shareButton: HTMLButtonElement | null = $state(null);
 	let canShare: boolean = $state(false);
 	let shareData: ShareData | null = null;
 
 	async function onShareClick() {
 		await navigator.share(shareData!);
 	}
-
-	run(() => {
-		if (canShare) {
-			const timeout = setTimeout(() => {
-				shareButton?.addEventListener('click', onShareClick);
-			}, 510);
-			() => clearTimeout(timeout);
-		}
-	});
 
 	onMount(() => {
 		const shareableData: ShareData = {
@@ -62,9 +50,9 @@
 	{/if}
 	<article
 		class:has-cover-image={!!blog.coverImage}
-		class="container flex flex-col mt-6 md:mt-28 lg:mt-32 md:bg-primary md:bg-opacity-10 md:dark:bg-header dark:bg-opacity-10 relative text-primary dark:text-white gap-6 md:gap-10
+	class="container flex flex-col mt-6 md:mt-28 lg:mt-32 md:bg-primary/10 md:dark:bg-header/10 dark:bg-primary/10 relative text-primary dark:text-white gap-6 md:gap-10
 		p-6 rounded-t-xl md:mx-auto md:w-11/12 md:rounded-xl h-full
-		backdrop-blur-md md:backdrop-blur-lg md:border md:border-white md:border-opacity-20"
+	backdrop-blur-md md:backdrop-blur-lg md:border md:border-white/20"
 	>
 		<BlogUserProfile date={blog.date.toDateString()} readTime={blog.readTime} />
 
@@ -76,7 +64,7 @@
 			{#if canShare}
 				<button
 					id="shareButton"
-					bind:this={shareButton}
+					onclick={onShareClick}
 					transition:slide={{ axis: 'x', duration: 350 }}
 					type="button"
 					class="inline-block"
@@ -102,17 +90,19 @@
 {/key}
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	:global(.cover-image) {
 		max-height: 300px;
 		height: 30vh;
 	}
-	@screen md {
+	@media (width >= 48rem) {
 		:global(.cover-image) {
 			max-height: 30vh;
 			height: 30vh;
 		}
 	}
-	@screen lg {
+	@media (width >= 64rem) {
 		:global(.cover-image) {
 			max-height: 60vh;
 			height: 60vh;
@@ -122,6 +112,6 @@
 		max-width: 940px;
 	}
 	.container.has-cover-image {
-		@apply -mt-6 md:-mt-16 dark:bg-slate-200 dark:bg-opacity-10;
+		@apply -mt-6 md:-mt-16 dark:bg-slate-200/10;
 	}
 </style>

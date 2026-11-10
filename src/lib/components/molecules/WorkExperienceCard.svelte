@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WorkExperience } from '$lib/utils/types';
+	import type { WorkExperience } from '#lib/utils/types';
 
 	interface Props {
 		additionalClass?: string;

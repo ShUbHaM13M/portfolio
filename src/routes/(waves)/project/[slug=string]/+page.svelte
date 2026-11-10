@@ -1,16 +1,14 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 
-	import Image from '$lib/components/atoms/Image.svelte';
-	import Tag from '$lib/components/atoms/Tag.svelte';
-	import Markdown from '$lib/components/molecules/Markdown.svelte';
-	import type { Project } from '$lib/utils/types';
-	import IconGithub from '$lib/icons/IconGithub.svelte';
-	import IconShare from '$lib/icons/IconShare.svelte';
-	import { siteBaseUrl } from '$lib/data/meta';
+	import Image from '#lib/components/atoms/Image.svelte';
+	import Tag from '#lib/components/atoms/Tag.svelte';
+	import Markdown from '#lib/components/molecules/Markdown.svelte';
+	import type { Project } from '#lib/utils/types';
+	import IconGithub from '#lib/icons/IconGithub.svelte';
+	import IconShare from '#lib/icons/IconShare.svelte';
+	import { siteBaseUrl } from '#lib/data/meta';
 
 	interface Props {
 		data: { project: Project };
@@ -19,22 +17,12 @@
 	let { data }: Props = $props();
 	let { project } = $derived(data);
 
-	let shareButton: HTMLButtonElement | null = $state(null);
 	let canShare: boolean = $state(false);
 	let shareData: ShareData | null = null;
 
 	async function onShareClick() {
 		await navigator.share(shareData!);
 	}
-
-	run(() => {
-		if (canShare) {
-			const timeout = setTimeout(() => {
-				shareButton?.addEventListener('click', onShareClick);
-			}, 510);
-			() => clearTimeout(timeout);
-		}
-	});
 
 	onMount(() => {
 		const shareableData = {
@@ -55,10 +43,10 @@
 {#key project}
 	<article
 		class="relative container flex flex-col mt-6 md:mt-28 lg:mt-32
-		md:bg-primary md:bg-opacity-10 md:dark:bg-header dark:bg-opacity-10
+		md:bg-primary/10 md:dark:bg-header dark:bg-primary/10
 		text-primary dark:text-white gap-6
 		p-6 rounded-t-xl md:mx-auto md:w-11/12 md:rounded-xl h-full
-		backdrop-blur-md md:backdrop-blur-lg md:border md:border-white md:border-opacity-20"
+		backdrop-blur-md md:backdrop-blur-lg md:border md:border-white/20"
 	>
 		<div class="flex flex-col sm:flex-row gap-2 justify-between overflow-hidden">
 			<h1 class="leading-tight md:leading-snug text-[28px] md:text-[42px] font-bold">
@@ -81,7 +69,7 @@
 				{#if canShare}
 					<button
 						id="shareButton"
-						bind:this={shareButton}
+						onclick={onShareClick}
 						transition:slide={{ axis: 'x', duration: 500 }}
 						type="button"
 						class="inline-block"
@@ -135,8 +123,11 @@
 	:global(.image-container img) {
 		max-height: 60svh;
 	}
+	.container {
+		max-width: 940px;
+	}
 	/* TODO: Fix issues when rendering images in desktop */
-	@screen sm {
+	@media (width >= 40rem) {
 		.image-container {
 			min-width: 40%;
 		}

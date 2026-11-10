@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { theme } from '$lib/stores/theme';
-	import IconLightMode from '$lib/icons/IconLightMode.svelte';
-	import IconDarkMode from '$lib/icons/IconDarkMode.svelte';
+	import { theme } from '#lib/stores/theme';
+	import IconLightMode from '#lib/icons/IconLightMode.svelte';
+	import IconDarkMode from '#lib/icons/IconDarkMode.svelte';
 
 	interface Props {
 		extraClasses?: string;

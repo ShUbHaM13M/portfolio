@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../tailwind.config.js';
 
 :root {
 	--scrollbar-color: theme('colors.accent-light');
@@ -22,8 +21,10 @@ html.smooth-scroll {
 	scroll-behavior: smooth;
 }
 
-* {
-	@apply transition-colors ease-out duration-300;
+@layer base {
+	* {
+		@apply transition-colors ease-out duration-300;
+	}
 }
 
 body {
@@ -345,11 +346,11 @@ body.custom-cursor:hover #cursor {
 }
 
 .markdown-content code:not(.code-block code) {
-	@apply text-sm md:text-base bg-secondary dark:bg-primary dark:bg-opacity-40 font-semibold text-primary dark:text-white p-1 rounded-sm;
+	@apply text-sm md:text-base bg-secondary dark:bg-primary/40 font-semibold text-primary dark:text-white p-1 rounded-sm;
 }
 
 *::selection {
-	@apply bg-accent-light bg-opacity-40 dark:bg-opacity-40 text-white dark:bg-accent dark:text-white;
+	@apply bg-accent-light/40 dark:bg-accent/40 text-white dark:text-white;
 }
 
 .no-scrollbar::-webkit-scrollbar {

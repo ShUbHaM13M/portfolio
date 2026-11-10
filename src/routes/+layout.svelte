@@ -1,13 +1,13 @@
 <!-- @migration task: review uses of `navigating` -->
 <script lang="ts">
 	import '../app.css';
-	import Cursor from '$lib/components/atoms/Cursor.svelte';
+	import Cursor from '#lib/components/atoms/Cursor.svelte';
 	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { swatch } from '$lib/stores/swatch';
+	import { swatch } from '#lib/stores/swatch';
 	import { navigating } from '$app/state';
-	import Loader from '$lib/components/atoms/Loader.svelte';
-	import ScrollToTop from '$lib/components/atoms/ScrollToTop.svelte';
+	import Loader from '#lib/components/atoms/Loader.svelte';
+	import ScrollToTop from '#lib/components/atoms/ScrollToTop.svelte';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}

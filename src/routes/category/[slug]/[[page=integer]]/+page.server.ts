@@ -1,4 +1,4 @@
-import { getArticlesByCategory } from '$lib/data/category/api.js';
+import { getArticlesByCategory } from '#lib/data/category/api.js';
 import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/components/atoms/Button.svelte';
-	import Section from '$lib/components/atoms/Section.svelte';
-	import GameOfLife from '$lib/components/organism/GameOfLife/index.svelte';
+	import Button from '#lib/components/atoms/Button.svelte';
+	import Section from '#lib/components/atoms/Section.svelte';
+	import GameOfLife from '#lib/components/organism/GameOfLife/index.svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
@@ -41,7 +41,7 @@
 </Section>
 
 <style lang="postcss">
-	@screen md {
+	@media (width >= 48rem) {
 		.description {
 			letter-spacing: 1px;
 		}

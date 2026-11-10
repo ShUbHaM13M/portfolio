@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Image from '$lib/components/atoms/Image.svelte';
+	import Image from '#lib/components/atoms/Image.svelte';
 	interface Props {
 		readTime?: number;
 		date?: string;
@@ -9,7 +9,7 @@
 </script>
 
 <div class="flex gap-3 md:gap-4 items-center text-primary dark:text-white">
-	<div class="bg-primary bg-opacity-40 dark:bg-white rounded-full overflow-hidden">
+	<div class="bg-primary/40 dark:bg-white/40 rounded-full overflow-hidden">
 		<Image
 			title="Shubham Maurya - Portrait made by Luo"
 			class="size-12 md:size-14 aspect-square"

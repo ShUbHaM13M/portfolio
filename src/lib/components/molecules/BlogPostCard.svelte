@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Image as ImageType } from '$lib/utils/types';
-	import Image from '$lib/components/atoms/Image.svelte';
+	import type { Image as ImageType } from '#lib/utils/types';
+	import Image from '#lib/components/atoms/Image.svelte';
 	interface Props {
 		slug: string;
 		coverImage?: ImageType | undefined;
@@ -49,7 +49,7 @@
 		min-height: 200px;
 		height: 100%;
 	}
-	@screen md {
+	@media (width >= 48rem) {
 		.container {
 			min-height: 250px;
 		}

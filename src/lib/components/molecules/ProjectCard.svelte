@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import Image from '$lib/components/atoms/Image.svelte';
+	import Image from '#lib/components/atoms/Image.svelte';
 
 	interface Props {
 		slug: string;
@@ -54,6 +54,8 @@
 </a>
 
 <style lang="postcss" scoped>
+	@reference "#app.css";
+
 	.project-card {
 		max-width: 400px;
 	}

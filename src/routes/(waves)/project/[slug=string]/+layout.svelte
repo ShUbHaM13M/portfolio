@@ -1,15 +1,15 @@
 <script lang="ts">
     import type { Snippet } from 'svelte';
 
-	import type { Palette, Project } from '$lib/utils/types';
-	import { swatch } from '$lib/stores/swatch';
+	import type { Palette, Project } from '#lib/utils/types';
+	import { swatch } from '#lib/stores/swatch';
 
 	import {
 	    title,
 		siteBaseUrl,
 		keywords,
 		image as metaImage
-	} from '$lib/data/meta';
+	} from '#lib/data/meta';
 
 	interface Props {
 		data: { project: Project; colours?: Palette };

@@ -20,10 +20,12 @@
 </div>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	.navlink.active {
 		@apply translate-x-4;
 	}
-	@screen sm {
+	@media (width >= 40rem) {
 		:global(div:has(.navlink)),
 		.navlink:first-child {
 			@apply ml-auto;

@@ -1,17 +1,17 @@
 <script lang="ts">
-	import Expertise from '$lib/components/organism/Expertise.svelte';
-	import Main from '$lib/components/organism/Main.svelte';
-	import Project from '$lib/components/organism/Project.svelte';
-	import Work from '$lib/components/organism/Work.svelte';
-	import Contact from '$lib/components/organism/Contact.svelte';
-	import RecentBlog from '$lib/components/organism/RecentBlogs.svelte';
+	import Expertise from '#lib/components/organism/Expertise.svelte';
+	import Main from '#lib/components/organism/Main.svelte';
+	import Project from '#lib/components/organism/Project.svelte';
+	import Work from '#lib/components/organism/Work.svelte';
+	import Contact from '#lib/components/organism/Contact.svelte';
+	import RecentBlog from '#lib/components/organism/RecentBlogs.svelte';
 
 	import type {
 		Skill,
 		WorkExperience,
 		Blog as BlogType,
 		Project as ProjectType
-	} from '$lib/utils/types';
+	} from '#lib/utils/types';
 
 	interface Props {
 		data: {

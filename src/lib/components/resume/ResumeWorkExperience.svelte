@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type WorkExperience from '$lib/data/work-experiences/model';
+	import type WorkExperience from '#lib/data/work-experiences/model';
 	import ResumeSection from './ResumeSection.svelte';
 	interface Props {
 		workExperience?: WorkExperience[];
@@ -8,13 +8,16 @@
 	let { workExperience = [] }: Props = $props();
 </script>
 
-<ResumeSection title="Work Experience" containerClasses="order-1 md:order-0">
+<ResumeSection title="Work Experience">
 	{#each workExperience as experience, index}
 		<div class="flex gap-4">
 			<div class="flex flex-col items-center h-full relative">
 				<div
-					class="grid place-items-center border-accent-light dark:border-accent border-2 border-opacity-80 rounded-full h-5 w-5 mt-2"
-					class:border-opacity-50={experience.current}
+					class={`grid place-items-center border-2 rounded-full h-5 w-5 mt-2 ${
+						experience.current
+							? 'border-accent-light/50 dark:border-accent/50'
+							: 'border-accent-light/80 dark:border-accent/80'
+					}`}
 				>
 					{#if experience.current}
 						<div class="bg-accent-light dark:bg-accent rounded-full h-2.5 w-2.5"></div>
@@ -24,7 +27,7 @@
 				{#if index < workExperience.length - 1}
 					<div
 						style="height: 90%"
-						class="absolute hidden sm:block top-12 border border-dashed border-accent-light dark:border-accent border-opacity-80"
+						class="absolute hidden sm:block top-12 border border-dashed border-accent-light/80 dark:border-accent/80"
 					></div>
 				{/if}
 			</div>

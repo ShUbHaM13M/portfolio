@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Image from '$lib/components/atoms/Image.svelte';
+	import Image from '#lib/components/atoms/Image.svelte';
 
 	interface Props {
 		index?: string;
@@ -49,7 +49,7 @@
 			class="tag pointer-events-none flex flex-col gap-1 h-full font-extrabold text-primary opacity-40 dark:opacity-20 dark:text-white transition-opacity ease-out duration-300"
 		>
 			<span>{tagBegin}</span>
-			<div class="border h-full w-px border-dashed border-current border-opacity-50 ml-1"></div>
+			<div class="border h-full w-px border-dashed border-current/50 ml-1"></div>
 			<span>{tagEnd}</span>
 		</div>
 		<p class={`text-base py-7 sm:py-8 sm:text-xl leading-5 sm:leading-6 ${descriptionClasses}`}>
@@ -59,6 +59,8 @@
 </div>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	.tag * {
 		@apply transition-colors ease-out duration-300;
 	}

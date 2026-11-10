@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Logo from '$lib/components/atoms/Logo.svelte';
-	import Hamburger from '$lib/components/molecules/Hamburger.svelte';
-	import { swatch } from '$lib/stores/swatch';
-	import { rgbToRgba } from '$lib/utils/color';
-	import type { Palette } from '$lib/utils/types';
+	import Logo from '#lib/components/atoms/Logo.svelte';
+	import Hamburger from '#lib/components/molecules/Hamburger.svelte';
+	import { swatch } from '#lib/stores/swatch';
+	import { rgbToRgba } from '#lib/utils/color';
+	import type { Palette } from '#lib/utils/types';
 	import { getContext, onMount } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
 
@@ -84,7 +84,7 @@
 <header
 	bind:this={navbar}
 	class:has-custom-colours={!!$swatch}
-	class="fixed w-full max-w-full lg:max-w-[94%] lg:rounded-2xl p-6 py-6 lg:px-7 lg:py-4 flex items-center backdrop-blur-xl lg:mt-6 lg:left-2/4 lg:-translate-x-2/4 transition-all ease-out duration-300 z-50 dark:bg-slate-200 dark:bg-opacity-10 bg-opacity-10 bg-primary text-primary dark:text-white"
+	class="fixed w-full max-w-full lg:max-w-[94%] lg:rounded-2xl p-6 py-6 lg:px-7 lg:py-4 flex items-center backdrop-blur-xl lg:mt-6 lg:left-2/4 lg:-translate-x-2/4 transition-all ease-out duration-300 z-50 dark:bg-slate-200/10 bg-primary/10 text-primary dark:text-white"
 >
 	<nav class="flex w-full justify-between">
 		<a
@@ -101,6 +101,8 @@
 </header>
 
 <style lang="postcss">
+	@reference "#app.css";
+
 	header {
 		view-transition-name: header;
 	}
