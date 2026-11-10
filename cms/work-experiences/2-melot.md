@@ -2,12 +2,11 @@
 company: Melot Technologies
 companySlug: melot-technologies
 designation: Software Developer (Contractor)
-timeFrame: 4 Months
+timeFrame: Nov 2023 → Feb 2024
 current: false
 description: 
-  - Developed real-time backend systems using WebSockets for multiplatform applications
-  - Built low-latency APIs supporting Web, Android and iOS clients
-  - Designed event-driven communication systems for real-time updates
+  - Built a real-time, event-driven backend with WebSockets for multi-platform apps, reducing message latency by 60%.
+  - Developed low-latencyAPIs for web, Android and iOS clients, cutting load times by 40%.
 technologies:
   - label:
       - React
