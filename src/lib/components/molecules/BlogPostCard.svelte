@@ -38,11 +38,11 @@
 <style lang="postcss" scoped>
 	a:hover,
 	a:focus {
-		box-shadow: 0 0 4px 8px theme('colors.accent-light' / 20%);
+		box-shadow: 0 0 4px 8px --alpha(var(--color-accent-light) / 20%);
 		outline: none;
 	}
 	:global(html[data-theme='dark'] .blog-card:hover) {
-		box-shadow: 0 0 4px 8px theme('colors.accent' / 10%);
+		box-shadow: 0 0 4px 8px --alpha(var(--color-accent) / 10%);
 		outline: none;
 	}
 	.container {

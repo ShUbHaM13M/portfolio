@@ -3,9 +3,10 @@ import { defineConfig } from 'vite';
 import path from 'path';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import adapter from '@sveltejs/adapter-vercel';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [sveltekit({
+  plugins: [tailwindcss(), sveltekit({
     preprocess: vitePreprocess(),
     prerender: {
       handleMissingId: 'ignore',

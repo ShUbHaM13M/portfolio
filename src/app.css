@@ -2,18 +2,18 @@
 @config '../tailwind.config.js';
 
 :root {
-	--scrollbar-color: theme('colors.accent-light');
-	--scrollbar-bg-color: theme('colors.card-light');
+	--scrollbar-color: var(--color-accent-light);
+	--scrollbar-bg-color: var(--color-card-light);
 }
 
 :root[data-theme='dark'] {
-	--scrollbar-bg-color: theme('colors.card');
-	--scrollbar-color: theme('colors.accent');
+	--scrollbar-bg-color: var(--color-card);
+	--scrollbar-color: var(--color-accent);
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		--scrollbar-bg-color: theme('colors.card');
-		--scrollbar-color: theme('colors.accent');
+		--scrollbar-bg-color: var(--color-card);
+		--scrollbar-color: var(--color-accent);
 	}
 }
 
@@ -79,18 +79,18 @@ main {
 
 *::-webkit-scrollbar-thumb:hover,
 *::-webkit-scrollbar-thumb:active {
-	background-color: theme('colors.accent-light') / 50%;
+	background-color: --alpha(var(--color-accent-light) / 50%);
 }
 html[data-theme='dark'] {
 	*::-webkit-scrollbar-thumb:hover,
 	*::-webkit-scrollbar-thumb:active {
-		background-color: theme('colors.accent-light') / 50%;
+		background-color: --alpha(var(--color-accent-light) / 50%);
 	}
 }
 @media (prefers-color-scheme: dark) {
 	*::-webkit-scrollbar-thumb:hover,
 	*::-webkit-scrollbar-thumb:active {
-		background-color: theme('colors.accent-light') / 50%;
+		background-color: --alpha(var(--color-accent-light) / 50%);
 	}
 }
 

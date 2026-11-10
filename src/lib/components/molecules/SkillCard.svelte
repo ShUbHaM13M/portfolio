@@ -66,15 +66,15 @@
 	}
 	.skill-card:hover .tag {
 		& * {
-			color: theme(colors.accent-light);
-			border-color: theme(colors.accent-light);
+			color: var(--color-accent-light);
+			border-color: var(--color-accent-light);
 		}
 		opacity: 100%;
 	}
 	:global(html[data-theme='dark']) .skill-card:hover .tag {
 		& * {
-			color: theme(colors.accent);
-			border-color: theme(colors.accent);
+			color: var(--color-accent);
+			border-color: var(--color-accent);
 		}
 		opacity: 100%;
 	}

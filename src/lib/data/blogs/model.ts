@@ -1,4 +1,4 @@
-import { ArticleType, Blog } from '#lib/utils/types';
+import { ArticleType, type Blog } from '#lib/utils/types';
 
 const WORD_REGEX = /\b\S+\b/g;
 const AVERAGE_WPM = 225;

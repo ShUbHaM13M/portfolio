@@ -1,4 +1,4 @@
-import { ArticleType, Project } from '#lib/utils/types';
+import { ArticleType, type Project } from '#lib/utils/types';
 
 export const parseProjects = (frontmatter: any, content: string): Project => {
 	return {
