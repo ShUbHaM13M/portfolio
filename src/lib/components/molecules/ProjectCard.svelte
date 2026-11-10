@@ -30,7 +30,7 @@
 
 <a href={`/${slug}`} class={`h-full block ${containerClasses}`}>
 	<div
-		class={`container project-card h-full flex flex-col gap-4 p-4 py-5 text-primary dark:text-white rounded-lg bg-card-light dark:bg-card transition-all ease-out duration-300 ${containerClasses}`}
+		class={`container project-card h-full w-full flex flex-col gap-4 p-4 py-5 text-primary dark:text-white rounded-lg bg-card-light dark:bg-card transition-all ease-out duration-300 ${containerClasses}`}
 	>
 		{#if imageUrl}
 			<Image
@@ -56,9 +56,6 @@
 <style lang="postcss" scoped>
 	@reference "#app.css";
 
-	.project-card {
-		max-width: 400px;
-	}
 	.project-card-image {
 		max-height: 200px;
 		@apply object-cover;
