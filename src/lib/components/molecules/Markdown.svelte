@@ -9,6 +9,8 @@
 	import BlockQuoteRenderer from '../markdown/BlockQuoteRenderer.svelte';
 	import LinkRenderer from '../markdown/LinkRenderer.svelte';
 	import ListRenderer from '../markdown/ListRenderer.svelte';
+	import StrongRenderer from '../markdown/StrongRenderer.svelte';
+	import CodeSpanRenderer from '../markdown/CodeSpanRenderer.svelte';
 
 	interface Props {
 		content?: string;
@@ -28,7 +30,9 @@
 		hr: HrRenderer,
 		blockquote: BlockQuoteRenderer,
 		link: LinkRenderer,
-		list: ListRenderer
+		list: ListRenderer,
+		strong: StrongRenderer,
+		codespan: CodeSpanRenderer
 	} as any;
 </script>
 
