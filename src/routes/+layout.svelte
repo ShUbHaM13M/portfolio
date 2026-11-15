@@ -1,4 +1,3 @@
-<!-- @migration task: review uses of `navigating` -->
 <script lang="ts">
 	import '../app.css';
 	import Cursor from '#lib/components/atoms/Cursor.svelte';
@@ -30,11 +29,9 @@
 	});
 
 	onNavigate((navigation) => {
-		// @ts-ignore
 		if (!document.startViewTransition) return;
 
 		return new Promise((resolve) => {
-			// @ts-ignore
 			document.startViewTransition(async () => {
 				resolve();
 				await navigation.complete;
