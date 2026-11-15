@@ -28,7 +28,7 @@
 	</div>
 	<div class="flex gap-1 items-center">
 		<IconChat />
-		<p>English, Hindi</p>
+		<p>English, Hindi, Mandarin, Japanese</p>
 	</div>
 	<div class="flex gap-1 items-center">
 		<IconLinkedIn classes="h-6 w-6 text-accent-light dark:text-accent" />
