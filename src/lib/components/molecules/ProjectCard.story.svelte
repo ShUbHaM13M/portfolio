@@ -6,6 +6,7 @@
 	export let Hst: HstType;
 
 	let props = {
+		slug: 'stories-io-story-app',
 		title: 'Stories.io - Story App',
 		excerpt:
 			"Stories.io is a React Native app that connect with an expressjs server, allows users to browse, create, change and delete their stories stores on a mongoDb database. Users can like and comments on other user's stories and also set their stories as private"
@@ -35,7 +36,7 @@
 		</Hst.Variant>
 
 		<Hst.Variant title="No Image">
-			<ProjectCard slug="no-image" {...props} />
+			<ProjectCard {...props} slug="no-image" />
 		</Hst.Variant>
 	</div>
 </Hst.Story>

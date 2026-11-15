@@ -1,8 +1,8 @@
 <script lang="ts" module>
-	import type { SvelteComponent } from 'svelte';
+	import type { Component } from 'svelte';
 	export type Link = {
 		href: string;
-		icon: typeof SvelteComponent;
+		icon: Component<any>;
 	};
 </script>
 
