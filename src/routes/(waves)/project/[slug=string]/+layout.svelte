@@ -62,7 +62,7 @@
 </svelte:head>
 
 {#if project}
-	<section class="mt-0 bg-checkered pt-[75px] pb-6 md:pt-px min-h-screen">
+	<section class="mt-0 bg-checkered pt-18.75 pb-6 md:pt-px min-h-screen">
 		{@render children?.()}
 	</section>
 {/if}

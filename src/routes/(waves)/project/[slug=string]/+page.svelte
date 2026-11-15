@@ -91,14 +91,14 @@
 		{/if}
 
 		{#if project.images}
-			<div class="flex gap-4 align-center overflow-x-auto w-full">
+			<div class="flex gap-4 align-center overflow-x-auto w-full pb-4">
 				{#each project.images as image, index}
-					<div class="image-container w-fit sm:w-80 h-fit sm:h-96 pb-4 sm:pb-0">
+					<div class="image-container w-[90%] sm:w-80 h-fit pb-4 sm:pb-0">
 						<!-- TODO: Add support for image alt -->
 						<Image
 							src={image}
 							alt=""
-							additionalClasses="h-auto max-w-full w-full object-contain rounded-lg object-top"
+							additionalClasses="!h-auto !w-auto !max-w-full !object-contain rounded-lg object-top"
 						/>
 					</div>
 				{/each}
@@ -114,14 +114,11 @@
 {/key}
 
 <style lang="postcss">
-	.image-container::-webkit-scrollbar-track {
-		background-color: transparent;
-	}
 	.image-container {
 		min-width: 90%;
 	}
 	:global(.image-container img) {
-		max-height: 60svh;
+		max-height: 80svh;
 	}
 	.container {
 		max-width: 940px;
@@ -130,9 +127,6 @@
 	@media (width >= 40rem) {
 		.image-container {
 			min-width: 40%;
-		}
-		:global(.image-container img) {
-			max-height: 100%;
 		}
 	}
 </style>
