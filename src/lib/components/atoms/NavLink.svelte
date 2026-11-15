@@ -10,11 +10,7 @@
 </script>
 
 <div class:active class="navlink relative text-current transition-all ease-out duration-200">
-	<a
-	    {href}
-		class="px-4 py-0.5 text-inherit w-full block"
-		{onclick}
-	>
+	<a {href} class="px-4 py-0.5 text-inherit w-full block" {onclick}>
 		{text}
 	</a>
 </div>

@@ -15,11 +15,11 @@
 
 	interface Props {
 		data: {
-		skills: Skill[];
-		workExperiences: WorkExperience[];
-		blogs: BlogType[];
-		projects: ProjectType[];
-	};
+			skills: Skill[];
+			workExperiences: WorkExperience[];
+			blogs: BlogType[];
+			projects: ProjectType[];
+		};
 	}
 
 	let { data }: Props = $props();

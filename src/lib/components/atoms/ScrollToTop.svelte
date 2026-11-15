@@ -33,7 +33,7 @@
 </script>
 
 <button
-    title="Scroll to top"
+	title="Scroll to top"
 	bind:this={scrollButton}
 	onclick={scrollToTop}
 	class="fixed group bottom-10 hide right-6 md:right-10 outline-none focus:outline-none

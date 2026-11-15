@@ -50,7 +50,7 @@
 	{/if}
 	<article
 		class:has-cover-image={!!blog.coverImage}
-	class="container flex flex-col mt-6 md:mt-28 lg:mt-32 md:bg-primary/10 md:dark:bg-header/10 dark:bg-primary/10 relative text-primary dark:text-white gap-6 md:gap-10
+		class="container flex flex-col mt-6 md:mt-28 lg:mt-32 md:bg-primary/10 md:dark:bg-header/10 dark:bg-primary/10 relative text-primary dark:text-white gap-6 md:gap-10
 		p-6 rounded-t-xl md:mx-auto md:w-11/12 md:rounded-xl h-full
 	backdrop-blur-md md:backdrop-blur-lg md:border md:border-white/20"
 	>

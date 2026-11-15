@@ -8,12 +8,7 @@
 		excerpt: string;
 	}
 
-	let {
-		slug,
-		coverImage = undefined,
-		title,
-		excerpt
-	}: Props = $props();
+	let { slug, coverImage = undefined, title, excerpt }: Props = $props();
 </script>
 
 <a

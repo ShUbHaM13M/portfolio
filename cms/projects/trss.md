@@ -68,11 +68,11 @@ An optional `trss_config.json` in the working directory can define themes and ke
 
 ```json
 {
-  "themes": {},
-  "keymap": {
-    "home": { "down": ["j", "Down"], "quit": ["q", "Esc"] },
-    "article": { "back": ["Esc", "h"] }
-  }
+	"themes": {},
+	"keymap": {
+		"home": { "down": ["j", "Down"], "quit": ["q", "Esc"] },
+		"article": { "back": ["Esc", "h"] }
+	}
 }
 ```
 

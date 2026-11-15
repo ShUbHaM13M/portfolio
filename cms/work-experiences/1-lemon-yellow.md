@@ -4,7 +4,7 @@ companySlug: lemon-yellow
 designation: Full-Stack Developer
 timeFrame: 2021 → 2023
 current: false
-description: 
+description:
   - Built Progressive Web Apps with real-time features, authentication and REST integrations for client products.
   - Optimized performance and SEO, reducing page load times by 60%.
   - Led a team of 4+ developers to rebuild the company website with a new design system, modern architecture, animations and a blog.

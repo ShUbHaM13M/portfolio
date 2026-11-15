@@ -4,8 +4,8 @@ export type Tag = {
 };
 
 export enum ArticleType {
-	'project',
-	'blog'
+	project,
+	blog
 }
 
 export type Palette = {

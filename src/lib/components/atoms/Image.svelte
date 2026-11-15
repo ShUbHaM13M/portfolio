@@ -10,7 +10,7 @@
 		lazy?: boolean;
 		formats?: string[];
 		widths?: string[] | undefined;
-		[key: string]: any
+		[key: string]: any;
 	}
 
 	let {

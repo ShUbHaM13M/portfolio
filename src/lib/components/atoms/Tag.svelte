@@ -8,12 +8,7 @@
 		highlightOnHover?: boolean;
 	}
 
-	let {
-		label = '',
-		color = '',
-		showHash = false,
-		highlightOnHover = true
-	}: Props = $props();
+	let { label = '', color = '', showHash = false, highlightOnHover = true }: Props = $props();
 
 	let colorRGB = $derived.by(() => {
 		const result = RGB.exec(color);

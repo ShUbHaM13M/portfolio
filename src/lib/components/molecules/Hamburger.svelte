@@ -5,8 +5,8 @@
 
 	interface Props {
 		links?: {
-		  href: string;
-		  text: string;
+			href: string;
+			text: string;
 		}[];
 	}
 
@@ -15,17 +15,16 @@
 	let input: HTMLInputElement | undefined = $state();
 
 	const activeSectionIndex = $derived.by(() => {
-        return links.findIndex(({ href }) => {
+		return links.findIndex(({ href }) => {
 			return (
 				page.url.href.includes(href.replace('#', '')) ||
 				page.url.hash.includes(href.replace('/', ''))
 			);
 		});
-	})
+	});
 
 	function handleOnLinkClick() {
-	    if (input)
-			input.checked = false;
+		if (input) input.checked = false;
 	}
 </script>
 

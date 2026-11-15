@@ -14,12 +14,7 @@
 		children?: import('svelte').Snippet;
 	}
 
-	let {
-		filename = undefined,
-		lang,
-		code = undefined,
-		children
-	}: Props = $props();
+	let { filename = undefined, lang, code = undefined, children }: Props = $props();
 
 	let theme = $derived($codeblockTheme);
 
@@ -44,21 +39,21 @@
 		<div class="flex items-center gap-2.5">
 			<div class="flex gap-1 md:flex">
 				<button
-				    title="Catppucin Frappe"
+					title="Catppucin Frappe"
 					tabindex="-1"
 					onclick={() => changeCodeblockTheme('catppuccin-frappe')}
 					type="button"
 					class="w-3 h-3 rounded-full bg-red-400 outline-none"
 				></button>
 				<button
-				    title="Github Dark"
+					title="Github Dark"
 					tabindex="-1"
 					onclick={() => changeCodeblockTheme('github-dark')}
 					type="button"
 					class="w-3 h-3 rounded-full bg-yellow-400 outline-none"
 				></button>
 				<button
-                    title="Slack Dark"
+					title="Slack Dark"
 					tabindex="-1"
 					onclick={() => changeCodeblockTheme('slack-dark')}
 					type="button"

@@ -6,7 +6,10 @@
 	let { raw }: Props = $props();
 
 	let lines = $derived(
-	  raw.split('>').slice(1).map((line) => line.trim())
+		raw
+			.split('>')
+			.slice(1)
+			.map((line) => line.trim())
 	);
 </script>
 

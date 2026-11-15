@@ -10,7 +10,7 @@
 </script>
 
 <button
-    title="Toggle Controls"
+	title="Toggle Controls"
 	onclick={toggleContent}
 	class="outline-none focus:outline-none row-start-3 col-start-2 md:row-start-2 md:col-start-2
 	   hover:bg-accent-light/10 focus-visible:bg-accent-light/10

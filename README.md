@@ -29,17 +29,17 @@ pnpm dev -- --open
 
 ## Available scripts
 
-| Command | Description |
-| --- | --- |
-| `pnpm dev` | Start the local development server. |
-| `pnpm build` | Build the production site. |
-| `pnpm preview` | Preview the production build locally. |
-| `pnpm check` | Run Svelte and TypeScript checks. |
-| `pnpm lint` | Check formatting with Prettier and lint with ESLint. |
-| `pnpm format` | Format project files with Prettier. |
-| `pnpm story:dev` | Start the Histoire component workshop. |
-| `pnpm story:build` | Build the Histoire component workshop. |
-| `pnpm story:preview` | Preview the built Histoire workshop. |
+| Command              | Description                                          |
+| -------------------- | ---------------------------------------------------- |
+| `pnpm dev`           | Start the local development server.                  |
+| `pnpm build`         | Build the production site.                           |
+| `pnpm preview`       | Preview the production build locally.                |
+| `pnpm check`         | Run Svelte and TypeScript checks.                    |
+| `pnpm lint`          | Check formatting with Prettier and lint with ESLint. |
+| `pnpm format`        | Format project files with Prettier.                  |
+| `pnpm story:dev`     | Start the Histoire component workshop.               |
+| `pnpm story:build`   | Build the Histoire component workshop.               |
+| `pnpm story:preview` | Preview the built Histoire workshop.                 |
 
 The build runs the configured postbuild image optimization script as well.
 

@@ -1,4 +1,3 @@
-https://svelte.dev/e/js_parse_error -->
 <script lang="ts">
 	import type { Hst as HstType } from '@histoire/plugin-svelte';
 	import Code from './Codeblock.svelte';
@@ -16,6 +15,8 @@ https://svelte.dev/e/js_parse_error -->
 }`
 	};
 </script>
+
+https://svelte.dev/e/js_parse_error -->
 
 <svelte:component this={Hst.Story} title="Molecules/Codeblock" layout={{ type: 'single' }}>
 	<svelte:fragment slot="controls">

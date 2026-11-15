@@ -4,7 +4,7 @@ companySlug: bizcollab-360
 designation: Software Engineer, AI & Backend
 timeFrame: Jun 2026
 current: true
-description: 
+description:
   - Designed the backend of BotBridge, a multi-tenant SaaS platform forAI chatbots and customer automation on WhatsApp and RCS (CRM, campaigns, appointments, payments, analytics) - Django 5.1/DRF, ~60 apps, ~700 API endpoints.
   - Built real-time messaging and async workflows with Django Channels, Redis and Celery for messaging, billing, reporting and automation.
   - Integrated LLM/RAG pipelines (LangChain, OpenAI, Anthropic, Gemini, Groq, pgvector) for appointment booking, diagnostics, loan applications and product discovery.

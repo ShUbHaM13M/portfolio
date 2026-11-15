@@ -52,7 +52,7 @@ In order to achieve this I think something like the [Notifications API](https://
 The active status of the user is tracked when the user opens the PWA or visits the website. The following code does the job to do so -
 
 ```javascript
-~filename /controller/socket.js
+~filename / controller / socket.js;
 // Initializing socket
 const io = socket(server, { cors });
 // Listening to active socket connections

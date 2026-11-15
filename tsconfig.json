@@ -1,10 +1,6 @@
 {
 	"extends": "$app/tsconfig",
-	"include": [
-	  "src",
-		"test",
-		"*"
-	],
+	"include": ["src", "test", "*"],
 	"exclude": ["src/service-worker"],
 	"compilerOptions": {
 		"target": "esnext",

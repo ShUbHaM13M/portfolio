@@ -16,7 +16,10 @@
 </script>
 
 {#if articles}
-	<Section id="articles" additionalClass="flex flex-col gap-4 min-h-screen md:pr-20 md:mt-10 lg:mt-20 pb-10">
+	<Section
+		id="articles"
+		additionalClass="flex flex-col gap-4 min-h-screen md:pr-20 md:mt-10 lg:mt-20 pb-10"
+	>
 		<h1 class="font-short-stack mt-2 mb-1 md:my-3 text-primary dark:text-white text-3xl">
 			Category:
 			<span class="text-accent-light dark:text-accent capitalize">{currentCategory}</span>

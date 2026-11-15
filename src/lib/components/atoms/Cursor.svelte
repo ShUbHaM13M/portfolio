@@ -5,13 +5,7 @@
 	// TODO: Try to set the size of cursor when hovering over Icons so it would look like its like a shadow of the icon
 
 	type InteractiveElementType =
-		| 'link'
-		| 'text'
-		| 'action'
-		| 'video'
-		| 'action-copy'
-		| 'canvas'
-		| 'action-focus';
+		'link' | 'text' | 'action' | 'video' | 'action-copy' | 'canvas' | 'action-focus';
 	const INTERACTABLE_ELEMENTS = 'button, a, p, h1, h2, h3, h4, h5, h6, input, span, video, canvas';
 
 	let interactingElementType: InteractiveElementType | null = $state(null);

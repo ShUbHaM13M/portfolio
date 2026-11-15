@@ -4,7 +4,7 @@ companySlug: melot-technologies
 designation: Software Developer (Contractor)
 timeFrame: Nov 2023 → Feb 2024
 current: false
-description: 
+description:
   - Built a real-time, event-driven backend with WebSockets for multi-platform apps, reducing message latency by 60%.
   - Developed low-latencyAPIs for web, Android and iOS clients, cutting load times by 40%.
 technologies:

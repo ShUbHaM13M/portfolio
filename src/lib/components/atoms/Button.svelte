@@ -6,7 +6,7 @@
 	import { createBubbler } from 'svelte/legacy';
 
 	const bubble = createBubbler();
-	
+
 	interface Props {
 		variant?: Variant;
 		additionalClass?: string | undefined;
@@ -16,7 +16,7 @@
 		rel?: string;
 		icon?: import('svelte').Snippet;
 		children?: import('svelte').Snippet;
-		[key: string]: any
+		[key: string]: any;
 	}
 
 	let {

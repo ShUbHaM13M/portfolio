@@ -14,10 +14,10 @@ function createTheme() {
 		set: (value: string | null) => {
 			if (browser && value) {
 				localStorage.setItem('sm-theme', value);
-				document.firstElementChild?.setAttribute('data-theme', value)
+				document.firstElementChild?.setAttribute('data-theme', value);
 			} else {
 				localStorage.removeItem('sm-theme');
-				document.firstElementChild?.removeAttribute('data-theme')
+				document.firstElementChild?.removeAttribute('data-theme');
 			}
 			set(value);
 		}

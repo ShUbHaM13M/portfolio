@@ -2,7 +2,6 @@
 	import { cubicOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
-
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	interface Props {

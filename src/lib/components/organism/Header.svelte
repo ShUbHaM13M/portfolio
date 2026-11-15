@@ -18,7 +18,8 @@
 	let prevScrollPos = 0;
 	let navbar: HTMLElement | undefined = $state();
 
-	const showMainContent = getContext<Writable<boolean> | undefined>('showMainContent') ?? writable(true);
+	const showMainContent =
+		getContext<Writable<boolean> | undefined>('showMainContent') ?? writable(true);
 
 	function onLogoClick() {
 		const menuToggle = document.querySelector('#menuToggle') as HTMLInputElement;

@@ -6,19 +6,22 @@ import adapter from '@sveltejs/adapter-vercel';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [tailwindcss(), sveltekit({
-    preprocess: vitePreprocess(),
-    prerender: {
-      handleMissingId: 'ignore',
-      handleHttpError: ({ path }) => {
-        if (path.indexOf(".avif") || path.indexOf(".webp") || path.indexOf(".png")) {
-          return;
-        }
-      }
-    },
-    adapter: adapter(),
-    extensions: [".svelte", ".md"]
-	})],
+	plugins: [
+		tailwindcss(),
+		sveltekit({
+			preprocess: vitePreprocess(),
+			prerender: {
+				handleMissingId: 'ignore',
+				handleHttpError: ({ path }) => {
+					if (path.indexOf('.avif') || path.indexOf('.webp') || path.indexOf('.png')) {
+						return;
+					}
+				}
+			},
+			adapter: adapter(),
+			extensions: ['.svelte', '.md']
+		})
+	],
 	build: {
 		target: 'esnext'
 	},

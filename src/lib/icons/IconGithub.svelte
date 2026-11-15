@@ -1,7 +1,7 @@
 <script lang="ts">
 	interface Props {
 		classes?: string;
-		[key: string]: any
+		[key: string]: any;
 	}
 
 	let { classes = '', ...rest }: Props = $props();

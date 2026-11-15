@@ -1,15 +1,10 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte'
+	import type { Snippet } from 'svelte';
 
 	import type { Blog, Palette } from '#lib/utils/types';
 	import { swatch } from '#lib/stores/swatch';
 
-	import {
-	    title,
-		siteBaseUrl,
-		keywords,
-		image as metaImage
-	} from '#lib/data/meta';
+	import { title, siteBaseUrl, keywords, image as metaImage } from '#lib/data/meta';
 
 	interface Props {
 		data: { blog: Blog; colours?: Palette };
@@ -21,10 +16,10 @@
 	let blog = $derived(data.blog);
 
 	$effect(() => {
-	    if (data.colours) {
+		if (data.colours) {
 			swatch.set(data.colours);
-	    }
-	})
+		}
+	});
 
 	const metaKeywords = $derived([
 		...(blog?.tags?.map((tag) => tag.label) ?? []),

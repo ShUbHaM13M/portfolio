@@ -12,20 +12,14 @@
 
 	const slugger = new GithubSlugger();
 
-	const headingLevel = $derived(
-	  Number(depth) || (raw.match(/^#+/g)?.[0].length ?? 1)
-	);
+	const headingLevel = $derived(Number(depth) || (raw.match(/^#+/g)?.[0].length ?? 1));
 	const element = $derived(`h${headingLevel}`);
 	const slug = $derived(slugger.slug(text));
 
 	// const fullUrl = $derived(`${page.url.origin}${page.url.pathname}#${slug}`);
 </script>
 
-<svelte:element
-    this={element}
-    id={slug}
-    class="text-primary dark:text-white"
->
+<svelte:element this={element} id={slug} class="text-primary dark:text-white">
 	{text}
 </svelte:element>
 

@@ -4,7 +4,7 @@ companySlug: inquizity-metanoia
 designation: Senior Software Developer
 timeFrame: Mar 2024 → Mar 2026
 current: false
-description: 
+description:
   - Led architecture of supply-chain optimization systems using linear programming and IBM CPLEX, cutting runtime by 80% and enabling real-time decision-making.
   - Built an available-to-promise (ATP) system for real-time inventory prediction across distributed systems, improving accuracy and shortening decision-response time.
   - Developed the SCAP API for LP-based logistics optimization (60% efficiency gain) and the DropSolve API integrating CPLEX and COS (70% less manual effort).
