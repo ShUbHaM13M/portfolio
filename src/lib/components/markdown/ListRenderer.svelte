@@ -18,7 +18,7 @@
 	}
 
 	let { ordered = false, items = [] }: Props = $props();
-	const inlineRenderers = {
+	const inlineRenderers: any = {
 		link: LinkRenderer,
 		strong: StrongRenderer,
 		codespan: CodeSpanRenderer
