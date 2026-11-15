@@ -2,7 +2,7 @@
 	import Button from '#lib/components/atoms/Button.svelte';
 	import Section from '#lib/components/atoms/Section.svelte';
 	import Resume from '#lib/components/organism/Resume.svelte';
-	import type WorkExperience from '#lib/data/work-experiences/model';
+	import type { WorkExperience } from '#lib/data/work-experiences/model';
 
 	interface Props {
 		data: { workExperience: WorkExperience[] };

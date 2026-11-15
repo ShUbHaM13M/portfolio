@@ -1,6 +1,6 @@
 import type { Tag } from '#lib/utils/types';
 
-type WorkExperience = {
+export type WorkExperience = {
 	company: string;
 	designation: string;
 	timeFrame: string;
@@ -19,4 +19,4 @@ export function parseWorkExperiences(frontmatter: any): WorkExperience {
 		tags: frontmatter.technologies
 	};
 }
-export default WorkExperience;
+// export default WorkExperience;

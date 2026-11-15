@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type WorkExperience from '#lib/data/work-experiences/model';
+	import type { WorkExperience } from '#lib/data/work-experiences/model';
 	import ResumeSection from './ResumeSection.svelte';
 	interface Props {
 		workExperience?: WorkExperience[];

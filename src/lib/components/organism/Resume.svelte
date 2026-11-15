@@ -1,6 +1,6 @@
 <script lang="ts">
 	// TODO: Add a profile photo in the resume
-	import type WorkExperience from '#lib/data/work-experiences/model';
+	import type { WorkExperience } from '#lib/data/work-experiences/model';
 	import ResumeQuickLinks from '../resume/ResumeQuickLinks.svelte';
 	import ResumeSection from '../resume/ResumeSection.svelte';
 	import ResumeSkills from '../resume/ResumeSkills.svelte';

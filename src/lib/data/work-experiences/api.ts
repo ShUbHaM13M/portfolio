@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import grayMatter from 'gray-matter';
 import path from 'path';
 import { parseWorkExperiences } from './model';
-import type WorkExperience from './model';
+import type { WorkExperience } from './model';
 import { getFileNamesFromDir } from '#lib/utils/fn';
 
 const MD_FILES_PATH = path.join(process.cwd(), 'cms/work-experiences');

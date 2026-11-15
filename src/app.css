@@ -2,8 +2,8 @@
 @config '../tailwind.config.js';
 
 :root {
-	--color-accent-light: #0066CC;
-	--color-accent: #19D645;
+	--color-accent-light: #0066cc;
+	--color-accent: #19d645;
 	--scrollbar-color: var(--color-accent-light);
 	--scrollbar-bg-color: var(--color-card-light);
 }
