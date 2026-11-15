@@ -12,7 +12,8 @@ const codeHighlighter = await createHighlighter({
 		'bash',
 		'html',
 		'toml',
-		'dart'
+    'dart',
+		'json'
 	]
 });
 
