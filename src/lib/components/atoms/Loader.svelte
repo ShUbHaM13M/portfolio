@@ -1,34 +1,35 @@
-<script>
+<script lang="ts">
 	import { expoOut, circInOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { tweened } from 'svelte/motion';
+	import { Tween } from 'svelte/motion';
 
-	let scale = tweened(1, { easing: circInOut });
+	const scale = new Tween(1, {
+		easing: circInOut
+	});
 
-	const animateScale = () => {
-		scale.set(1);
+	onMount(() => {
+		let timeout: ReturnType<typeof setTimeout>;
+		let destroyed = false;
 
-		const scaleValues = [1, 2, 1];
+		const animate = async () => {
+			if (destroyed) return;
+			await scale.set(1.4, { duration: 300 });
 
-		const animate = () => {
-			scaleValues.forEach((value, index) => {
-				const duration = 300;
-				const delay = index * duration;
+			if (destroyed) return;
+			await scale.set(1, { duration: 300 });
 
-				setTimeout(() => {
-					scale.set(value, { duration });
-				}, delay);
-			});
-
-			// Repeat the animation
-			setTimeout(animate, scaleValues.length * 500);
+			if (destroyed) return;
+			timeout = setTimeout(animate, 300);
 		};
 
-		animate();
-	};
+		void animate();
 
-	onMount(animateScale);
+		return () => {
+			destroyed = true;
+			clearTimeout(timeout);
+		};
+	});
 </script>
 
 <div
@@ -36,7 +37,7 @@
 	class="loader fixed backdrop-blur-md inset-0 bg-primary/60 dark:bg-primary/40 w-screen h-screen grid place-items-center"
 >
 	<svg
-		style="transform: scale({$scale})"
+		style={`transform: scale(${scale.current})`}
 		xmlns="http://www.w3.org/2000/svg"
 		class="size-14"
 		viewBox="0 0 22 28"
