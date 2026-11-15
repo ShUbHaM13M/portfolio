@@ -29,6 +29,9 @@ importers:
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
+      '@types/marked':
+        specifier: ^5.0.2
+        version: 5.0.2
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.72.2
         version: 8.72.2(@typescript-eslint/parser@8.72.2(eslint@10.14.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.14.0(jiti@2.7.0))(typescript@6.0.3)

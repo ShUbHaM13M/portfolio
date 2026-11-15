@@ -24,6 +24,7 @@
 		"@tailwindcss/vite": "^4.3.5",
 		"@types/eslint": "9.6.1",
 		"@types/fs-extra": "^11.0.4",
+		"@types/marked": "^5.0.2",
 		"@typescript-eslint/eslint-plugin": "^8.72.2",
 		"@typescript-eslint/parser": "^8.72.2",
 		"eslint": "^10.14.0",
