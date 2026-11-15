@@ -17,7 +17,7 @@
 	const activeSectionIndex = $derived.by(() => {
         return links.findIndex(({ href }) => {
 			return (
-				page.url.href.includes(href) ||
+				page.url.href.includes(href.replace('#', '')) ||
 				page.url.hash.includes(href.replace('/', ''))
 			);
 		});
